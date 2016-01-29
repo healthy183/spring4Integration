@@ -1,0 +1,5 @@
+1,firstIntegration
+简单发送消息
+2,simpleControlBus
+简单通过ControlBus指定适配器adapter给channel发信息;
+3,simpleQueueChannel
