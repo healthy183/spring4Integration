@@ -16,22 +16,15 @@ public class ControlBusExample {
 
     public static void main(String[] args) {
 
-
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         try{
             PollableChannel adapterOutputChanel = context.getBean("adapterOutputChannel", PollableChannel.class);
-
             System.out.println("Received before adapter started: " + adapterOutputChanel.receive(1000));
-
             MessageChannel controlBusChannel = (MessageChannel) context.getBean("controlBusChannel");
-
             controlBusChannel.send(MessageBuilder.withPayload("@processAdapter.start()").build());
-
             System.out.println("Received after adapter started: " + adapterOutputChanel.receive(1000));
-
         }finally {
             context.close();
         }
-
     }
 }

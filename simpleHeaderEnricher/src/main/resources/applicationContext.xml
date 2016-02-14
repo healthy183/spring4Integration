@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:channel id="inputChannel"></int:channel>
+    <int:channel id="outputChannel"></int:channel>
+
+    <int:header-enricher input-channel="inputChannel"
+                           output-channel="outputChannel">
+        <int:header name="justValue" value="x"></int:header>
+        <int:header name="itsBean" ref="headerBean"></int:header>
+        <int:priority value="1"></int:priority>
+        <int:header name="beanValue" ref="headerBean" method="value"></int:header>
+        <int:header name="beanEnrichValue" ref="headerBean"  method="enrichValue" ></int:header>
+        <int:header name="dateObjectUsingExpr" expression="new java.util.Date()"></int:header>
+        <int:header name="serialNbrFetchedFromPayloadUsingExpr"
+                    expression=
+                            "payload.uniqueNbr() + '_' + T(java.lang.System).currentTimeMillis()" ></int:header>
+    </int:header-enricher>
+
+
+</beans>

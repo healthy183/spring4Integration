@@ -3,4 +3,6 @@ rootProject.name = 'spring4Integration'
 include 'firstIntegration'
 include 'simpleQueueChannel'
 include 'simpleControlBus'
+include 'simpleGateway'
+include 'simpleHeaderEnricher'
 

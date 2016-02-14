@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:gateway id="customerService"
+                 service-interface="com.kang.spring.integration.service.CustomerService"
+                 default-request-channel="customerRequestChannel"
+                 default-reply-timeout="300">
+    </int:gateway>
+
+    <int:channel id="customerRequestChannel"></int:channel>
+
+    <int:service-activator input-channel="customerRequestChannel">
+            <bean class="com.kang.spring.integration.service.impl.CustomerServiceImpl"></bean>
+    </int:service-activator>
+
+    <int:gateway
+            id="customerServiceByDispatcher"
+            service-interface="com.kang.spring.integration.service.CustomerService"
+            default-request-channel="customerRequestDispatcherChannel"
+            default-reply-timeout="300">
+    </int:gateway>
+
+    <int:channel id="customerRequestDispatcherChannel">
+            <int:dispatcher task-executor="executor"></int:dispatcher>
+    </int:channel>
+
+    <int:service-activator input-channel="customerRequestDispatcherChannel">
+        <bean class="com.kang.spring.integration.service.impl.CustomerServiceImpl"></bean>
+    </int:service-activator>
+
+    <task:executor id="executor" pool-size="5"></task:executor>
+</beans>
