@@ -15,6 +15,11 @@ http://www.blogjava.net/xmatthew/archive/2008/11/29/243443.html
 4,simpleGateway
 指定gateway实现消息通过channel传播
 5,simpleHeaderEnricher
-添加headerHeaderEnricher类似aop前置通知
+补充headerHeaderEnricher类似aop前置通知
+6,simpleContentEnricher
+给指定channel补充信息类似aop前置通知
+7,simpleFeedAdapter(失败项目)
+8，
+
 
 

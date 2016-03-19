@@ -1,0 +1,5 @@
+
+
+dependencies {
+    compile "org.springframework.integration:spring-integration-feed:$springVersion"
+}

@@ -19,5 +19,8 @@
         <property name="inputChannel" ref="inputChannel"></property>
     </bean>
 
-    <int:service-activator input-channel="inputChannel" ref="greetingImpl" output-channel="outputChannel"/>
+    <int:service-activator
+            input-channel="inputChannel"
+                ref="greetingImpl"
+                  output-channel="outputChannel"/>
 </beans>
