@@ -9,4 +9,8 @@ include 'messageBridge'
 include 'simpleMessageDrivenChannelAdapter'
 include 'simpleDefaultChannel'
 include 'simpleRouterAggregator'
+include 'simpleContentEnricher'
+include 'simpleFeedAdapter'
+include 'simpleFileAdapter'
+include 'simpleJdbcInboundAdapter'
 

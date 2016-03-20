@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:channel id="custChannel"></int:channel>
+    <int:channel id="custOutputChannel"></int:channel>
+    <int:channel id="billChannel"></int:channel>
+
+    <int:gateway id="custGateway"
+                 default-request-timeout="5000"
+                    default-reply-timeout="5000"
+                        service-interface="com.kang.spring.integration.service.CustomerService"
+                            default-request-channel="custChannel" >
+    </int:gateway>
+
+    <int:service-activator
+            id="findCustomer"
+            ref="customerServiceImpl"
+            method="findCustomerById"
+            input-channel="custChannel"
+            output-channel="custOutputChannel">
+    </int:service-activator>
+
+    <int:enricher id="enricher" input-channel="custOutputChannel" request-channel="billChannel">
+        <int:property name="billingAddress" expression="payload.address"></int:property>
+        <int:property name="creditPoints" expression="payload.creditPoints" ></int:property>
+    </int:enricher>
+
+    <int:service-activator
+            id="findBillingAddressServiceActivator"
+                ref="billingServiceImpl"
+                    method="getBillingAddress"
+                        input-channel="billChannel">
+    </int:service-activator>
+
+</beans>
