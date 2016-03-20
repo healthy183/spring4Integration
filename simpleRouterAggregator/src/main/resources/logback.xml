@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!-- scan="true" log配置如果有修改则重新读取 default true-->
+<!--scanPeriod="60000"  监控配置是否有修改的时间间隔,默认一分钟-->
+<!--debug="false" 打印logback内部日志，默认false -->
+
+<configuration   scan="true" scanPeriod="60000" debug="false">
+    <contextName>myLog</contextName>
+    <property resource="app.properties"></property><!--读取属性文件 -->
+    <property name="logRoot" value="${log4j.root}" /><!--日志目录-->
+    <appender name="INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- filter info log level config -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <!-- <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch> -->
+        </filter>
+        <!-- info log file name -->
+        <file>${logRoot}/info.log</file>
+        <append>false</append><!-- 是否清空文件重新打印-->
+        <!-- info log print format config -->
+        <encoder>
+            <pattern>%date %level %thread Method: %logger.%method (%file:%line\) %n%msg%n</pattern>
+            <charset>gbk</charset>
+        </encoder>
+        <!-- info log backup config -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- info backup log file name format config -->
+            <fileNamePattern>${logRoot}/bth-core-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- save history info log file max days config -->
+            <maxHistory>30</maxHistory>
+            <!-- info log file max size config -->
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>500MB</maxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+
+    <appender name="CONSOLE_LOG" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- console log print format config -->
+        <encoder >
+            <pattern>%date [%-5level] %thread %logger{36} (%file:%line\)  %n%msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!-- Only log level ERROR and above -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+
+    <!-- additivity 是否向上级logger(root)传递打印信息,默认是true -->
+    <logger name="com.kang" level="INFO" additivity="false">
+        <appender-ref ref="INFO_LOG"/>
+        <appender-ref ref="CONSOLE_LOG"/>
+    </logger>
+
+
+    <!-- level继承root,日志直接向上级logger(root)传递 -->
+    <logger name="com.xiong">
+    </logger>
+
+    <logger name="ch.qos" level="error">
+    </logger>
+
+    <!-- 没有定义的包都通过这里打印 -->
+    <!--先打印级别${log4j.level}的,然后分发到各个appender中-->
+    <root level="${log4j.level}">
+        <appender-ref ref="CONSOLE_LOG"/>
+    </root>
+
+
+
+</configuration>

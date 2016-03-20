@@ -1,0 +1,5 @@
+dependencies {
+    compile "org.springframework:spring-jms:$springVersion"
+    compile "org.springframework.integration:spring-integration-jms:$springVersion"
+    compile "org.apache.activemq:activemq-core:5.2.0"
+}

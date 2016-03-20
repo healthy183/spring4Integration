@@ -1,0 +1,65 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:stream="http://www.springframework.org/schema/integration/stream"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/integration/stream
+                http://www.springframework.org/schema/integration/stream/spring-integration-stream-4.2.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:gateway id="cafe"
+                 service-interface="com.kang.spring.integration.cafe.Cafe"
+                 default-request-channel="ordersChannel">
+    </int:gateway>
+
+    <int:channel id="ordersChannel"/>
+
+    <int:splitter input-channel="ordersChannel"
+                  ref="orderSplitter" method="split"
+     output-channel="drinksChannel"></int:splitter>
+
+    <int:channel id="drinksChannel"/>
+
+    <int:router input-channel="drinksChannel"
+                ref="drinkRouter" method="resolveOrderItemChannel">
+    </int:router>
+
+    <!-- 冷饮生产Channel 最大待处理的数据量为 10-->
+    <int:channel id="coldDrinksChannel">
+        <int:queue capacity="1"/>
+    </int:channel>
+
+    <int:service-activator input-channel="coldDrinksChannel" ref="barista"
+                       method="prepareColdDrink" output-channel="preparedDrinks">
+        <int:poller fixed-delay="1">
+        </int:poller>
+    </int:service-activator>
+
+    <int:channel id="hotDrinksChannel">
+        <int:queue capacity="1"/>
+    </int:channel>
+
+
+    <int:service-activator input-channel="hotDrinksChannel" ref="barista"
+                       method="prepareHotDrink" output-channel="preparedDrinks">
+        <int:poller fixed-delay="1">
+        </int:poller>
+    </int:service-activator>
+
+
+    <int:channel id="preparedDrinks"/>
+
+    <!-- 实现 aggregator 模式, 接收 preparedDrinks 消息, 并触发 waiter Bean的prepareDelivery方法
+     再把处理好的数据，发送到 deliveries队列 -->
+    <int:aggregator input-channel="preparedDrinks" ref="waiter"
+                method="prepareDelivery" output-channel="deliveries"/>
+
+    <!-- 定义一个 stream 适配器，接收 deliveries队列的消息后，直接输出到屏幕-->
+    <stream:stdout-channel-adapter id="deliveries"/>
+
+</beans>

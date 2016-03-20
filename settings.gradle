@@ -5,4 +5,8 @@ include 'simpleQueueChannel'
 include 'simpleControlBus'
 include 'simpleGateway'
 include 'simpleHeaderEnricher'
+include 'messageBridge'
+include 'simpleMessageDrivenChannelAdapter'
+include 'simpleDefaultChannel'
+include 'simpleRouterAggregator'
 

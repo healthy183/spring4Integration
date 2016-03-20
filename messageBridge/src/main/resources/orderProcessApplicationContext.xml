@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+                 http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:channel id="orderChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:channel id="orderEmailChannel"/>
+
+    <int:channel id="orderProcessedChannel"/>
+
+
+    <int:service-activator id="processOrder" ref="orderProcessor"
+                           method="process" input-channel="orderChannel"
+                           output-channel="orderProcessedChannel">
+        <int:poller fixed-delay="500"></int:poller>
+    </int:service-activator>
+
+    <int:bridge id="bridgeProcessedOrder2Email"
+                input-channel="orderProcessedChannel"
+                output-channel="orderEmailChannel">
+    </int:bridge>
+
+    <int-jms:outbound-channel-adapter  channel="orderEmailChannel"
+        connection-factory="connectionFactory"
+            destination-name="orderEmailQueue">
+    </int-jms:outbound-channel-adapter>
+
+    <bean id="connectionFactory"
+          class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL" value="tcp://localhost:61623" />
+            </bean>
+        </property>
+        <property name="sessionCacheSize" value="10" />
+        <property name="cacheProducers" value="false" />
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
+
+</beans>

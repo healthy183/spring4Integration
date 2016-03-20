@@ -1,0 +1,70 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+                 http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:gateway id="privilegedCustomer"
+                 service-interface="com.kang.spring.integration.customer.PrivilegedCustomer"
+                 default-request-channel="privilegedCustomerChannel">
+    </int:gateway>
+
+    <int:gateway id="baseCustomer"
+                 service-interface="com.kang.spring.integration.customer.BaseCustomer"
+                 default-request-channel="basicCustomerChannel">
+    </int:gateway>
+
+    <int:channel id="privilegedCustomerChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:channel id="highPriorityCustomerChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:channel id="basicCustomerChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:channel id="processComplaintChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+
+    <int:bridge id="bridgeHighPriority" input-channel="privilegedCustomerChannel"
+                output-channel="highPriorityCustomerChannel">
+        <int:poller fixed-delay="500">
+        </int:poller>
+    </int:bridge>
+
+
+    <int:bridge id="bridgeBasicCustomer" input-channel="basicCustomerChannel"
+                output-channel="processComplaintChannel">
+        <int:poller fixed-delay="500">
+        </int:poller>
+    </int:bridge>
+
+
+    <int:header-enricher id="markAsHighPriority" input-channel="highPriorityCustomerChannel"
+                         output-channel="processComplaintChannel">
+        <int:header name="customerPriority" value="hight"></int:header>
+        <int:poller fixed-delay="500">
+        </int:poller>
+    </int:header-enricher>
+
+    <int:service-activator id="processComplaint"
+                           ref="complaintProcessor"
+                           method="process"
+                           input-channel="processComplaintChannel">
+        <int:poller fixed-delay="500"></int:poller>
+    </int:service-activator>
+</beans>
