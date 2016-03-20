@@ -22,4 +22,7 @@ http://www.blogjava.net/xmatthew/archive/2008/11/29/243443.html
 8，
 
 
+https://github.com/kskaret/Prototyping/blob/3715d22a6d6ee65ef561a1daab47e1e933f55b9c/spring-integration/cafesample/pom.xml
+
+
 
