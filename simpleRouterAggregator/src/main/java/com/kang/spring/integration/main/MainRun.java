@@ -1,6 +1,10 @@
 package com.kang.spring.integration.main;
 
 import com.kang.spring.integration.cafe.Cafe;
+import com.kang.spring.integration.component.Barista;
+import com.kang.spring.integration.component.DrinkRouter;
+import com.kang.spring.integration.component.OrderSplitter;
+import com.kang.spring.integration.component.Waiter;
 import com.kang.spring.integration.pojo.DrinkType;
 import com.kang.spring.integration.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +20,8 @@ public class MainRun {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-
         Cafe cafe = (Cafe) context.getBean("cafe");
-
-        Order order = new Order();
+        Order order = new Order(1);
         order.addItem(DrinkType.TEA,1,true);
         cafe.placeOrder(order);
 

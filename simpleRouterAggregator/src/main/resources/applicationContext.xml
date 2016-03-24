@@ -31,24 +31,20 @@
 
     <!-- 冷饮生产Channel 最大待处理的数据量为 10-->
     <int:channel id="coldDrinksChannel">
-        <int:queue capacity="1"/>
+        <int:queue capacity="10"/>
     </int:channel>
 
     <int:service-activator input-channel="coldDrinksChannel" ref="barista"
                        method="prepareColdDrink" output-channel="preparedDrinks">
-        <int:poller fixed-delay="1">
-        </int:poller>
     </int:service-activator>
 
     <int:channel id="hotDrinksChannel">
-        <int:queue capacity="1"/>
+        <int:queue capacity="10"/>
     </int:channel>
 
 
     <int:service-activator input-channel="hotDrinksChannel" ref="barista"
                        method="prepareHotDrink" output-channel="preparedDrinks">
-        <int:poller fixed-delay="1">
-        </int:poller>
     </int:service-activator>
 
 
@@ -61,5 +57,7 @@
 
     <!-- 定义一个 stream 适配器，接收 deliveries队列的消息后，直接输出到屏幕-->
     <stream:stdout-channel-adapter id="deliveries"/>
+
+    <int:poller default="true" id="poller" fixed-rate="100" />
 
 </beans>

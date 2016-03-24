@@ -10,8 +10,8 @@ import lombok.ToString;
  */
 @Data
 @NoArgsConstructor
-@ToString
-public class OrderItem implements  java.io.Serializable {
+@ToString(exclude ="order" )
+public class OrderItem  {
 
     private DrinkType drinkType;
     private boolean iced;
@@ -24,7 +24,4 @@ public class OrderItem implements  java.io.Serializable {
         this.order = order;
         this.antall = antall;
     }
-
-
-
 }

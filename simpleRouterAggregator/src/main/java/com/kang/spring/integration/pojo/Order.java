@@ -11,11 +11,10 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/3/21.
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Order implements  java.io.Serializable {
+public class Order  {
 
     private Integer orderNumber;
 
@@ -35,5 +34,10 @@ public class Order implements  java.io.Serializable {
 
     public List<OrderItem> getItems() {
         return orderItems;
+    }
+
+    @Override
+    public String toString(){
+        return "orderNumber:"+orderNumber +",orderItems:"+orderItems.toString();
     }
 }

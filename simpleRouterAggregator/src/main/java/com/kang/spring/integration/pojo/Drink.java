@@ -12,12 +12,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Drink implements  java.io.Serializable {
+public class Drink  {
 
     private Integer orderNumber;
     private DrinkType drinkType;
     private boolean iced;
     private int antall;
-
-
 }
