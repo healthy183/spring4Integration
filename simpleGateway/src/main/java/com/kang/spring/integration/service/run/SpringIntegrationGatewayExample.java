@@ -14,7 +14,7 @@ public class SpringIntegrationGatewayExample {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         try{
-            CustomerService customerService =  (CustomerService)context.getBean("customerService");
+            CustomerService customerService =  (CustomerService)context.getBean("customerServiceGateway");
             System.out.println("Get Customer info synchronously!");
             for(int i = 0; i < 3; i++){
                 String id = "C0"+i;

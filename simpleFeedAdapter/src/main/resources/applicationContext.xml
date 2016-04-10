@@ -15,7 +15,7 @@
 
     <int-feed:inbound-channel-adapter id="feedAdapter"
                                       channel="articleChannel" auto-startup="true"
-                                      url="http://www.baidu.com" >
+                                      url="http://rss.cnn.com/rss/cnn_topstories.rss" >
         <int:poller fixed-rate="10000" max-messages-per-poll="100" />
     </int-feed:inbound-channel-adapter>
 

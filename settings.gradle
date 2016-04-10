@@ -13,4 +13,5 @@ include 'simpleContentEnricher'
 include 'simpleFeedAdapter'
 include 'simpleFileAdapter'
 include 'simpleJdbcInboundAdapter'
+include 'simpleJdbcRowMapping'
 

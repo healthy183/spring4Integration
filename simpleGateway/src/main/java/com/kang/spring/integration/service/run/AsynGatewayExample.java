@@ -20,7 +20,7 @@ public class AsynGatewayExample {
             for(int i = 0; i < 3; i++){
                 String id = "C0"+i;
                 System.out.println("id:"+id);
-                Customer customer =  customerService.getCustomerInfo(id);
+                Customer customer =  customerService.getCustomerInfoAsyn(id);
                 System.out.println("Customer information for: " + id + "(" + customer + ")");
             }
 

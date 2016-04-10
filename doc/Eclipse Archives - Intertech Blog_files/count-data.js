@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"0 Comments","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"4478 http:\/\/www.intertech.com\/Blog\/?p=4478","comments":2},{"id":"4316 http:\/\/www.intertech.com\/Blog\/?p=4316","comments":0},{"id":"4457 http:\/\/www.intertech.com\/Blog\/?p=4457","comments":2},{"id":"4622 http:\/\/www.intertech.com\/Blog\/?p=4622","comments":1},{"id":"4649 http:\/\/www.intertech.com\/Blog\/?p=4649","comments":0},{"id":"4337 http:\/\/www.intertech.com\/Blog\/?p=4337","comments":1},{"id":"4550 http:\/\/www.intertech.com\/Blog\/?p=4550","comments":2},{"id":"4365 http:\/\/www.intertech.com\/Blog\/?p=4365","comments":5},{"id":"8450 http:\/\/www.intertech.com\/Blog\/?p=8450","comments":0},{"id":"8328 http:\/\/www.intertech.com\/Blog\/?p=8328","comments":6}]});
+}

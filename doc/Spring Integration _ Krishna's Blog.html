@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://krishnasblog.com/tag/spring-integration/page/2/ -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Spring Integration | Krishna's Blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://krishnasblog.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://s0.wp.com/wp-content/themes/pub/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<meta name="google-site-verification" content="wtghneBQea7x536DDeLylWHa9k4L-w1B294DA2V3Teo">
+<meta name="msvalidate.01" content="2E31FC60C07BDBAA9298F51002D1FF87">
+<meta name="p:domain_verify" content="106445155a9cf13fbe1206e2b4bf8c8c">
+		<script src="./Spring Integration _ Krishna's Blog_files/remote-login.php" type="text/javascript"></script><style type="text/css" adt="123"></style>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="Krishna&#39;s Blog » Feed" href="http://krishnasblog.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Krishna&#39;s Blog » Comments Feed" href="http://krishnasblog.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Krishna&#39;s Blog » Spring Integration Tag Feed" href="http://krishnasblog.com/tag/spring-integration/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<link rel="stylesheet" id="all-css-0" href="./Spring Integration _ Krishna's Blog_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="./Spring Integration _ Krishna's Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2" href="./Spring Integration _ Krishna's Blog_files/style.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='https://s0.wp.com/wp-content/themes/pub/twentytwelve/css/ie.css?m=1423935238g&#038;ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="all-css-4" href="./Spring Integration _ Krishna's Blog_files/saved_resource(1)" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/saved_resource(2)"></script><style type="text/css"></style>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://krishnasblog1068.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress.com">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="http://krishnasblog1068.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://krishnasblog1068.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://krishnasblog.com/osd.xml" title="Krishna&#39;s Blog">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="application-name" content="Krishna&#39;s Blog"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Rumblings by a Java guy on Java, Clojure, Scala and Groovy"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://krishnasblog.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Posts about Spring Integration on Krishna&#39;s Blog">
+<meta name="description" content="Posts about Spring Integration written by Krishna">
+<link rel="stylesheet" type="text/css" href="./Spring Integration _ Krishna's Blog_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Spring Integration _ Krishna's Blog_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Spring Integration _ Krishna's Blog_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Spring Integration _ Krishna's Blog_files/services.css"><style type="text/css"></style><script>if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:\/\/dnf\.duowan\.com|http:\/\/bbs\.duowan\.com|http:\/\/newgame\.duowan\.com|http:\/\/my\.tv\.sohu\.com/)){
+(function() {
+    Function.prototype.bind = function() {
+        var fn = this, args = Array.prototype.slice.call(arguments), obj = args.shift();
+        return function() {
+            return fn.apply(obj, args.concat(Array.prototype.slice.call(arguments)));
+        };
+    };
+    function A() {}
+    A.prototype = {
+        rules: {
+            /*'youku_loader': {
+                'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
+                'replace': 'http://swf.adtchrome.com/loader.swf'
+            },
+            'youku_out': {
+                'find': /^http:\/\/player\.youku\.com\/player\.php\/.*sid\/(.*)/,
+                'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
+            },*/
+            'pps_pps': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
+                'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
+            },
+            /*'iqiyi_1': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'iqiyi_2': {
+                'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },*/
+            'ku6': {
+                'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
+            },
+            'ku6_topic': {
+                'find': /^http:\/\/player\.ku6\.com\/inside\/(.*)\/v\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf?vid=$1'
+            },
+            'sohu': {
+                'find': /^http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p)?\/\d+\/Main\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu2':{
+                'find':/^http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\/testplayer\/Main0?\.swf/,
+                'replace':'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu_share': {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/my\/v\.swf&/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?'
+            },
+            'sohu_sogou' : {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/(\d+)\/v\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?vid=$1'
+            },
+            /*'letv': {
+                'find': /^http:\/\/player\.letvcdn\.com\/.*p\/.*\/newplayer\/LetvPlayer\.swf/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_topic': {
+                'find': /^http:\/\/player\.hz\.letv\.com\/hzplayer\.swf\/v_list=zhuanti/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_duowan': {
+                'find': /^http:\/\/assets\.dwstatic\.com\/video\/vpp\.swf/,
+                'replace': 'http://yuntv.letv.com/bcloud.swf'
+            },*/
+            '17173_in':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+            },
+            '17173_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+            },
+            '17173_live':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+            },
+            '17173_live_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+            }
+        },
+        _done: null,
+        get done() {
+            if(!this._done) {
+                this._done = new Array();
+            }
+            return this._done;
+        },
+        addAnimations: function() {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+        },
+        animationsHandler: function(e) {
+            if(e.animationName === 'playerInserted') {
+                this.replace(e.target);
+            }
+        },
+        replace: function(elem) {
+            if(this.done.indexOf(elem) != -1) return;
+            this.done.push(elem);
+            var player = elem.data || elem.src;
+            if(!player) return;
+            var i, find, replace = false;
+            for(i in this.rules) {
+                find = this.rules[i]['find'];
+                if(find.test(player)) {
+                    replace = this.rules[i]['replace'];
+                    if('function' === typeof this.rules[i]['preHandle']) {
+                        this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                    }else{
+                        this.reallyReplace.bind(this, elem, find, replace)();
+                    }
+                    break;
+                }
+            }
+        },
+        reallyReplace: function(elem, find, replace) {
+            elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+            var b = elem.querySelector("param[name='movie']");
+            this.reloadPlugin(elem);
+        },
+        reloadPlugin: function(elem) {
+            var nextSibling = elem.nextSibling;
+            var parentNode = elem.parentNode;
+            parentNode.removeChild(elem);
+            var newElem = elem.cloneNode(true);
+            this.done.push(newElem);
+            if(nextSibling) {
+                parentNode.insertBefore(newElem, nextSibling);
+            } else {
+                parentNode.appendChild(newElem);
+            }
+        },
+        init: function() {
+            var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
+            /*if(desc.indexOf('adobe')>-1){
+                delete this.rules["iqiyi_1"];
+                delete this.rules["iqiyi_2"];
+            }*/
+            if(document.URL.indexOf('tv.sohu.com')<=0){
+                delete this.rules["sohu"];
+            }
+            var handler = this.animationsHandler.bind(this);
+            document.body.addEventListener('webkitAnimationStart', handler, false);
+            document.body.addEventListener('msAnimationStart', handler, false);
+            document.body.addEventListener('oAnimationStart', handler, false);
+            document.body.addEventListener('animationstart', handler, false);
+            this.addAnimations();
+        }
+    };
+    new A().init();
+})();
+}
+// 20140730
+(function cnbeta() {
+    if (document.URL.indexOf('cnbeta.com') >= 0) {
+        var elms = document.body.querySelectorAll("p>embed");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.style.marginLeft = "0px";
+        });
+    }
+})();
+// 20150108
+setTimeout(function(){
+    if (document.URL.indexOf('www.baidu.com') >= 0) {
+        var a = function(){
+            Array.prototype.forEach.call(document.body.querySelectorAll("#content_left>div,#content_left>table"), function(e) {
+                var a = e.getAttribute("style");
+                if(a && /display:(table|block)\s!important/.test(a)){
+                    e.removeAttribute("style")
+                }
+            });
+        };
+        a();
+        document.getElementById("su").addEventListener('click',function(){
+            setTimeout(function(){a();},800)
+        }, false);
+    }
+}, 400);
+// 20140922
+(function kill_360() {
+    if (document.URL.indexOf('so.com') >= 0) {
+        document.getElementById("e_idea_pp").style.display = none;
+    }
+})();
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
+
+<body class="archive tag tag-spring-integration tag-5915024 mp6 customizer-styles-applied custom-font-enabled highlander-enabled highlander-light infinite-scroll neverending infinity-end">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+				<hgroup>
+			<h1 class="site-title"><a href="http://krishnasblog.com/" title="Krishna&#39;s Blog" rel="home">Krishna's Blog</a></h1>
+			<h2 class="site-description">Rumblings by a Java guy on Java, Clojure, Scala and Groovy</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="http://krishnasblog.com/tag/spring-integration/page/2/#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul><li><a href="http://krishnasblog.com/">Home</a></li><li class="page_item page-item-2272"><a href="http://krishnasblog.com/quick-charts/"></a><a href="http://evening-plains-8221.herokuapp.com/">Quick Charts</a></li><li class="page_item page-item-2"><a href="http://krishnasblog.com/about/">About me</a></li></ul></div>
+		</nav><!-- #site-navigation -->
+
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<section id="primary" class="site-content">
+		<div id="content" role="main">
+
+					<header class="archive-header">
+				<h1 class="archive-title">Tag Archives: <span>Spring Integration</span></h1>
+
+						</header><!-- .archive-header -->
+
+			
+	<article id="post-1650" class="post-1650 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2013/01/16/doing-https-communication-with-httpoutbound-gateway/" rel="bookmark">Doing HTTPS communication with http:outbound-gateway</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2013/01/16/doing-https-communication-with-httpoutbound-gateway/#comments">10 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>In Spring Integration when using http:outbound-gateway if you have to do https communication, you need to do the following trick,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int-http:outbound-gateway id="my.outbound.gateway"
+request-channel="request-channel" reply-channel="reply-channel"
+url="https://localhost:8443/myservice/myService"
+http-method="POST"
+expected-response-type="java.lang.String"&gt;
+&lt;/int-http:outbound-gateway&gt;
+</pre>
+<p>Now you need to pass the keystore and trust store of the client and server as follows,</p>
+<pre class="brush: plain; title: ; notranslate" title="">&lt;bean id="trustStore"&gt;
+&lt;property name="targetObject" value="#{@systemProperties}" /&gt;
+&lt;property name="targetMethod" value="putAll" /&gt;
+&lt;property name="arguments"&gt;
+&lt;props&gt;
+&lt;prop key="javax.net.ssl.trustStore"&gt;&lt;jks key location&gt;&lt;/prop&gt;
+&lt;prop key="javax.net.ssl.keyStorePassword"&gt;password&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id="keystore"&gt;
+&lt;property name="targetObject" value="#{@systemProperties}" /&gt;
+&lt;property name="targetMethod" value="putAll" /&gt;
+&lt;property name="arguments"&gt;
+&lt;props&gt;
+&lt;prop key="javax.net.ssl.keyStore"&gt;&lt;jks key location&gt;&lt;/prop&gt;
+&lt;prop key="javax.net.ssl.keyStorePassword"&gt;password&lt;/prop&gt;
+&lt;/props&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+</pre>
+<p>There is also another way as mentioned in this article @ <a href="http://forum.springsource.org/showthread.php?115198-HTTPS-in-http-outbound-gateway" rel="nofollow">http://forum.springsource.org/showthread.php?115198-HTTPS-in-http-outbound-gateway</a></p>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2013/01/16/doing-https-communication-with-httpoutbound-gateway/" title="12:39 am" rel="bookmark"><time class="entry-date" datetime="2013-01-16T00:39:03+00:00">January 16, 2013</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-1561" class="post-1561 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/12/11/spring-integration-fakeftpserver-example/" rel="bookmark">Spring Integration FakeFtpServer&nbsp;example</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/12/11/spring-integration-fakeftpserver-example/#comments">3 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a style="display:none;" href="http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=skprasadu" rel="tag">CodeProject</a></p>
+<p>For people in hurry, <a title="JUnit testing with FakeFtpServer with Spring Integration" href="https://github.com/skprasadu/junit-testing-ftpflow-in-spring-integration">get the latest code and the steps in GitHub</a>.</p>
+<p>To run the junit test, run “mvn test” and understand the test flow.</p>
+<h2>Introduction: FakeFtpServer</h2>
+<p>In this Spring Integration FakeFtpServer example, I will demonstrate using Spring FakeFtpServer to JUnit test a <strong>Spring Integration</strong> flow. This is a interesting topic, there are few articles like <a title="Unit testing file transfers" href="http://erikwramner.wordpress.com/2012/03/24/unit-testing-file-transfers/">Unit testing file&nbsp;transfers</a>, which gives some insight on this topic.</p>
+<p>In this blog, we will test a <em>Spring Integration</em> flow which checks for a list of files, apply a splitter to separate each file and start downloading them into local location, once the download is complete, it will delete the files on the FTP server. In my next blog, I will show how to do JUnit testing of Spring Integration flow with SFTP Server.</p>
+<h2>Spring Integration flow</h2>
+<div data-shortcode="caption" id="attachment_1556" style="width: 635px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/12/mockftp-spring-flow.png"><img class="size-full wp-image-1556" alt="Spring Integration FakeFtpServer example" src="./Spring Integration _ Krishna's Blog_files/mockftp-spring-flow.png" width="625" height="151"></a><p class="wp-caption-text">Spring Integration FakeFtpServer example</p></div>
+<p>In order to use FakeFtpServer we need to have Maven dependency as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+&lt;groupId&gt;org.mockftpserver&lt;/groupId&gt;
+&lt;artifactId&gt;MockFtpServer&lt;/artifactId&gt;
+&lt;version&gt;2.3&lt;/version&gt;
+&lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</pre>
+<p>The first step to this is to create a FakeFtpServer before every test runs as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">
+@Before
+public void setUp() throws Exception {
+fakeFtpServer = new FakeFtpServer();
+fakeFtpServer.setServerControlPort(9999); // use any free port
+FileSystem fileSystem = new UnixFakeFileSystem();
+fileSystem.add(new FileEntry(FILE, CONTENTS));
+fakeFtpServer.setFileSystem(fileSystem);
+UserAccount userAccount = new UserAccount("user", "password", HOME_DIR);
+fakeFtpServer.addUserAccount(userAccount);
+fakeFtpServer.start();
+}
+
+@After
+public void tearDown() throws Exception {
+fakeFtpServer.stop();
+}
+
+</pre>
+<p>Finally run the JUnit test case as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">&nbsp;&nbsp;&nbsp; @Autowired
+private FileDownloadUtil downloadUtil;
+@Test
+public void testFtpDownload() throws Exception {
+File file = new File("src/test/resources/output");
+delete(file);
+FTPClient client = new FTPClient();
+client.connect("localhost", 9999);
+client.login("user", "password");
+String files[] = client.listNames("/dir");
+client.help();
+logger.debug("Before delete" + files[0]);
+assertEquals(1, files.length);
+downloadUtil.downloadFilesFromRemoteDirectory();
+logger.debug("After delete");
+files = client.listNames("/dir");
+client.help();
+assertEquals(0, files.length);
+assertEquals(1, file.list().length);
+}
+</pre>
+<p>I hope this blog helped.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/12/11/spring-integration-fakeftpserver-example/" title="10:57 am" rel="bookmark"><time class="entry-date" datetime="2012-12-11T10:57:36+00:00">December 11, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-1555" class="post-1555 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/12/11/spring-integration-mock-sftpserver-example/" rel="bookmark">Spring Integration Mock SftpServer&nbsp;example</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/12/11/spring-integration-mock-sftpserver-example/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>In continuation of my earlier blog <a title="Spring Integration FakeFtpServer example" href="http://blog.gosmarter.net/2012/12/11/spring-integration-fakeftpserver-example/" rel="bookmark">Spring Integration FakeFtpServer example</a> in this example I will show how to test Spring Integration flow using Mock SftpServer. There are few good writeup on the net including the Stackoverflow writeup, <a title="Using Apache Mina as a Mock/In Memory SFTP Server for Unit Testing" href="http://stackoverflow.com/questions/11837948/using-apache-mina-as-a-mock-in-memory-sftp-server-for-unit-testing">Using Apache Mina as a Mock/In Memory SFTP Server for Unit Testing.</a>The code for this blog is @ <a title="Spring Integration flow to test Ftp/Sftp server " href="https://github.com/skprasadu/junit-testing-ftpflow-in-spring-integration">Spring Integration flow to test Ftp/Sftp server</a>.</p>
+<p>To run the junit test, run “mvn test” and understand the test flow.</p>
+<p>Again talking of the same spring integration flow as mentioned in my earlier blog, I will write test for sftp server,</p>
+<div data-shortcode="caption" id="attachment_1556" style="width: 635px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/12/mockftp-spring-flow.png"><img class="size-full wp-image-1556" alt="Spring Integration Mock SftpServer example" src="./Spring Integration _ Krishna's Blog_files/mockftp-spring-flow.png" width="625" height="151"></a><p class="wp-caption-text">Spring Integration Mock SftpServer example</p></div>
+<p>The maven dependency for this is as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+&lt;groupId&gt;org.apache.sshd&lt;/groupId&gt;
+&lt;artifactId&gt;sshd-core&lt;/artifactId&gt;
+&lt;version&gt;0.5.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+&lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+&lt;version&gt;1.6.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.jcraft&lt;/groupId&gt;
+&lt;artifactId&gt;jsch&lt;/artifactId&gt;
+&lt;version&gt;0.1.49&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+&lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+&lt;version&gt;1.7.2&lt;/version&gt;
+&lt;/dependency&gt;
+
+</pre>
+<p>The startup and teardown of the junit is as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">
+@Before
+public void beforeTestSetup() throws Exception {
+sshd = SshServer.setUpDefaultServer();
+sshd.setPort(22999);
+
+sshd.setKeyPairProvider(new SimpleGeneratorHostKeyProvider("hostkey.ser"));
+sshd.setPasswordAuthenticator(new PasswordAuthenticator() {
+
+public boolean authenticate(String username, String password, ServerSession session) {
+// TODO Auto-generated method stub
+return true;
+}
+});
+
+CommandFactory myCommandFactory = new CommandFactory() {
+
+public Command createCommand(String command) {
+System.out.println("Command: " + command);
+return null;
+}
+};
+sshd.setCommandFactory(new ScpCommandFactory(myCommandFactory));
+
+List&lt;NamedFactory&lt;command&gt;&gt; namedFactoryList = new ArrayList&lt;NamedFactory&lt;command&gt;&gt;(); namedFactoryList.add(new SftpSubsystem.Factory()); sshd.setSubsystemFactories(namedFactoryList); sshd.start(); }
+
+@After
+
+public void teardown() throws Exception { sshd.stop(); }
+
+</pre>
+<p>The Junit test is as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">public void testPutAndGetFile() throws Exception {
+JSch jsch = new JSch();
+
+Hashtable config = new Hashtable();
+config.put("StrictHostKeyChecking", "no");
+JSch.setConfig(config);
+
+Session session = jsch.getSession("remote-username", "localhost", 22999);
+session.setPassword("remote-password");
+
+session.connect();
+
+Channel channel = session.openChannel("sftp");
+channel.connect();
+
+ChannelSftp sftpChannel = (ChannelSftp) channel;
+
+final String testFileContents = "some file contents";
+
+String uploadedFileName = "uploadFile";
+sftpChannel.put(new ByteArrayInputStream(testFileContents.getBytes()), uploadedFileName);
+
+String downloadedFileName = "downLoadFile";
+sftpChannel.get(uploadedFileName, downloadedFileName);
+
+File downloadedFile = new File(downloadedFileName);
+assertTrue(downloadedFile.exists());
+
+String fileData = getFileContents(downloadedFile);
+
+assertEquals(testFileContents, fileData);
+
+if (sftpChannel.isConnected()) {
+sftpChannel.exit();
+logger.debug("Disconnected channel");
+}
+
+if (session.isConnected()) {
+session.disconnect();
+logger.debug("Disconnected session");
+}
+
+}
+</pre>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/12/11/spring-integration-mock-sftpserver-example/" title="10:49 am" rel="bookmark"><time class="entry-date" datetime="2012-12-11T10:49:22+00:00">December 11, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-1258" class="post-1258 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/11/17/managing-raw-soap-message-within-spring-integration-part-2/" rel="bookmark">Managing Raw SOAP message within Spring Integration – Part&nbsp;2</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/11/17/managing-raw-soap-message-within-spring-integration-part-2/#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>In my earlier blog, <a title="Managing Raw SOAP message within Spring Integration" href="http://krishnasblog.com/2012/11/14/managing-raw-soap-message-within-spring-integration/">Managing Raw SOAP message within Spring&nbsp;Integration</a>, I demonstrated how to get the raw SOAP message from <strong>int-http:inbound-gateway</strong> and process the SOAP message.</p>
+<p>There are few scenarios, where in the <strong>Spring Integration</strong> flow is invoked by an event. Where&nbsp;<em>Spring Integration</em> flow, should get a payload from source <strong>Webservice</strong> and just transfer it to target <em>Webservice</em>, acting as a Proxy, retaining all the properties of the source and target systems.</p>
+<p>In this blog I will demonstrate how you can create a Proxy and how <strong>int-ws-outbound-gateway</strong> can call the Proxy service when calling Source Webservice. If you notice <em>int-ws-outbound-gateway</em> carefully, we can configure the security keystore and other properties. These properties will be retained, when the payload is passed to the Proxy. Once the request payload is in the Proxy, it can be sent to the source Webservice and once we get the response, we can bind it to another channel, which can be processed further or sent to the target Webservice.</p>
+<div data-shortcode="caption" id="attachment_1246" style="width: 635px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/11/managing-raw-soap-message-within-spring-integration.png"><img class="size-full wp-image-1246" title="Managing Raw SOAP message within Spring Integration" alt="Managing Raw SOAP message within Spring Integration" src="./Spring Integration _ Krishna's Blog_files/managing-raw-soap-message-within-spring-integration.png" height="203" width="625"></a><p class="wp-caption-text">Managing Raw SOAP message within Spring Integration</p></div>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;int:channel id="ws.outbound" /&gt;
+
+ &lt;int-ws:outbound-gateway id="ws.gateway"
+ request-channel="ws.inbound" reply-channel="ws.outbound"
+ ignore-empty-responses="true" message-sender="common.message.sender.ws"
+ uri="http://localhost:8080/http-proxy-for-ws/receiveGateway" /&gt;
+
+ &lt;int-http:inbound-gateway id="http.proxy.gateway"
+ request-channel="http.proxy.inbound" name="/receiveGateway"
+ supported-methods="POST" /&gt;
+
+ &lt;int:channel id="http.proxy.inbound" /&gt;
+
+ &lt;int:service-activator input-channel="http.proxy.inbound"
+ id="httpProxyServiceActivator" ref="httpProxyServiceActivatorBean"
+ method="sendXml" /&gt;
+
+ &lt;int:channel id="http.proxy.outbound" /&gt;
+
+ &lt;bean id="httpProxyServiceActivatorBean"&gt;
+ &lt;property name="uri"
+ value="http://www.webservicex.net/CurrencyConvertor.asmx" /&gt;
+ &lt;property name="soapAction" value="http://www.webserviceX.NET/ConversionRate" /&gt;
+ &lt;property name="wsOutboundChannel" ref="http.proxy.outbound" /&gt;
+ &lt;/bean&gt;
+
+ &lt;int:service-activator input-channel="http.proxy.outbound"
+ id="finalProcessorServiceActivator" ref="finalProcessorServiceActivatorBean"
+ method="sendXml" /&gt;
+
+ &lt;bean id="finalProcessorServiceActivatorBean" /&gt;
+ </pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/11/17/managing-raw-soap-message-within-spring-integration-part-2/" title="11:55 pm" rel="bookmark"><time class="entry-date" datetime="2012-11-17T23:55:34+00:00">November 17, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-1243" class="post-1243 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/11/14/managing-raw-soap-message-within-spring-integration/" rel="bookmark">Managing Raw SOAP message within Spring&nbsp;Integration</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/11/14/managing-raw-soap-message-within-spring-integration/#comments">4 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>In <strong>Spring Integration</strong> if we use<strong> int-ws:outbound-gateway, </strong>once a message is associated to the request channel, the <em>Spring Integration</em> container add the SOAP header information and sends the SOAP payload to the target system to be processed. Most of the time, this is what is needed, but sometimes, we just need the integration layer to act as a proxy. The SOAP payload coming from the source system is just handed to the target system retaining all the properties of source system like security, enrichment and others.</p>
+<p>In this case the trick is instead of using <strong>int-ws:outbound-gateway, </strong>we should use <strong>int-http:inbound-gateway </strong>and&nbsp;<strong>int-http:outbound-gateway. </strong>This way you can fool the target system to accept this as a SOAP message. We can also make it aware what soapAction we need to execute is a below,<em><strong><br>
+</strong></em></p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;int-http:inbound-gateway id="webservice.inbound.gateway"
+request-channel="http.outbound.enrich.in" reply-channel="ws.outbound"
+name="/receiveGateway" supported-methods="POST" /&gt;
+
+&lt;int:header-enricher input-channel="http.outbound.enrich.in"
+output-channel="ws.inbound"&gt;
+&lt;int:header name="Content-Type" value="text/xml;charset=UTF-8" /&gt;
+&lt;int:header name="SoapAction"
+value="http://www.webserviceX.NET/ConversionRate" /&gt;
+&lt;/int:header-enricher&gt;
+
+&lt;int:channel id="ws.outbound" /&gt;
+
+&lt;int-http:outbound-gateway id="webservice.outbound.gateway"
+request-channel="ws.inbound" reply-channel="ws.outbound"
+url="http://www.webservicex.net/CurrencyConvertor.asmx"
+expected-response-type="java.lang.String" /&gt;
+
+</pre>
+<p>The Spring Integration flow is as below,</p>
+<div data-shortcode="caption" id="attachment_1251" style="width: 635px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/11/managing-raw-soap-message-within-spring-integration1.png"><img class="size-full wp-image-1251" title="Managing Raw SOAP message within Spring Integration" alt="Managing Raw SOAP message within Spring Integration" src="./Spring Integration _ Krishna's Blog_files/managing-raw-soap-message-within-spring-integration1.png" height="153" width="625"></a><p class="wp-caption-text">Managing Raw SOAP message within Spring Integration</p></div>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/11/14/managing-raw-soap-message-within-spring-integration/" title="11:53 pm" rel="bookmark"><time class="entry-date" datetime="2012-11-14T23:53:11+00:00">November 14, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-956" class="post-956 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/10/23/claimcheck-pattern-with-vfabric-rabbitmq-and-gemfire/" rel="bookmark">Claimcheck pattern with vFabric RabbitMQ and&nbsp;Gemfire</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/10/23/claimcheck-pattern-with-vfabric-rabbitmq-and-gemfire/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>For people in hurry <a title="Claimcheck Pattern with vFabric RabbitMQ and Gemfire" href="https://github.com/skprasadu/spring-integration-amqp-gemfire-claimcheck">refer the steps to run this sample</a>.</p>
+<p>In continuation to my earlier <a title="Claimcheck Pattern Using Spring Integration and Gemfire" href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/">blog on Claimcheck Pattern </a>in this blog I use <a href="http://krishnasblog.com/2012/10/18/amqp-backed-spring-integration-using-vfabric-rabbitmq/">AMQP backed message channel</a> to simplify implement <i>Claimcheck Pattern</i>. There is also another <a title="Claimcheck Pattern with vFabric RabbitMQ and Gemfire" href="http://java.dzone.com/articles/spring-integration-payload-0">good blog on Spring Integration – Payload Storage via Claim-check</a>, which talks about <b>Claimcheck Pattern</b></p>
+<p>The Enterprise Integration Pattern flow is as below,</p>
+<div data-shortcode="caption" id="attachment_976" style="width: 635px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/10/claimcheck-pattern-with-vfabric-rabbitmq-and-gemfire.png"><img class="size-full wp-image-976" title="Claimcheck-pattern-with-vFabric-RabbitMQ-and-Gemfire" alt="Claimcheck pattern with vFabric RabbitMQ and Gemfire" src="./Spring Integration _ Krishna's Blog_files/claimcheck-pattern-with-vfabric-rabbitmq-and-gemfire.png" height="205" width="625"></a><p class="wp-caption-text">Claimcheck pattern with vFabric RabbitMQ and Gemfire</p></div>
+<p>The use case in this blog is, there is a message that gets posted on to a Queue, the message checks into a <a title="vFabric Gemfire" href="https://www.vmware.com/support/pubs/vfabric-gemfire.html">vFabric Gemfire</a> messageStore, and a GUID is extracted and posted on to a <a title="vFabric RabbitMQ" href="http://www.vmware.com/products/application-platform/vfabric-rabbitmq/overview.html">vFabric RabbitMQ</a> <a title="vFabric RabbitMQ Exchange" href="http://www.rabbitmq.com/tutorials/amqp-concepts.html">Exchange</a>. The subscribers listening to that <b>Exchange</b> and will get the GUID and checks out of the messageStore and calls a Service activator.</p>
+<p>As per the Test First development, the JUnit test case looks as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">@Test
+public void testIntegration() {
+String request = streamToString(getClass().getResourceAsStream(
+"/data/payload.xml"));
+Message&lt;String&gt; message = MessageBuilder.withPayload(request)
+.build();
+channel.send(message);
+String outMessage = outChannel.receive(1000).getPayload().toString();
+assertEquals(outMessage, request);
+}
+</pre>
+<p>In the test code, since there is no transformation, we just compare the input data to the data coming out of the target channel.</p>
+<p>The test configuration looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:channel id="p2p-pollable-channel" /&gt;
+&lt;int:publish-subscribe-channel id="pub-sub-channel" /&gt;
+&lt;int:channel id="checkout-channel3" &gt;
+&lt;int:queue /&gt;
+&lt;/int:channel&gt;
+&lt;int:claim-check-out message-store="simpleMessageStore"
+input-channel="pub-sub-channel" output-channel="checkout-channel3"
+remove-message="false" /&gt;
+</pre>
+<p>In the main configuration the <b>vFabric RabbitMQ</b> configuration looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- A reference to the org.springframework.amqp.rabbit.connection.ConnectionFactory --&gt;
+&lt;rabbit:connection-factory id="connectionFactory" /&gt;
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitAdmin to manage
+exchanges, queues and bindings --&gt;
+&lt;rabbit:admin connection-factory="connectionFactory" /&gt;
+&lt;int-amqp:channel id="p2p-pollable-channel" connection-factory="connectionFactory" /&gt;
+&lt;int-amqp:publish-subscribe-channel id="pub-sub-channel" connection-factory="connectionFactory" /&gt;
+</pre>
+<p>In the main configuration the <b>vFabric Gemfire</b> messageStore configuration looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;bean id="simpleMessageStore"
+class="org.springframework.integration.gemfire.store.GemfireMessageStore"&gt;
+&lt;constructor-arg ref="myCache" /&gt;
+&lt;/bean&gt;
+&lt;gfe:cache id="myCache" /&gt;
+</pre>
+<p>Finally the integration flow demonstrate the claim checkin and claim checkout as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:claim-check-in message-store="simpleMessageStore"
+input-channel="p2p-pollable-channel" output-channel="pub-sub-channel" /&gt;
+
+&lt;int:claim-check-out message-store="simpleMessageStore"
+input-channel="pub-sub-channel" output-channel="checkout-channel1"
+remove-message="false" /&gt;
+
+&lt;int:claim-check-out message-store="simpleMessageStore"
+input-channel="pub-sub-channel" output-channel="checkout-channel2"
+remove-message="false" /&gt;
+</pre>
+<p>If you notice carefully, “p2p-pollable-channel” and “pub-sub-channel” are physical <em>Queues and Exchanges</em> in <em>vFabric RabbitMQ</em> as per the last blog on <a title="Amqp Backed Spring Integration Using vFabric Rabbitmq" href="http://krishnasblog.com/2012/10/18/amqp-backed-spring-integration-using-vfabric-rabbitmq/">Amqp Backed Spring Integration Using vFabric Rabbitmq</a></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/10/23/claimcheck-pattern-with-vfabric-rabbitmq-and-gemfire/" title="11:13 am" rel="bookmark"><time class="entry-date" datetime="2012-10-23T11:13:58+00:00">October 23, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-921" class="post-921 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/10/21/control-bus-pattern-with-spring-integration-and-jms/" rel="bookmark">Control Bus Pattern with Spring Integration and&nbsp;JMS</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/10/21/control-bus-pattern-with-spring-integration-and-jms/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>For people in hurry, <a title="Spring Integration Control Bus with JMS" href="https://github.com/skprasadu/spring-integration-controlbus">refer the steps and the demo</a>.</p>
+<h2>Introduction</h2>
+<p><a title="Control Bus Pattern is a Enterprise Integration Pattern" href="http://www.eaipatterns.com/ControlBus.html" target="_blank">Control Bus Pattern is a Enterprise Integration Pattern</a> is used to control distributed systems in <a title="Spring Integration" href="http://www.springsource.org/spring-integration" target="_blank">Spring Integration</a>. In this blog, I will show you how a <strong>Control Bus</strong> can control your application or a component to start or stop listening to <a title="JMS based Queue" href="http://activemq.apache.org/jms.html" target="_blank">JMS message</a>. In this example, we are using JMS queue to start and stop the jms <strong>inbound-channel-adapter</strong>, we can also do this with jdbc <em>inbound-channel-adapter</em> and control this thru an external application. The other way to do the same is by <a title="Spring Integration Jms Mbean Configuration" href="http://krishnasblog.com/2012/09/25/spring-integration-jms-mbean-configuration/">using MBean as in this example</a>.</p>
+<p>In this use case, there is a <strong>Spring Integration</strong> flow. This <em>Spring Integration</em> flow can be controlled by sending start / stop message to <a title="Inbound-channel-adapter" href="http://static.springsource.org/spring-integration/docs/2.0.0.RC1/reference/html/channel-adapter.html">inbound-channel-adapter </a>from a <a title="ActiveMQ queue" href="http://activemq.apache.org/">ActiveMQ</a> <strong>JMS</strong> queue.</p>
+<h2>Details Control Bus with Spring Integration</h2>
+<div data-shortcode="caption" id="attachment_926" style="width: 591px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/10/control-bus-spring-integration-jms.png"><img class="size-full wp-image-926" title="control-bus-spring-integration-jms" alt="Control Bus Spring Integration JMS" src="./Spring Integration _ Krishna's Blog_files/control-bus-spring-integration-jms.png"></a><p class="wp-caption-text">Control Bus Spring Integration JMS</p></div>
+<p>To start implementing this use case, we write the JUnit test 1st. If you notice once the inboundAdapter is started the message is received from the adapterOutchannel. Once the inboundAdapter is stopped no message is received. This is demonstrated as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">@Test
+public void demoControlBus() {
+assertNull(adapterOutputChanel.receive(1000));
+controlChannel.send(new GenericMessage&lt;String&gt;("@inboundAdapter.start()"));
+assertNotNull(adapterOutputChanel.receive(1000));
+controlChannel.send(new GenericMessage&lt;String&gt;("@inboundAdapter.stop()"));
+assertNull(adapterOutputChanel.receive(1000));
+}
+</pre>
+<p>The test configuration looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:inbound-channel-adapter id="inboundAdapter"
+channel="controlbus-managed-p2p-pollable-channel" expression="'Hello'"
+auto-startup="false"&gt;
+&lt;int:poller fixed-rate="6000" /&gt;
+&lt;/int:inbound-channel-adapter&gt;
+</pre>
+<p>If you run the “mvn test” the tests work. In the main configuration, we will be configuring actual queues and <a title="jms:inbound-channel-adapter" href="http://static.springsource.org/spring-integration/docs/2.0.0.RC2/reference/html/jms.html">jms inbound-channel-adapter</a>&nbsp;as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int-jms:inbound-channel-adapter id="inboundAdapter"
+channel="controlbus-managed-p2p-pollable-channel"
+jms-template="jmsTemplate"&gt;
+&lt;int:poller fixed-rate="6000" /&gt;
+&lt;/int-jms:inbound-channel-adapter&gt;
+
+&lt;int-jms:inbound-channel-adapter id="controlBusAdapter"
+channel="control-channel"
+jms-template="controlBusJmsTemplate"&gt;
+&lt;int:poller fixed-rate="6000" /&gt;
+&lt;/int-jms:inbound-channel-adapter&gt;
+</pre>
+<p>Now when you start the component as “Run on Server” in STS IDE and post a message on<br>
+MyQueue, you can see the subscribers received the messages on the console. You can issue “@inboundAdapter.stop()” on the ControlBusQueue, it will stop the inbound-channel-adapter, it will also throw java.lang.InterruptedException, it looks like a false alarm. To test if the inbound-channel-adapter is stopped, post a message on to MyQueue, the component will not process the message. Now issue “@inboundAdapter.start()” on the ControlBusQueue, it will process the earlier message and start listening for new messages.</p>
+<h2>Conclusion</h2>
+<p>If you notice in this blog, we can control the component to listen to message using Control Bus.&nbsp; The other way to do the same is by <a title="Spring Integration Jms Mbean Configuration" href="http://krishnasblog.com/2012/09/25/spring-integration-jms-mbean-configuration/">using MBean as in this example</a>.</p>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/10/21/control-bus-pattern-with-spring-integration-and-jms/" title="2:19 am" rel="bookmark"><time class="entry-date" datetime="2012-10-21T02:19:41+00:00">October 21, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+		<nav id="nav-below" class="navigation" role="navigation">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="./Spring Integration _ Krishna's Blog_files/Spring Integration _ Krishna's Blog.html"><span class="meta-nav">←</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- .navigation -->
+	
+		
+		<span class="infinite-loader" style="display: none;"><div class="spinner" role="progressbar" style="position: relative; width: 0px; z-index: 2000000000; left: 17px; top: 0px;"><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-0-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(0deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-1-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(45deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-2-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(90deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-3-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(135deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-4-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(180deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-5-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(225deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-6-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(270deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-7-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(315deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div></div></span><div class="infinite-wrap infinite-view-1" id="infinite-view-1" data-page-num="1">
+	<article id="post-895" class="post-895 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/10/18/amqp-backed-spring-integration-using-vfabric-rabbitmq/" rel="bookmark">AMQP Backed Spring Integration using vFabric&nbsp;RabbitMQ</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/10/18/amqp-backed-spring-integration-using-vfabric-rabbitmq/#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>For people in hurry, <a title="AMQP Backed Spring Integration using vFabric RabbitMQ" href="https://github.com/skprasadu/spring-integration-amqp-publish-subscribe/tree/master/spring-integration-amqp-publish-subscribe">refer the following steps to run the Demo</a>.</p>
+<h2>Introduction</h2>
+<p>Combining <a title="vFabric RabbitMQ" href="http://www.rabbitmq.com/" target="_blank">vFabric RabbitMQ</a> and <a title="Spring Integration" href="http://www.springsource.org/spring-integration" target="_blank">Spring Integration </a>we can create loosely coupled Enterprise class message based workflow using <a title="Spring AMQP" href="http://www.springsource.org/spring-amqp" target="_blank">Spring AMQP</a>. Refer <a title="Spring Integration" href="http://static.springsource.org/spring-integration/reference/html/amqp.html" target="_blank">Spring Integration, AMQP Backed Message Channels</a> documentation.</p>
+<p>In this demo, we will design a <strong>Spring Integration</strong> workflow, where in a message is published on to a&nbsp;<a title="int-amqp:channel" href="http://static.springsource.org/spring-integration/reference/html/amqp.html" target="_blank">p2p-pollable-channel</a> and a <a title="int-amqp:publish-subscribe-channel" href="http://static.springsource.org/spring-integration/reference/html/amqp.html" target="_blank">publish-subscribe-channel</a> is listening to it, it will pickup that message and pass it to 2 different service activators to further process it. I will also demonstrate that, both these message channels are on their own, listening to a external applications and when an external applications publish a message to these queues they will process from there on in the workflow. A typical use case of this is, in an enterprise IT, we can create robust workflows, where in if a message is not processed in a particular step, we can massage the data and process it from there on. Since <strong>Spring AMQP</strong> is a wire protocol the external application can be use any network protocol to publish the message to the <strong>vFabric RabbitMQ</strong> queue and the Spring Integration flow is triggered.</p>
+<h2>AMQP Backed Message Channel in Spring Integration flow</h2>
+<p><a href="http://krishnasblog1068.files.wordpress.com/2012/10/amqpbased-message-channel-spring-integration1.png"><img class="size-full wp-image-902" title="AMQPbased-message-channel-spring-integration" alt="AMQP based message channel within Spring Integration" src="./Spring Integration _ Krishna's Blog_files/amqpbased-message-channel-spring-integration1.png" height="389" width="625"></a></p>
+<p>As always in my blog, as per <a title="Test Driven Development, TDD" href="http://c2.com/cgi/wiki?TestDrivenDevelopment" target="_blank">TDD</a>, I will be writing the test first as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">public class PublisherSubscriberTest {
+
+@Test
+public void testIntegration() {
+try {
+String request = streamToString(getClass().getResourceAsStream(
+"/data/payload.xml"));
+Message&lt;String&gt; message = MessageBuilder.withPayload(request)
+.build();
+channel.send(message);
+//assert various messages
+} catch (IOException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+}
+</pre>
+<p>The Spring Integration Configuration flow looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:bridge input-channel="p2p-pollable-channel"
+output-channel="pub-sub-channel" /&gt;
+
+&lt;int:service-activator input-channel="pub-sub-channel"
+id="serviceActivator1" ref="serviceActivator1Bean" method="logXml" /&gt;
+
+&lt;int:service-activator input-channel="pub-sub-channel"
+id="serviceActivator2" ref="serviceActivator2Bean" method="logXml" /&gt;
+
+&lt;bean id="serviceActivator1Bean"
+class="com.goSmarter.amqp.service.Subscriber1ServiceActivator"&gt;
+&lt;/bean&gt;
+
+&lt;bean id="serviceActivator2Bean"
+class="com.goSmarter.amqp.service.Subscriber2ServiceActivator"&gt;
+&lt;/bean&gt;
+</pre>
+<p>Test channel definition looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:poller default="true" fixed-rate="1000" /&gt;
+&lt;int:channel id="p2p-pollable-channel" /&gt;
+&lt;int:publish-subscribe-channel id="pub-sub-channel" /&gt;
+</pre>
+<p>Actual channel definition used as a part of web.xml is as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- A reference to the org.springframework.amqp.rabbit.connection.ConnectionFactory --&gt;
+&lt;rabbit:connection-factory id="connectionFactory" /&gt;
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitAdmin to manage
+exchanges, queues and bindings --&gt;
+&lt;rabbit:admin connection-factory="connectionFactory" /&gt;
+
+&lt;int-amqp:channel id="p2p-pollable-channel" connection-factory="connectionFactory" /&gt;
+&lt;int-amqp:publish-subscribe-channel id="pub-sub-channel" connection-factory="connectionFactory" /&gt;
+</pre>
+<p>When you run this application in STS as “Run on Server” for the 1st time, you will notice in the <em>vFabric RabbitMQ</em> admin console that it will have one Queue, p2p-pollable-channel and Exchange called si.fanout.pub-sub-channel. If you notice the <em>Spring Integration</em> framework appended “si.fanout” in front of pub-sub-channel. If you want to test if end to end is working, you can post a message on either the <a title="Queue" href="http://www.rabbitmq.com/ha.html">Queue </a>or <a title="Exchange" href="http://www.rabbitmq.com/tutorials/tutorial-three-python.html">Exchange</a>, it will continue the workflow from that point onwards.</p>
+<p>If you are using AMQP backed Channels, you can reply a payload from any channels to continue the workflow, this will be useful in error handling and Payload retry.</p>
+<h2>Conclusion</h2>
+<p>In this sample, we have demonstrated that with a single component backed by AMQP, we can build a loosely coupled workflow. Based on the context, there can be 2 different ways of building publish subscriber workflow, one is as described above and <a title="Publisher Subscriber components using vFabric RabbitMQ and Spring Integration" href="http://krishnasblog.com/2012/10/10/publish-subscribe-with-vfabric-rabbitmq-and-spring-integration-using-spring-amqp/">another one is one publisher component will have several subscriber components.</a></p>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/10/18/amqp-backed-spring-integration-using-vfabric-rabbitmq/" title="1:26 am" rel="bookmark"><time class="entry-date" datetime="2012-10-18T01:26:54+00:00">October 18, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-785" class="post-785 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/10/10/publish-subscribe-with-vfabric-rabbitmq-and-spring-integration-using-spring-amqp/" rel="bookmark">Publish Subscribe with vFabric RabbitMQ and Spring Integration using Spring&nbsp;AMQP</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/10/10/publish-subscribe-with-vfabric-rabbitmq-and-spring-integration-using-spring-amqp/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>For people in hurry, get the <a title="Latest code of Publish Subscribe with vFabric RabbitMQ and Spring Integration using Spring AMQP" href="https://github.com/skprasadu/spring-integration-amqp-publish-subscribe">latest code and steps to run the demo</a>.</p>
+<h2>Introduction: Spring AMQP and vFabric RabbitMQ</h2>
+<p><a title="vFabric RabbitMQ supports AMQP" href="http://www.rabbitmq.com/" target="_blank">vFabric RabbitMQ</a> is a new offering from VMware that support <a title="AMQP, Advanced Message Queuing Protocal" href="http://www.amqp.org/" target="_blank">AMQP </a>standard. <strong>AMQP </strong>has been around for a long time, at a high level <em>AMQP</em> is yet another standard API to send and recieve messages between applications similar to JMS. The main difference being,&nbsp;AMQP is a wire-level protocal, JMS is a JAVA standard. There is a <a title="AMQP vs JMS" href="http://www.jroller.com/RickHigh/entry/amqp_versus_jms" target="_blank">neutral blog comparing AMQP and JMS</a>. As per this blog, AMQP is a standard that is popular among Python, RoR, C++&nbsp;developers. <a title="Stomp AMQP" href="http://stomp.github.com//" target="_blank">Stomp </a>and <a title="OpenWire AMQP" href="http://activemq.apache.org/openwire.html">OpenWire </a>are some of the implementation of AMQP. In the Spring world, we have <a title="Spring AMQP" href="http://www.springsource.org/spring-amqp" target="_blank">Spring AMQP</a> abstraction and <strong>vFabric RabbitMQ</strong> has the first implementation of <strong>Spring AMQP</strong>.&nbsp;This is a &nbsp;<a title="Spring AMQP with vFabric RabbitMQ" href="http://www.slideshare.net/somic/introduction-to-amqp-messaging-with-rabbitmq" target="_blank">good introduction of Spring AMQP with with vFabric RabbitMQ</a>.</p>
+<p>At a high level, RabbitMQ does not have a concept of Topics the way it is in JMS. It has a concept of Queues and Exchanges. The Exchanges can be of different types like Fanout, Topic. Refer to <a title="Routing Tomplogies used by RabbitMQ" href="http://blog.springsource.org/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/" target="_blank">routing topologies used by RabbitMQ</a>. There is also a good article in VMware about how vFabric RabbitMQ is used for a very large messaging implementation and <a title="Understanding AMQP, the protocol used by RabbitMQ" href="http://blog.springsource.org/2010/06/14/understanding-amqp-the-protocol-used-by-rabbitmq/" target="_blank">Understanding AMQP, the protocol used by RabbitMQ</a>.</p>
+<h2>Run Publish Subscribe with Spring Integration</h2>
+<p>In this example, we have built&nbsp;2 <a title="Spring Integration" href="http://www.springsource.org/spring-integration">Spring Integration </a>component, Publisher component, that publishers messages to an <a title="RebbitMQ Exchange" href="http://lostechies.com/derekgreer/2012/03/28/rabbitmq-for-windows-exchange-types/">RebbitMQ Exchange</a>.&nbsp;The message is Fanout to multiple Queues. The Subscriber <strong>Spring Integration</strong> is listening to the Queue and process the messages. There are different ways of Publish/Subscribe messages in <em>vFabric RabbitMQ</em>, <a title="Messaging Confusion: Pub/Sub vs Multicast vs Fan Out" href="http://stackoverflow.com/questions/8261654/messaging-confusion-pub-sub-vs-multicast-vs-fan-out">there is a good article on this in stackoverflow</a>. There is also a <a title="Publish/Subscribe" href="http://www.rabbitmq.com/tutorials/tutorial-three-python.html">good article on how Publisher/ Subscriber works in RabbitMQ</a>.</p>
+<p>In the example we have used <em>Spring Integration</em> configuration to define a subscriber as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- A reference to the org.springframework.amqp.rabbit.connection.ConnectionFactory --&gt;
+&lt;rabbit:connection-factory id="connectionFactory"/&gt;
+
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitTemplate for access to the broker --&gt;
+&lt;rabbit:template id="amqpTemplate" connection-factory="connectionFactory"/&gt;
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitAdmin&nbsp;&nbsp;&nbsp; to manage exchanges, queues and bindings --&gt;
+&lt;rabbit:admin connection-factory="connectionFactory"/&gt;
+&lt;!-- Queues --&gt;
+&lt;rabbit:queue id="queue1" name="queue.1.name"/&gt;
+&lt;rabbit:queue id="queue2" name="queue.2.name"/&gt;
+
+&lt;!-- Exchanges --&gt;
+&lt;rabbit:fanout-exchange name="fanout.exchange.1.name"&gt;
+&lt;rabbit:bindings&gt;
+&lt;rabbit:binding queue="queue1"/&gt;
+&lt;rabbit:binding queue="queue2"/&gt;
+&lt;/rabbit:bindings&gt;
+&lt;/rabbit:fanout-exchange&gt;
+
+&lt;int:publish-subscribe-channel id="fanoutChannel" /&gt;
+
+&lt;int-amqp:outbound-channel-adapter channel="fanoutChannel"
+amqp-template="amqpTemplate" exchange-name="fanout.exchange.1.name"/&gt;
+</pre>
+<p>In our demo, you can start the vFabric RabbitMQ and run the test as below, the publisher will put the message in the 2 queues.</p>
+<pre class="brush: xml; title: ; notranslate" title="">mvn -Dtest=com.goSmarter.amqp.PublisherSubscriberTest test
+
+</pre>
+<p>If you open the vFabric RabbitMQ management console, it will display that there is a message in the queue.</p>
+<p>Subscriber Spring Integration configuration looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- A reference to the org.springframework.amqp.rabbit.connection.ConnectionFactory --&gt;
+&lt;rabbit:connection-factory id="connectionFactory" /&gt;
+
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitTemplate for access &nbsp;&nbsp;to the broker --&gt;
+&lt;rabbit:template id="amqpTemplate" connection-factory="connectionFactory" /&gt;
+
+&lt;!-- Creates a org.springframework.amqp.rabbit.core.RabbitAdmin to manage &nbsp;&nbsp;exchanges, queues and bindings --&gt;
+&lt;rabbit:admin connection-factory="connectionFactory" /&gt;
+&lt;int:channel id="inbound-channel" /&gt;
+
+&lt;int-amqp:inbound-channel-adapter
+channel="inbound-channel" queue-names="queue.1.name"
+connection-factory="connectionFactory" /&gt;
+
+&lt;int:service-activator input-channel="inbound-channel"
+id="serviceActivator" ref="serviceActivatorBean" method="logXml" /&gt;
+
+&lt;bean id="serviceActivatorBean"
+class="com.goSmarter.amqp.service.Subscriber1ServiceActivator"&gt;
+&lt;/bean&gt;
+</pre>
+<p>Now when you run the Subscriber Tomcat Instance within STS as “Run on Server” it will pick the message from the Queue and print it to the console.</p>
+<h2>Conclusion</h2>
+<p>In this blog, I have demonstrated a simple fanout based Publisher /Subscriber, where in a Publisher will publish a message and Subscriber will subscriber and print it. This will jumpstart you with a decent prototype on Spring AMQP. There are also <a title="Spring AMQP Samples" href="https://github.com/SpringSource/spring-amqp-samples">few Spring AMQP samples on&nbsp;Stocks and other stuff</a>.</p>
+<p>I hope this blog helped you. Please leave me feedback.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/10/10/publish-subscribe-with-vfabric-rabbitmq-and-spring-integration-using-spring-amqp/" title="3:35 pm" rel="bookmark"><time class="entry-date" datetime="2012-10-10T15:35:53+00:00">October 10, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-706" class="post-706 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/10/03/publisher-subscriber-using-vfabric-spring-integration-gemfire/" rel="bookmark">Publisher, Subscriber using vFabric Spring Integration,&nbsp;Gemfire</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/10/03/publisher-subscriber-using-vfabric-spring-integration-gemfire/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>As part of <a title="VMware vFabric: Enterprise Java Web Application Development" href="https://www.vmware.com/products/application-platform/vfabric/overview.html">vFabric </a> you get <a href="https://www.springsource.com/developer/sts">SpringSource Tool Suite (STS)</a>, <a href="https://www.vmware.com/products/application-platform/vfabric-tcserver/overview.html">vFabric tc Server</a>, <a href="http://www.springsource.org/spring-amqp">Spring AMQP</a> to incorporate <a href="https://www.vmware.com/products/application-platform/vfabric-rabbitmq/overview.html">vFabric RabbitMQ</a> messaging, and <a href="http://www.springsource.org/features/data-access">Spring Data</a> project that simplifies access to vFabric <a href="https://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html">GemFire</a>, <a href="https://www.vmware.com/products/application-platform/vfabric-sqlfire/overview.html">SQLFire</a> and <a href="https://www.vmware.com/products/application-platform/vfabric-postgres/overview.html">Postgres.</a></p>
+<p>In the next few blogs, I will be discussing how each pieces tie in together. In this blog I will be demonstrating how Spring Integration and <em>vFabric Gemfire</em> participate in a typical Publisher/ Subscriber <a title="Enterprise Integration Pattern" href="http://www.eaipatterns.com/">EIP</a> pattern, where in data is picked from source system and delivered to 1 or many target systems.</p>
+<p>For people who are in hurry, here is <a title="Chaimcheck Pattern using Spring Integration and Gemfire" href="https://github.com/skprasadu/spring-integration-gemfire-claimcheck-pattern">the code and the steps to execute</a>.</p>
+<h2>Details: Publisher, Subscriber using vFabric Spring Integration, Gemfire</h2>
+<p>This demo is the continuation of my earlier blog on <a title="Claimcheck pattern using Spring Integration and Gemfire" href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/">Claimcheck pattern</a>. I will implement an end to end flow as below</p>
+<div data-shortcode="caption" id="attachment_722" style="width: 612px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/10/publisher-subscriber-esb-spring-integration-gemfire.png"><img class="size-full wp-image-722" title="Publisher Subscriber ESB using Spring Integration, Gemfire and ActiveMQ" alt="Publisher Subscriber ESB using Spring Integration, Gemfire and ActiveMQ" src="./Spring Integration _ Krishna's Blog_files/publisher-subscriber-esb-spring-integration-gemfire.png"></a><p class="wp-caption-text">Publisher Subscriber ESB using Spring Integration, Gemfire and ActiveMQ</p></div>
+<p>For Demo purpose, on the publisher side, the message that comes in from claimcheck output is directly <a title="Message Bridge" href="http://static.springsource.org/spring-integration/docs/2.0.0.M3/spring-integration-reference/html/bridge.html">bridged</a> to the <a title="JMS outbound channel adaptor" href="http://static.springsource.org/spring-integration/reference/html/jms.html">jms outbound channel adapter</a>. But in an enterprise application, in reality there can be a spring integration flow which can do an entire workflow/ transformation/ mapping, before it puts the message onto the Topic.</p>
+<p>Again for demo purpose, on the subscriber side, I just directly took the payload output from claimcheck and passed to a console based service activator. But in an enterprise application, it can be sending this to a target system.</p>
+<p>The technology stack I used for this is, <a title="hsqldb database" href="http://hsqldb.org/">hsqldb </a>database, <a title="ActiveMQ" href="http://mirror.olnevhost.net/pub/apache/activemq/apache-activemq/5.6.0/apache-activemq-5.6.0-bin.zip">ActiveMQ</a> JMS along with <em>vFabric TC Server</em> and <em>vFabric Gemfire.</em></p>
+<p>On the publisher side, the JDBC listener is configured in the Spring Integration as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int-jdbc:inbound-channel-adapter
+query="select * from notification where status=2" channel="jdbc.inbound"
+data-source="dataSource" update="update notification set status=10 where id in (:id)"&gt;
+&lt;int:poller fixed-rate="1000" /&gt;
+&lt;/int-jdbc:inbound-channel-adapter&gt;
+</pre>
+<p>and you bridge this to the claimcheck channel as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- for convenience sake we are bridging the jdbc to directly claimcheck in reality we will be going thru a SI flow
+&lt;int:bridge input-channel="jdbc.inbound"
+output-channel="common.claimcheck.in.inputChannel" /&gt;
+
+&lt;!-- Bridge the claimcheck output directly to JMS --&gt;
+&lt;int:bridge input-channel="common.claimcheck.in.outputChannel"
+output-channel="jms-channel.out" /&gt;
+</pre>
+<p>On the subscriber side, the payload is pushed to the vFabric Gemfire and a GUID is created on the vFabric Gemfire side and it is pushed to the Topic. The Subscriber component picks up the payload and prints to the console. This <a title="Claimcheck pattern using Spring Integration and Gemfire" href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/">blog </a>explains this more in detail.</p>
+<h2>Conclusion</h2>
+<p>vFabric infrastructure provides a good support for developing Integration components by the way of <a title="STS IDE" href="http://www.springsource.org/sts">STS IDE</a>, <strong>vFabric TC Server</strong>, <strong>vFabric Gemfire</strong>. I have clearly demonstrated how you can build a Publisher/subscriber components which can integrate a source system to target system.</p>
+<p>I hope this blog helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/10/03/publisher-subscriber-using-vfabric-spring-integration-gemfire/" title="8:49 pm" rel="bookmark"><time class="entry-date" datetime="2012-10-03T20:49:04+00:00">October 3, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-642" class="post-642 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/" rel="bookmark">Claimcheck Pattern using Spring Integration and&nbsp;Gemfire</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<h2>Introduction</h2>
+<p>For people who are in hurry, here is <a title="Chaimcheck Pattern using Spring Integration and Gemfire" href="https://github.com/skprasadu/spring-integration-gemfire-claimcheck-pattern">the code and the steps to execute</a>. Please also refer to my blog on <a title="vFabric TC server and vFabric Gemfire" href="http://krishnasblog.com/2012/10/03/publisher-subscriber-using-vfabric-spring-integration-gemfire/">Publisher/Subscriber using Spring Integration and Gemfire as the ESB</a>.</p>
+<p>In a <a title="Enterprise Service Bus, Gemfire, Spring Integration, JMS, Active MQ" href="http://en.wikipedia.org/wiki/Enterprise_service_bus">Enterprise Service Bus (ESB)</a> architecture, the “Service Bus” will become bottle neck over a period of time. In a typical ESB you write to the Bus and lot of subscribers read from the bus. <a title="Enterprise Service Bus, Gemfire, Spring Integration, JMS, Active MQ" href="http://www.springsource.org/spring-gemfire">Gemfire</a> can help ESB to achieve Distributed caching, by virtue of being powerful inmemory distributed caching backbone. <a title="Claimcheck pattern is an Enterprise Integration Pattern" href="http://eaipatterns.com/StoreInLibrary.html">Claimcheck pattern is an Enterprise Integration Pattern</a> where in a Publisher component can publish a large payload into Gemfire cache, a GUID key is generated for this payload and placed on the Topic. A subscriber in the <strong>Claimcheck pattern</strong> will be listening to the Topic for this key and get the payload from Gemfire. The Dataflow diagram is as follows,</p>
+<div data-shortcode="caption" id="attachment_647" style="width: 612px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/09/spring-integration-gemfire-claimcheck-pattern1.png"><img class="size-full wp-image-647" title="Spring Integration Gemfire Claimcheck Pattern" alt="Spring Integration Gemfire Claimcheck Pattern" src="./Spring Integration _ Krishna's Blog_files/spring-integration-gemfire-claimcheck-pattern1.png"></a><p class="wp-caption-text">Spring Integration Gemfire Claimcheck Pattern</p></div>
+<h2>Claimcheck Pattern using Spring Integration and Gemfire</h2>
+<p>There are lot of good example from <a title="Gemfire Examples from David Turanski" href="https://github.com/dturanski/spring-gemfire-examples">David Turanski in Github</a> to learn <a title="Enterprise Service Bus, Gemfire, Spring Integration, JMS, Active MQ, vFabric" href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/">Spring Integration</a> with Gemfire. In this prototype, I built a simple <a title="Replicated Region" href="http://community.gemstone.com/display/gemfire/Replicated+Caching+Example">replicated region</a> based server based on the idea from basic\replicated-cs example from David’s examples. In order to run this prototype, download and install <a title="ActiveMq" href="http://activemq.apache.org/activemq-560-release.html">Activemq</a> and start ActiveMq and create a Topic called “MyTopic”. After that, run the Gemfire Replicated Server as below.</p>
+<pre class="brush: java; title: ; notranslate" title="">cd gemfire-server
+mvn package
+mvn exec:java -Dexec.mainClass="org.springframework.data.gemfire.examples.Server"
+</pre>
+<p>Now Maven import the <strong>claimcheck-subscriber</strong> project into STS IDE and start the tomcat instance by clicking “Run on Server” this project. The subscriber will start listening to the messages/GUID in the topic “MyTopic”</p>
+<p>Finally publish the XML payload on to the Gemfire cache by executing below command,</p>
+<pre class="brush: java; title: ; notranslate" title="">cd claimcheck-publisher
+mvn test
+</pre>
+<p>In the Tomcat server console you will see below message</p>
+<pre class="brush: java; title: ; notranslate" title="">[Headers={timestamp=1348935448580, id=77480754-a4d8-4bc4-a529-26c9e26a7724, jms_timestamp=1348935447237, jms_redelivered=false, jms_messageId=ID:krishna-PC-62975-1348935446968-1:1:1:1:1}]
+29 Sep 2012 12:17:28,702[topicContainer-1] DEBUG: com.goSmarter.gemfire.claimcheckpattern.ServiceActivator - ### PAYLOAD ###&lt;!--?xml version="1.0" encoding="UTF-8"?--&gt;
+
+goSmarter
+
+</pre>
+<h2>Conclusion</h2>
+<p>In this demo, I have demonstrated the <em>claimcheck pattern</em>. In an enterprise ecosystem, this is a basic component of <strong><em>claimcheck pattern</em></strong>. The enhancements on top of this includes various other things including,</p>
+<ul>
+<li>each subscribers doing partial checkout of payloads from Gemfire.</li>
+<li>it also need to have a way to work in a cluster environment.</li>
+<li>Implementing distribution caching</li>
+</ul>
+<p>I hope this example helped you.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/09/29/claimcheck-pattern-using-spring-integration-and-gemfire/" title="7:06 pm" rel="bookmark"><time class="entry-date" datetime="2012-09-29T19:06:27+00:00">September 29, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-623" class="post-623 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/09/25/spring-integration-jms-mbean-configuration/" rel="bookmark">Spring Integration JMS Mbean&nbsp;configuration</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/09/25/spring-integration-jms-mbean-configuration/#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a title="Spring Integration" href="http://www.springsource.org/spring-integration">Spring Integration</a> <a title="JMS message-driven-channel-adapter" href="http://static.springsource.org/spring-integration/archive/1.0.0.RELEASE/reference/html/ch17s02.html">JMS message-driven-channel-adapter</a> has a good <a title="MBean" href="http://docs.oracle.com/javase/tutorial/jmx/mbeans/standard.html">MBean </a>support through&nbsp; <a title="DefaultMessageListenerContainer" href="http://static.springsource.org/spring/docs/2.0.x/api/org/springframework/jms/listener/DefaultMessageListenerContainer.html">DefaultMessageListenerContainer </a>where we can control the flow of messages to the subscribers. In this blog I will demonstrate some of these capabilities. For people in hurry, here is the <a title="Spring Integration JMS Mbean configuration" href="http://krishnasblog.com/2012/09/22/measuring-navigation-flow-junit-test-in-spring-web-flow/">code</a> @ Github,</p>
+<ul>
+<li><a title="ActiveMq" href="http://activemq.apache.org/activemq-560-release.html">Download activemq</a> and unzip it</li>
+<li>run activemq.bat under &lt;activemq-home&gt;/bin folder</li>
+<li>Go to browser and type <a href="http://localhost:8161/admin/queues.jsp" rel="nofollow">http://localhost:8161/admin/queues.jsp</a>, create a new queue “MyQueue”</li>
+<li>Get the latest <a title="Spring Integration JMS Mbean configuration" href="https://github.com/skprasadu/spring-integration-jms-jmx">code from Github</a></li>
+<li>build the war file using “mvn clean package”</li>
+<li>Deploy the war file in <a title="vFabric SpringSource TC server" href="https://my.vmware.com/web/vmware/evalcenter?p=tcserver-dev&lp=default&rct=j&q=&esrc=s&source=web&cd=2&ved=0CDUQFjAB&url=https://www.vmware.com/go/vfabric-tcserver-dev&ei=xABhUMfoFOXy0gGWnoCwBA&usg=AFQjCNH5aVdfJ-29CVgu67shdEtLp-cRbA">Spring tomcat container</a></li>
+<li>“Send to” message to MyQueue in admin console of activemq in the browser</li>
+<li>You notice the message gets consumed</li>
+<li>Open jconsole.exe under jdk bin directory</li>
+<li>Login in to Remote process “localhost:6969”, uid: admin, password: “springsource”</li>
+<li>Go to <strong>MBean</strong> tab and expand spring.application/JMSContainer/testQueueContainer/Operation, click on stop operation</li>
+<li>Again “Send to” message to MyQueue in admin console of activemq in the browser, if you notice, the message is not consumed</li>
+<li>Go to <em>MBean</em> tab and expand spring.application/JMSContainer/testQueueContainer/Operation, click on start operation</li>
+<li>Again “Send to” message to MyQueue in admin console of activemq in the browser, if you notice, the message got consumed</li>
+</ul>
+<h2>Details: Spring Integration JMS Mbean configuration</h2>
+<p>In a typical enterprise IT production environment, you need to control the message processing by the queue subscribers. Typical scenario would be, if there is a an issue with the subscriber and we want to pause the subscriber to troubleshoot it, we need a mechanism for this as below.</p>
+<h2>Expose Lifecycle interface of DefaultMessageListenerContainer</h2>
+<pre class="brush: plain; title: ; notranslate" title="">&lt;bean id="queue.exporter" class="org.springframework.jmx.export.MBeanExporter"&gt;
+&lt;property name="beans"&gt;
+&lt;map&gt;
+&lt;entry key="spring.application:type=JMSContainer,name=testQueueContainer" value-ref="queueContainer" /&gt;
+&lt;/map&gt;
+&lt;/property&gt;
+&lt;property name="assembler"&gt;
+&lt;bean class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler"&gt;
+&lt;property name="managedInterfaces"&gt;
+&lt;value&gt;org.springframework.context.Lifecycle&lt;/value&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+</pre>
+<p><a title="InterfaceBasedMBeanInfoAssembler" href="http://static.springsource.org/spring/docs/1.2.9/api/org/springframework/jmx/export/assembler/InterfaceBasedMBeanInfoAssembler.html">InterfaceBasedMBeanInfoAssembler </a>class expose an interface of a particular class as a Mbean, in the above example it exposes <a title="org.springframework.context.Lifecycle" href="http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/context/class-use/Lifecycle.html">Lifecycle</a></p>
+<h2>Managing JMS subscriber in JConsole</h2>
+<p><a href="http://krishnasblog1068.files.wordpress.com/2012/09/jconsole.png"><img class="size-full wp-image-627" title="Managing JMS subscriber using JConsole" src="./Spring Integration _ Krishna's Blog_files/jconsole.png" alt="Managing JMS subscriber using JConsole"></a></p>
+<dl class="wp-caption alignnone">
+<dt class="wp-caption-dt"></dt>
+<dd class="wp-caption-dd">Managing JMS subscriber using JConsole</dd>
+</dl>
+<p>When you click on start operation, and click on start button, it will start the subscriber to listen to the message and when you click on stop, it will pause the subscriber.</p>
+<h2>Conclusion</h2>
+<p>MBean is a powerful way to expose some of the capabilities of Spring Integration’s various Channel Adapter, so that you can control them from various tools which are MBean aware, like JConsole, <a title="vFabric Hyperic" href="http://www.hyperic.com/">Hyperic </a>. We can also expose, Log4J Mbean so that we can change the log level in the production system. More on this in my subsequent blog.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/09/25/spring-integration-jms-mbean-configuration/" title="1:11 am" rel="bookmark"><time class="entry-date" datetime="2012-09-25T01:11:00+00:00">September 25, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-393" class="post-393 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration tag-test-driven-development">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/09/15/measuring-flow-channel-junit-test-coverage-in-spring-integration-flow/" rel="bookmark">Measuring flow channel JUnit test coverage in Spring Integration&nbsp;Flow</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/09/15/measuring-flow-channel-junit-test-coverage-in-spring-integration-flow/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<h1>Test Coverage</h1>
+<p>In any enterprise integration project there has to be a Business Workflow that needs to be developed and should have proper <strong>test coverage</strong>. In one&nbsp; of our largest Spring Integration project, we had to measure how well the Business workflow has <em>test coverage</em>. <a title="Spring Integration Test Coverage" href="http://www.springsource.org/spring-integration" target="_blank">Spring Integration </a>(SI) is a lightweight framework that has good unit testing support.</p>
+<p><a title="Spring Integration Developer building Test Coverage" href="https://github.com/garyrussell">Gary Russell</a> one of the leading Spring Integration Architects helped us in designing this framework. The framework does the following,</p>
+<ul>
+<li>The framework has a class, you need to inherit this class in your SI to get <a title="JUnit testing coverage" href="http://www.junit.org/" target="_blank">JUnit Test Coverage</a> test with this class. It will wire tap all the channels and count the total channels tested in the SI flow and calculates how many channels the tests are covering and will derive the coverage ratio.</li>
+<li>We also implemented a <a title="Maven Test Coverage Plugin" href="http://maven.apache.org/" target="_blank">Maven </a>plugin, where in we can set the threshold for the build to succeed based on the coverage ratio</li>
+<li>This framework also consists of the <a title="Sonar Test Coverage Plugin" href="https://github.com/garyrussell/sandbox/tree/master/spring-integration-test-sonar-plugin">sonar plugin for channel coverage</a>&nbsp; (contributed by Gary to Github) for <a href="http://www.sonarsource.org/">Sonar software quality tool</a>. Once you get the plugin, you need to build the plugin as “mvn package”. Take the jar file from the target and copy it into &lt;Sonar Home&gt;/extensions/plugins.</li>
+<li>Start Sonar</li>
+<li>In your SI component, if you do “mvn sonar:sonar” it will, push the quality metrics information into Sonar</li>
+</ul>
+<p>The report in Sonar looks as below,</p>
+<div data-shortcode="caption" id="attachment_1505" style="width: 361px" class="wp-caption alignnone"><a href="http://krishnasblog1068.files.wordpress.com/2012/09/spring-coverage1.png"><img class="size-full wp-image-1505" alt="Spring Integration Channel Coverage" src="./Spring Integration _ Krishna's Blog_files/spring-coverage1.png"></a><p class="wp-caption-text">Spring Integration Channel Coverage</p></div>
+<p>The codebase for the utility class AbstractChannelCoverageTests is checked in @ <a href="https://github.com/skprasadu/spring-integration-coverage-test">github</a> . You can see the test class @ src/test/java/org/springframework/integration/test/coverage/ChannelCoverageTests.java. If you notice, in your SI testclass you need to extend this class as follows,</p>
+<pre class="brush: plain; title: ; notranslate" title="">@ContextConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+public class ChannelCoverageTests extends AbstractChannelCoverageTests {
+
+@Test
+void testChannel(){
+//testing and asserting the flow
+}
+</pre>
+<p>It will load a SI config file @ src/test/resources/org/springframework/integration/test/coverage/ChannelCoverageTests-context.xml and load all the channels and will start intercepting for any payload flow and keep count of it.</p>
+<p>As per the above diagram, it will indicate how many channels are missed and it helps in making sure you cover those channels as well.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a>, <a href="http://krishnasblog.com/tag/test-driven-development/" rel="tag">Test Driven Development</a> on <a href="http://krishnasblog.com/2012/09/15/measuring-flow-channel-junit-test-coverage-in-spring-integration-flow/" title="3:03 pm" rel="bookmark"><time class="entry-date" datetime="2012-09-15T15:03:59+00:00">September 15, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+	<article id="post-330" class="post-330 post type-post status-publish format-standard hentry category-spring-integration tag-spring-integration">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="http://krishnasblog.com/2012/09/04/junit-testing-with-spring-integration-and-spring-ws/" rel="bookmark">JUnit testing with Spring Integration and Spring&nbsp;WS</a>
+			</h1>
+										<div class="comments-link">
+					<a href="http://krishnasblog.com/2012/09/04/junit-testing-with-spring-integration-and-spring-ws/#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a title="Spring Integration" href="http://krishnasblog.com/2012/09/19/designing-a-simple-usecase-using-test-first-approach-using-spring/">Spring Integration</a>, <a href="http://static.springsource.org/spring-ws/sites/1.5/">Spring WS</a> for <a title="Spring WS" href="http://static.springsource.org/spring-ws/sites/1.5/">Webservice </a>is a decent framework to design and implement Webservice. More than that it has a good <strong>JUnit testing</strong> support. In this section I will be talking about how we do implement a Webservice using <a title="Test Driven Development" href="http://c2.com/cgi/wiki?TestDrivenDevelopment">Test Driven Development (TDD)</a>. The working sample is here in the <a href="https://github.com/skprasadu/junit-spring-integration-webservice">Github</a>&nbsp;.</p>
+<p>As a first step we need to define the XSD schema:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:data="http://mycompany.com/it/enterprise/data/v1" xmlns:msg="http://mycompany.com/it/enterprise/msg/v1" xmlns:svc="http://mycompany.com/it/enterprise/contract/TestService/v1" targetNamespace="http://mycompany.com/it/enterprise/contract/TestService/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0"&gt; &nbsp;&lt;xsd:import namespace="http : //mycompany.com/it/enterprise/data/v1" schemaLocation="TestTransactions_v1.xsd"/&gt;
+&lt;xsd:element name="TestServiceRequest" type="data:TestServiceRequestType"/&gt;
+&lt;xsd:element name="TestServiceResponse" type="data:TestServiceResponseType"/&gt;
+&lt;/xsd:schema&gt;
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:data="http://mycompany.com/it/enterprise/data/v1" xmlns:msg="http://mycompany.com/it/enterprise/msg/v1" targetNamespace="http://mycompany.com/it/enterprise/data/v1" elementFormDefault="qualified" attributeFormDefault="unqualified"&gt;
+&lt;xsd:complexType name="TestServiceRequestType"&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name="Document"&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name="Id" type="xsd:string" minOccurs="0"/&gt;
+&lt;xsd:element name="Type" type="xsd:string" minOccurs="0"/&gt;
+&lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;
+&lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;
+&lt;xsd:complexType name="TestServiceResponseType"&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name="Document"&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name="Result" type="xsd:string" minOccurs="0"/&gt;
+&lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;
+&lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+</pre>
+<p>Writing the JUnit test as below,</p>
+<pre class="brush: java; title: ; notranslate" title="">public class TestIntegrationEndPointTest {
+
+@Autowired
+private ApplicationContext applicationContext;
+
+private MockWebServiceClient mockClient;
+
+@Before
+public void createClient() {
+mockClient = MockWebServiceClient.createClient(applicationContext);
+}
+
+@Test
+public void testWsEndPointTest() throws Exception {
+Source requestPayload = new StringSource("&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;&lt;v1:TestServiceRequest xmlns:v1=\"http://mycompany.com/it/enterprise/contract/TestService/v1\" xmlns:v11=\"http://mycompany.com/it/enterprise/data/v1\"&gt;&lt;v11:Document&gt;&lt;v11:Id&gt;101&lt;/v11:Id&gt;&lt;v11:Type&gt;MaterialMaster&lt;/v11:Type&gt;&lt;/v11:Document&gt;&lt;/v1:TestServiceRequest&gt;");
+Source responsePayload = new StringSource("&lt;testServiceResponseType xmlns=\"http://mycompany.com/it/enterprise/data/v1\" xmlns:ns2=\"http://mycompany.com/it/enterprise/contract/TestService/v1\"&gt;&lt;Document&gt;&lt;Result&gt;SUCCESS&lt;/Result&gt;&lt;/Document&gt;&lt;/testServiceResponseType&gt;");
+
+mockClient.sendRequest(withPayload(requestPayload)).andExpect(payload(responsePayload));
+}
+}
+</pre>
+<p>Now the test will still fail with need for Spring autowiring, the spring bean definition configuration for <em>Spring WS</em> looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;bean&gt;
+&lt;property name="endpointMap"&gt;
+&lt;map&gt;
+&lt;entry key="{http://mycompany.com/it/enterprise/contract/TestService/v1}TestServiceRequest" value-ref="TestBatchEndpoint" /&gt;
+&lt;/map&gt;
+&lt;/property&gt;
+&lt;/bean&gt;
+&lt;int-ws:inbound-gateway id="TestBatchEndpoint" reply-channel="test.batch.webservice.out" request-channel="test.batch.webservice.in" /&gt;
+&lt;bean id="marshaller"&nbsp;&gt;
+&lt;property name="contextPath" value="com.mycompany.it.enterprise.contract.testservice.v1" /&gt;
+&lt;/bean&gt;
+&lt;bean id="testServiceActivator" class="com.mycompany.it.eis.webservice.ws.TestServiceActivator"/&gt;
+&lt;bean id="resultTransformer" class="org.springframework.integration.xml.transformer.ResultToStringTransformer"/&gt;
+</pre>
+<h2>Spring Integration and Spring WS flow looks as below</h2>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;int:bridge&nbsp; input-channel="test.batch.webservice.in" output-channel="test.batch.webservice.unmarshalling.in"&gt;&lt;/int:bridge&gt;
+&lt;int-xml:unmarshalling-transformer id="defaultUnmarshaller" input-channel="test.batch.webservice.unmarshalling.in" output-channel="test.batch.webservice.unmarshalling.out" unmarshaller="marshaller"/&gt;
+&lt;int:service-activator id="test.batch.webservice.activator" input-channel="test.batch.webservice.unmarshalling.out" ref="testServiceActivator" output-channel="test.batch.webservice.marshalling.in"&gt;
+&lt;/int:service-activator&gt;
+&lt;int-xml:marshalling-transformer input-channel="test.batch.webservice.marshalling.in" output-channel="test.batch.webservice.out" marshaller="marshaller" result-transformer="resultTransformer" /&gt;
+</pre>
+<p>IBatisTemplate looks as below,</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate"&gt;&gt;
+&lt;property name="sqlMapClient" ref="sqlMapClient" /&gt;
+&lt;/bean&gt;
+</pre>
+<p>You need to create the Java stubs from the XSL for that you need to run,</p>
+<pre class="brush: xml; title: ; notranslate" title="">mvn jaxb2:xjc
+</pre>
+<p>It assumes that you have XSDs at location src/main/xsd location by default, refer this <a title="JAXB Maven Plugin" href="http://mojo.codehaus.org/jaxb2-maven-plugin/xjc-mojo.html">article </a>for more details.</p>
+<p>In the Test class, you need to add the Spring JUnit testing capabilities as follows,</p>
+<pre class="brush: java; title: ; notranslate" title="">@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({
+"classpath:META-INF/spring/test-webservice/test-webservice-integration-config.xml",
+"classpath:config/test-webservice-beans-config-test.xml" })
+public class TestIntegrationEndPointTest {
+</pre>
+<p>TestServiceActivator looks somewhat as below:</p>
+<pre class="brush: java; title: ; notranslate" title="">public class TestServiceActivator {
+private static Logger logger = Logger.getLogger(TestServiceActivator.class);
+
+@Autowired
+SqlMapClientTemplate ibatisTemplate;
+
+public TestServiceResponseType processRequest(JAXBElement element) &nbsp;&nbsp;&nbsp;throws Exception {
+TestServiceRequestType request = (TestServiceRequestType) element.getValue();
+String status = "SUCCESS";
+String type = request.getDocument().getType();
+String id = request.getDocument().getId();
+
+TestObject notifyObject = new TestObject();
+notifyObject.setId(id);
+notifyObject.setType(type);
+ibatisTemplate.insert("testInsert", notifyObject);
+
+TestServiceResponseType response = new TestServiceResponseType();
+
+Document doc = new Document();
+doc.setResult(status);
+response.setDocument(doc);
+
+logger.debug("Successfully saved request");
+
+return response;
+}
+}
+</pre>
+<p>One hack we need to do is, we need to add @XmlRootElement to the stubs that were created as per this <a title="JAXB" href="http://weblogs.java.net/blog/kohsuke/archive/2006/03/why_does_jaxb_p.html">article </a></p>
+<pre class="brush: java; title: ; notranslate" title="">@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "TestServiceResponseType", propOrder = {
+"document"
+})
+public class TestServiceResponseType {
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "TestServiceRequestType", propOrder = {
+"document"
+})
+public class TestServiceRequestType {
+</pre>
+<p>Once you do this, we can run the mvn test and it will work. If you notice in this example, we have tested the String WS end to end using JUnit and Spring Integraiton.</p>
+<p>For further reading refer <a href="http://blog.springsource.org/2011/01/11/spring-web-services-2-0-released/">http://blog.springsource.org/2011/01/11/spring-web-services-2-0-released/</a>&nbsp;.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://krishnasblog.com/category/java/spring/spring-integration/" rel="category tag">Spring Integration</a> and tagged <a href="http://krishnasblog.com/tag/spring-integration/" rel="tag">Spring Integration</a> on <a href="http://krishnasblog.com/2012/09/04/junit-testing-with-spring-integration-and-spring-ws/" title="5:12 pm" rel="bookmark"><time class="entry-date" datetime="2012-09-04T17:12:11+00:00">September 4, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://krishnasblog.com/author/praskrishna/" title="View all posts by Krishna" rel="author">Krishna</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+</div><span class="infinite-loader" style="display: none;"><div class="spinner" role="progressbar" style="position: relative; width: 0px; z-index: 2000000000; left: 17px; top: 14px;"><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-0-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(0deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-1-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(45deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-2-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(90deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-3-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(135deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-4-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(180deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-5-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(225deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-6-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(270deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-60-25-7-8 0.769230769230769s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 7px; height: 3px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(315deg) translate(5px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div></div></span></div><!-- #content -->
+	</section><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+						<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://krishnasblog.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-1715866"><a href="http://krishnasblog.com/category/cloud-computing/">Cloud Computing</a> (4)
+</li>
+	<li class="cat-item cat-item-215429"><a href="http://krishnasblog.com/category/grails/">Grails</a> (2)
+</li>
+	<li class="cat-item cat-item-20999524"><a href="http://krishnasblog.com/category/html5-canvas/">HTML5 Canvas</a> (1)
+</li>
+	<li class="cat-item cat-item-45721567"><a href="http://krishnasblog.com/category/ios-programming/">iOS Programming</a> (3)
+</li>
+	<li class="cat-item cat-item-1017"><a href="http://krishnasblog.com/category/java/">Java</a> (61)
+<ul class="children">
+	<li class="cat-item cat-item-15968671"><a href="http://krishnasblog.com/category/java/bigdata/">BigData</a> (8)
+</li>
+	<li class="cat-item cat-item-51757"><a href="http://krishnasblog.com/category/java/bpm/">BPM</a> (2)
+</li>
+	<li class="cat-item cat-item-310909"><a href="http://krishnasblog.com/category/java/drools/">Drools</a> (1)
+</li>
+	<li class="cat-item cat-item-3858"><a href="http://krishnasblog.com/category/java/play/">Play</a> (2)
+</li>
+	<li class="cat-item cat-item-9486"><a href="http://krishnasblog.com/category/java/spring/" title="Spring">Spring</a> (40)
+	<ul class="children">
+	<li class="cat-item cat-item-91482705"><a href="http://krishnasblog.com/category/java/spring/spring-boot/">Spring Boot</a> (2)
+</li>
+	<li class="cat-item cat-item-5915024"><a href="http://krishnasblog.com/category/java/spring/spring-integration/">Spring Integration</a> (14)
+</li>
+	<li class="cat-item cat-item-465938"><a href="http://krishnasblog.com/category/java/spring/spring-mvc/">Spring MVC</a> (11)
+</li>
+	<li class="cat-item cat-item-3428272"><a href="http://krishnasblog.com/category/java/spring/spring-security/" title="Spring Security">Spring Security</a> (7)
+</li>
+	<li class="cat-item cat-item-535108"><a href="http://krishnasblog.com/category/java/spring/spring-web-flow/">Spring Web Flow</a> (2)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-116650247"><a href="http://krishnasblog.com/category/java/webscrapping/">Webscrapping</a> (4)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-457"><a href="http://krishnasblog.com/category/javascript/">Javascript</a> (4)
+</li>
+	<li class="cat-item cat-item-40978"><a href="http://krishnasblog.com/category/machine-learning/">Machine Learning</a> (1)
+</li>
+	<li class="cat-item cat-item-1961368"><a href="http://krishnasblog.com/category/physics-engine/">Physics Engine</a> (1)
+</li>
+	<li class="cat-item cat-item-312256"><a href="http://krishnasblog.com/category/scala/">Scala</a> (10)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://krishnasblog.com/category/testing/" title="Test Automation and other related topics">Testing</a> (1)
+</li>
+		</ul>
+</aside><aside id="top-posts-2" class="widget widget_top-posts"><h3 class="widget-title">Top Posts &amp; Pages</h3><ul>				<li>
+										<a href="http://krishnasblog.com/2013/02/11/sample-of-spring-security-and-cas-single-signon/" class="bump-view" data-bump-view="tp">
+						Sample of Spring Security and CAS (Single Signon)					</a>
+									</li>
+							<li>
+										<a href="http://krishnasblog.com/2013/02/21/junit-testing-of-spring-mvc-application-testing-controller/" class="bump-view" data-bump-view="tp">
+						JUnit testing of Spring MVC application: Testing Controller					</a>
+									</li>
+							<li>
+										<a href="http://krishnasblog.com/2013/02/21/junit-testing-of-spring-mvc-application-testing-service-layer/" class="bump-view" data-bump-view="tp">
+						JUnit testing of Spring MVC application: Testing Service layer					</a>
+									</li>
+							<li>
+										<a href="http://krishnasblog.com/2012/10/08/responsive-web-design-using-twitter-bootstrap-spring-mvc/" class="bump-view" data-bump-view="tp">
+						Responsive Web Design using Twitter Bootstrap, Spring MVC					</a>
+									</li>
+							<li>
+										<a href="http://krishnasblog.com/2013/02/21/junit-testing-of-spring-mvc-application-testing-dao-layer/" class="bump-view" data-bump-view="tp">
+						JUnit testing of Spring MVC application: Testing DAO layer					</a>
+									</li>
+			</ul></aside><aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h3 class="widget-title">GoSmarter’s Tags</h3><div style="overflow:hidden"><a href="http://krishnasblog.com/tag/grails/" class="tag-link-215429" title="2 topics" style="font-size: 10.709677419355pt;">Grails</a>
+<a href="http://krishnasblog.com/tag/hadoop/" class="tag-link-3251196" title="5 topics" style="font-size: 15.225806451613pt;">Hadoop</a>
+<a href="http://krishnasblog.com/tag/ios-programming/" class="tag-link-45721567" title="3 topics" style="font-size: 12.516129032258pt;">iOS Programming</a>
+<a href="http://krishnasblog.com/tag/latest-in-java/" class="tag-link-121150985" title="7 topics" style="font-size: 17.032258064516pt;">Latest in Java</a>
+<a href="http://krishnasblog.com/tag/latest-in-software/" class="tag-link-143889767" title="7 topics" style="font-size: 17.032258064516pt;">Latest in Software</a>
+<a href="http://krishnasblog.com/tag/scala/" class="tag-link-312256" title="10 topics" style="font-size: 19.139784946237pt;">Scala</a>
+<a href="http://krishnasblog.com/tag/spring/" class="tag-link-9486" title="1 topic" style="font-size: 8pt;">Spring</a>
+<a href="http://krishnasblog.com/tag/spring-integration/" class="tag-link-5915024" title="14 topics" style="font-size: 21.247311827957pt;">Spring Integration</a>
+<a href="http://krishnasblog.com/tag/spring-mvc/" class="tag-link-465938" title="16 topics" style="font-size: 22pt;">Spring MVC</a>
+<a href="http://krishnasblog.com/tag/spring-security/" class="tag-link-3428272" title="9 topics" style="font-size: 18.537634408602pt;">Spring Security</a>
+<a href="http://krishnasblog.com/tag/test-driven-development/" class="tag-link-78073" title="5 topics" style="font-size: 15.225806451613pt;">Test Driven Development</a></div></aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href="http://krishnasblog.com/2016/01/">January 2016</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2015/07/">July 2015</a>&nbsp;(2)</li>
+	<li><a href="http://krishnasblog.com/2015/03/">March 2015</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2015/02/">February 2015</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2014/02/">February 2014</a>&nbsp;(2)</li>
+	<li><a href="http://krishnasblog.com/2014/01/">January 2014</a>&nbsp;(2)</li>
+	<li><a href="http://krishnasblog.com/2013/09/">September 2013</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2013/03/">March 2013</a>&nbsp;(8)</li>
+	<li><a href="http://krishnasblog.com/2013/02/">February 2013</a>&nbsp;(13)</li>
+	<li><a href="http://krishnasblog.com/2013/01/">January 2013</a>&nbsp;(3)</li>
+	<li><a href="http://krishnasblog.com/2012/12/">December 2012</a>&nbsp;(10)</li>
+	<li><a href="http://krishnasblog.com/2012/11/">November 2012</a>&nbsp;(7)</li>
+	<li><a href="http://krishnasblog.com/2012/10/">October 2012</a>&nbsp;(11)</li>
+	<li><a href="http://krishnasblog.com/2012/09/">September 2012</a>&nbsp;(9)</li>
+	<li><a href="http://krishnasblog.com/2012/08/">August 2012</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2012/07/">July 2012</a>&nbsp;(1)</li>
+	<li><a href="http://krishnasblog.com/2012/06/">June 2012</a>&nbsp;(4)</li>
+	<li><a href="http://krishnasblog.com/2012/05/">May 2012</a>&nbsp;(9)</li>
+		</ul>
+		</aside><aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Gosmarter meta</h3>			<ul>
+			<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li>			<li><a href="https://krishnasblog1068.wordpress.com/wp-login.php">Log in</a></li>
+			<li><a href="http://krishnasblog.com/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://krishnasblog.com/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>			</ul>
+			</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+			<a href="https://wordpress.com/themes/twentytwelve/" title="Learn more about this theme">The Twenty Twelve Theme</a>.			<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = {"settings":{"id":"content","ajaxurl":"http:\/\/krishnasblog.com\/?infinity=scrolling","type":"scroll","wrapper":true,"wrapper_class":"infinite-wrap","footer":"page","click_handle":"1","text":"Older posts","totop":"Scroll back to top","currentday":"21.10.12","order":"DESC","scripts":[],"styles":[],"google_analytics":false,"offset":0,"history":{"host":"krishnasblog.com","path":"\/tag\/spring-integration\/page\/%d\/","use_trailing_slashes":true,"parameters":""},"query_args":{"tag":"spring-integration","error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","static":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","cat":"","tag_id":5915024,"author":"","author_name":"","feed":"","tb":"","paged":0,"comments_popup":"","meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":["spring-integration"],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"posts_per_page":7,"ignore_sticky_posts":false,"suppress_filters":false,"cache_results":false,"update_post_term_cache":true,"update_post_meta_cache":true,"post_type":"","nopaging":false,"comments_per_page":"50","no_found_rows":false,"order":"DESC"},"last_post_date":"2012-10-21 02:19:41","stats":"blog=35510357&v=wpcom&tz=0&user_id=0&subd=krishnasblog1068&x_pagetype=infinite"}};
+		//]]>
+		</script>
+		<!-- wpcom_wp_footer -->
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+		<div id="infinite-footer" style="bottom: 0px;">
+			<div class="container" style="width: 1040px;">
+				<div class="blog-info">
+					<a id="infinity-blog-title" href="http://krishnasblog.com/" rel="home" title="Scroll back to top">
+						Krishna's Blog					</a>
+				</div>
+				<div class="blog-credits">
+					<a href="https://wordpress.com/?ref=footer_website">Create a free website or blog at WordPress.com.</a> <a href="https://wordpress.com/themes/twentytwelve/" title="Learn more about this theme">The Twenty Twelve Theme</a>.				</div>
+			</div>
+		</div><!-- #infinite-footer -->
+		
+	<div id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “Krishna's Blog”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 36 other followers</p>
+			<p><input type="email" name="email" placeholder="Enter your email address" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="35510357">
+			<input type="hidden" name="source" value="http://krishnasblog.com/tag/spring-integration/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="540548acb7"><input type="hidden" name="_wp_http_referer" value="/tag/spring-integration/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="https://wordpress.com/?ref=lof">Build a website with WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<div id="carousel-reblog-box">
+		<form action="" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="" class="cancel">Cancel</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post">
+				<input type="hidden" id="carousel-reblog-blog-id" value="35510357">
+				<input type="hidden" id="carousel-reblog-blog-url" value="http://krishnasblog.com">
+				<input type="hidden" id="carousel-reblog-blog-title" value="Krishna&#39;s Blog">
+				<input type="hidden" id="carousel-reblog-post-url" value="">
+				<input type="hidden" id="carousel-reblog-post-title" value="">
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="a09578fc33"><input type="hidden" name="_wp_http_referer" value="/tag/spring-integration/">		</form>
+
+		<div class="arrow"></div>
+	</div>
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/saved_resource(3)"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://s0.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?m=1422342134g&amp;ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://s0.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?m=1363304414g&amp;ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<link rel="stylesheet" id="all-css-0" href="./Spring Integration _ Krishna's Blog_files/jetpack-carousel.css" type="text/css" media="all">
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='http://s1.wp.com/wp-content/mu-plugins/carousel/jetpack-carousel-ie8fix.css?m=1412618825g&#038;ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="all-css-2" href="./Spring Integration _ Krishna's Blog_files/tiled-gallery.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var JetpackEmojiSettings = {"base_url":"http:\/\/s0.wp.com\/wp-content\/mu-plugins\/emoji\/twemoji\/"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/krishnasblog.com\/wp-admin\/admin-ajax.php","nonce":"bc8d4c2c3e","display_exif":"1","display_geo":"1","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/krishnasblog1068.wordpress.com\/wp-login.php?redirect_to=http%3A%2F%2Fkrishnasblog.com%2F2012%2F10%2F21%2Fcontrol-bus-pattern-with-spring-integration-and-jms%2F","local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=35510357&v=wpcom&tz=0&user_id=0&subd=krishnasblog1068","is_public":"1","reblog_enabled":""};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/krishnasblog.com\/wp-admin\/admin-ajax.php","nonce":"bc8d4c2c3e","display_exif":"1","display_geo":"1","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/krishnasblog1068.wordpress.com\/wp-login.php?redirect_to=http%3A%2F%2Fkrishnasblog.com%2F2012%2F10%2F21%2Fcontrol-bus-pattern-with-spring-integration-and-jms%2F","local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=35510357&v=wpcom&tz=0&user_id=0&subd=krishnasblog1068","is_public":"1","reblog_enabled":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/saved_resource(4)"></script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js?ver=20111117"></script>
+<script type="text/javascript" src="./Spring Integration _ Krishna's Blog_files/saved_resource(5)"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery","jquery-core","jquery-migrate","mobile-useragent-info","postmessage","jquery_inview","jetpack_resize","loggedout-subscribe","spin","jquery.spin","grofiles-cards","wpgroho","syntaxhighlighter-core","syntaxhighlighter-brush-xml","syntaxhighlighter-brush-plain","syntaxhighlighter-brush-java","devicepx","the-neverending-homepage","twentytwelve-navigation","twemoji","jetpack-emoji","jetpack-emoji-init","swfobject","videopress","jetpack-carousel","twitter-widgets","twitter-widgets-infinity","twitter-widgets-pending","tiled-gallery"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["smileyproject","jetpack_likes","loggedout-subscribe","the-neverending-homepage","wpcom-core-compat-playlist-styles","mp6hacks","wpcom-bbpress2-staff-css","twentytwelve-style","twentytwelve-wpcom-style","jetpack-emoji-css","noticons","geo-location-flair","reblogging","infinity-twentytwelve","h4-global","widget-grid-and-list","twentytwelve-fonts","twentytwelve-ie","jetpack-carousel","tiled-gallery","jetpack-carousel-ie8fix"] );
+		</script><script src="./Spring Integration _ Krishna's Blog_files/w.js" type="text/javascript" async="" defer=""></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'35510357','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'35510357','v':'wpcom','tz':'0','user_id':'0','subd':'krishnasblog1068'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1LVmwrVi5vQS5fVFtfdHBbPyw1VXIrU3hWLHhzVndTdktBX0ddJnpXRjVaOTd6fj1YMX4ydzRUSk0wbVRfODlnNUZzflpnbkZvTEZCZThbYWgrTltdfm9zN3RnTVhvW0NGfi9uaSt6QUtwaWUrN1UsXUVHQltdYj9SMm4xckxzaz0/bDYwd0VpZVRnSXBRYkdYP2syVFJfblNQL0pKUHJxVEdLflpYZlR8d0ZWL2dTd0lPZ0JNcy5QX1JhdW1ZdHNMW0Jbd1R1NnVaUC1hU1pycT1LU3E3bHxoM1gleXFbdm4mSStNLXhJbUNBV3JwYkd+fHhNd18zaGxYbEtoVmcrQjVbdlhmL0gwbmNDYkl4OFhUdVoveS9PV0hIeQ=='}]);
+_stq.push([ 'clickTrackerInit', '35510357', '0' ]);
+	</script>
+<noscript>&lt;img src="http://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+<img src="./Spring Integration _ Krishna's Blog_files/g.gif" id="wpstats"><div class="_bd_ext_tip" style="visibility: hidden;"><span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span class="_bd_ext_copy">复制</span></div></body></html>

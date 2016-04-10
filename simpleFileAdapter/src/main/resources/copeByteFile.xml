@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:file="http://www.springframework.org/schema/integration/file"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+                http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <context:property-placeholder/>
+   <!-- -->
+    <int:gateway service-interface="com.kang.spring.integration.service.FileService"
+                 default-request-channel="filesIn">
+    </int:gateway>
+
+    <int:channel id="filesIn">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <file:inbound-channel-adapter channel="filesIn"
+                                  directory="file:${user.dir}/input"
+                                  filename-regex="[a-z]+.txt"
+                                  auto-startup="true">
+                                    <!--  filename-regex=".[a-z]+.txt" -->
+                                    <!-- filename-pattern="test.txt" -->
+        <int:poller fixed-delay="5000" />
+    </file:inbound-channel-adapter>
+
+    <file:file-to-bytes-transformer input-channel="filesIn" output-channel="bytes" delete-files="false"/>
+
+    <int:channel id="bytes">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:service-activator input-channel="bytes"
+                           output-channel="filesOut" ref="fileHandler" method="handleBytes">
+    </int:service-activator>
+
+    <file:outbound-channel-adapter id="filesOut"
+                                   directory="file:${user.dir}/output" delete-source-files="false">
+    </file:outbound-channel-adapter>
+
+   <int:poller id="poller" default="true" fixed-delay="5000"/>
+</beans>

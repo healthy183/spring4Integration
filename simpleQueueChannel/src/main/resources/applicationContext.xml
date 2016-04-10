@@ -11,7 +11,7 @@
 
     <int:channel id="inputChannel"/>
     <int:channel id="outputChannel">
-        <int:queue capacity="10"/>
+        <int:queue capacity="10"/><!--定义queueChannel队列为10,capacity为0表示queueChannel强制马上接受信息-->
     </int:channel>
 
     <bean id="springIntHelloWorldExample"

@@ -6,6 +6,7 @@ import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHeaders;
 
 /**
  * @Title 类名
@@ -24,13 +25,16 @@ public class SpringIntHelloWorldExample {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
-
         try {
             SpringIntHelloWorldExample springIntExample = (SpringIntHelloWorldExample) context
                     .getBean("springIntHelloWorldExample");
             springIntExample.post("This is spring integration example.");
             QueueChannel outChannel = (QueueChannel) context.getBean("outputChannel");
-            System.out.println(outChannel.receive());
+            Message<String> message = (Message<String>) outChannel.receive();
+            MessageHeaders header = message.getHeaders();
+            String str = message.getPayload();
+            System.out.println(header);
+            System.out.println(str);
         } finally {
             context.close();
         }

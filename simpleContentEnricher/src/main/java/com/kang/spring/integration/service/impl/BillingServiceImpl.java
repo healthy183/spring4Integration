@@ -17,7 +17,7 @@ public class BillingServiceImpl implements BillingService {
 
   /*
     int:enricher
-    会将BillingInfo的BillingInfo，creditPoints封装到customer*/
+    会将BillingInfo的address，creditPoints封装到customer*/
     @Override
     public BillingInfo getBillingAddress(Customer customer) {
         if (customer.getId().equals("Joe")) {

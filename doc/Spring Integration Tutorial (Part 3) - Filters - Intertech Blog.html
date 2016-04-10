@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="csstransforms csstransforms3d csstransitions js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!--<meta charset="UTF-8" />-->
+		<meta charset="iso-8859-1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Spring Integration Tutorial (Part 3) - Filters - Intertech Blog</title>
+		
+		<link rel="pingback" href="http://www.intertech.com/Blog/xmlrpc.php">
+
+		<!-- favicon -->
+		<!--
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700" />
+		-->
+		<link rel="stylesheet" type="text/css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/css">
+		<!-- scripts and wp_head() here -->
+		
+<!-- This site is optimized with the Yoast SEO plugin v2.3.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noodp,noydir">
+<meta name="description" content="In this third part of the Spring Integration tutorial series, we explore the types and configuration of filters provided by Spring Integration.">
+<link rel="canonical" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring Integration Tutorial (Part 3) - Filters - Intertech Blog.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Integration Tutorial (Part 3) - Filters - Intertech Blog">
+<meta property="og:description" content="In this third part of the Spring Integration tutorial series, we explore the types and configuration of filters provided by Spring Integration.">
+<meta property="og:url" content="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/">
+<meta property="og:site_name" content="Intertech Blog">
+<meta property="article:publisher" content="https://www.facebook.com/Intertech">
+<meta property="article:tag" content="Enterprise Application Integration">
+<meta property="article:tag" content="Enterprise Integration Patterns">
+<meta property="article:tag" content="Spring Framework 4">
+<meta property="article:tag" content="Spring Integration">
+<meta property="article:section" content="Eclipse">
+<meta property="article:published_time" content="2014-08-05T06:00:46+00:00">
+<meta property="article:modified_time" content="2015-08-19T13:16:11+00:00">
+<meta property="og:updated_time" content="2015-08-19T13:16:11+00:00">
+<meta property="og:image" content="http://cdn.intertech.com/Blog/wp-content/uploads/2014/08/Spring_Integration_Part3_Filters.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="In this third part of the Spring Integration tutorial series, we explore the types and configuration of filters provided by Spring Integration.">
+<meta name="twitter:title" content="Spring Integration Tutorial (Part 3) - Filters - Intertech Blog">
+<meta name="twitter:site" content="@IntertechInc">
+<meta name="twitter:domain" content="Intertech Blog">
+<meta name="twitter:image:src" content="http://cdn.intertech.com/Blog/wp-content/uploads/2014/08/Spring_Integration_Part3_Filters.png">
+<meta name="twitter:creator" content="@IntertechInc">
+<!-- / Yoast SEO plugin. -->
+
+		<script async="" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/saved_resource"></script><script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/powt.js.aspx"></script><script async="" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/fbds.js"></script><script type="text/javascript" async="" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/ga.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.intertech.com\/Blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=f1c492ed57dc451a42ef671e8c19c553"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style type="text/css" adt="123"></style><script src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="flick-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/flick.css" type="text/css" media="all">
+<link rel="stylesheet" id="mailchimpSF_main_css-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/saved_resource(1)" type="text/css" media="all">
+<!--[if IE]>
+<link rel='stylesheet' id='mailchimpSF_ie_css-css'  href='http://cdn.intertech.com/Blog/wp-content/plugins/mailchimp/css/ie.css?ver=f1c492ed57dc451a42ef671e8c19c553' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="crayon-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="pe_theme_compressed-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/theme.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="pe_theme_init-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-postratings-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/postratings-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/default.min.css" type="text/css" media="all">
+<!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal disabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-325338-1']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Google Analytics by Yoast -->
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/core.min.js"></script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/datepicker.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.7.1","is_admin":"0","ajaxurl":"http:\/\/www.intertech.com\/Blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/crayon.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var peContactForm = {"url":"http%3A%2F%2Fwww.intertech.com%2FBlog%2Fwp-admin%2Fadmin-ajax.php"};
+var peNewsletter = {"url":"http%3A%2F%2Fwww.intertech.com%2FBlog%2Fwp-admin%2Fadmin-ajax.php"};
+var peFallBackPlayer = {"url":"http%3A%2F%2Fwww.intertech.com%2FBlog%2Fwp-content%2Fthemes%2Frework%2Fframework%2Fjs%2Fvideo%2Fjarisplayer.swf"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/theme.min.js"></script>
+
+	<script type="text/javascript">
+		jQuery(function($) {
+			$('.date-pick').each(function() {
+				var format = $(this).data('format') || 'mm/dd/yyyy';
+				format = format.replace(/yyyy/i, 'yy');
+				$(this).datepicker({
+					autoFocusNextInput: true,
+					constrainInput: false,
+					changeMonth: true,
+					changeYear: true,
+					beforeShow: function(input, inst) { $('#ui-datepicker-div').addClass('show'); },
+					dateFormat: format.toLowerCase(),
+				});
+			});
+			d = new Date();
+			$('.birthdate-pick').each(function() {
+				var format = $(this).data('format') || 'mm/dd';
+				format = format.replace(/yyyy/i, 'yy');
+				$(this).datepicker({
+					autoFocusNextInput: true,
+					constrainInput: false,
+					changeMonth: true,
+					changeYear: false,
+					minDate: new Date(d.getFullYear(), 1-1, 1),
+					maxDate: new Date(d.getFullYear(), 12-1, 31),
+					beforeShow: function(input, inst) { $('#ui-datepicker-div').removeClass('show'); },
+					dateFormat: format.toLowerCase(),
+				});
+
+			});
+
+		});
+	</script>
+	<script type="text/javascript">jQuery(document).ready(function(e){function i(t){args=l(e(t).html());var n=new Object;n.checking=false;n.previousY=-1;n.open_trigger=f(args,"open-trigger","");n.close_trigger=f(args,"close-trigger","");n.timed_popup_delay=f(args,"timed-popup-delay",-1);n.enable_exit_intent=f(args,"enable-exit-intent-popup",false);n.enable_scroll=f(args,"enable-scroll-popup",false);n.scroll_percent=f(args,"scroll-percent",-1);n.scroll_trigger=f(args,"scroll-trigger","");n.popup_selector=f(args,"popup-selector","");n.popup_class=f(args,"popup-class","");n.cookie_duration=f(args,"cookie-duration",0);n.cookie_name=f(args,"cookie-name","");n.priority=f(args,"priority",0);return n}function s(e){if(false===r||r<e.priority){p(e);d(e.cookie_name,e.cookie_duration)}}function o(e){if(e.checking&&(false===r||r<e.priority)){p(e);d(e.cookie_name,e.cookie_duration)}e.checking=false}function u(t){if(false===r||r<t.priority){var n=e(window).scrollTop()+e(window).height(),i=e(document).height();if(t.scroll_percent>=0){if(n>i*t.scroll_percent/100){p(t)}}if(t.scroll_trigger){e(t.scroll_trigger).each(function(i,s){if(false===r||r<t.priority){var o=e(s).offset().top;if(o<n){p(t)}}})}}}function a(){var n=[];e(t).each(function(t){var r=i(this),o=v(r.cookie_name),a=e.isFunction(e.fn.on);if(o===null){if(r.timed_popup_delay>=0){setTimeout(function(){s(r)},r.timed_popup_delay*1e3)}if(r.enable_exit_intent){e(document).mousemove(function(e){c(e,r)})}if(r.enable_scroll&&(r.scroll_percent>=0||r.scroll_trigger)){if(a){e(window).on("scroll",function(e){u(r)})}else{e(window).bind("scroll",function(e){u(r)})}}}if(r.open_trigger){if(a){e("html").on("touchend click",r.open_trigger,function(e){if(e.target!==this)return;p(r);return false})}else{e(r.open_trigger).bind("touchend click",function(e){if(e.target!==this)return;p(r);return false})}}if(r.close_trigger){if(a){e("html").on("touchend click",r.close_trigger,function(e){if(e.target!==this)return;h(r);return false})}else{e(r.close_trigger).bind("touchend click",function(e){if(e.target!==this)return;h(r);return false})}}n.push(r)});e(document).keyup(function(e){if(e.keyCode!=27)return;for(var t=0;t<n.length;t++){h(n[t])}return false})}function f(e,t,n){var r=null;if(t in e){r=e[t];if(typeof n=="boolean"){return r=="true"}if(typeof n=="number"){return parseInt(r)}return r}return n}function l(t){var n=e.parseJSON(t),r=null;for(r in n){if("string"===typeof n[r]){n[r]=n[r].replace(/&quot;/g,'"');n[r]=n[r].replace(/&#039;/g,"'");n[r]=n[r].replace(/&lt;/g,"<");n[r]=n[r].replace(/&gt;/g,">");n[r]=n[r].replace(/&/g,"&")}}return n}function c(e,t){if(t.hasOpened)return;t.checking=false;if(e.clientY<t.previousY){var n=e.clientY+(e.clientY-t.previousY);if(n<=10){t.checking=true;setTimeout(function(){o(t)},1)}}t.previousY=e.clientY}function h(t){n=false;if(t.popup_selector&&t.popup_class){e(t.popup_selector).removeClass(t.popup_class)}}function p(t){r=t.priority;if(n)return;n=true;if(t.popup_selector&&t.popup_class){e(t.popup_selector).addClass(t.popup_class)}}function d(e,t){var n="",r=null;if(e){if(t!==0){r=new Date;r.setTime(r.getTime()+t*24*60*60*1e3);n="; expires="+r.toGMTString()}document.cookie=e+"=disable"+n+"; path=/"}}function v(e){if(e){var t=e+"=",n=document.cookie,r=n.indexOf(t);if(r>=0){r+=t.length;endIndex=n.indexOf(";",r);if(endIndex<0)endIndex=n.length;return n.substring(r,endIndex)}}return null}var t=".popupally-configuration",n=false,r=false;a()})</script><style type="text/css">#popup-box-sxzw-1 .clear-sxzw,
+#popup-embedded-box-sxzw-1 .clear-sxzw {clear: both; height:0px; width: 100%;}
+#popup-box-sxzw-1.popupally-overlay-sxzw-1 {width:100%;height:100%;overflow:hidden;position:fixed;bottom:0;right:0;display:none;background-color:rgba(80,80,80,0.5);}
+#popup-box-sxzw-1.popupally-opened-sxzw-1 {display:block !important;z-index:9999;}
+
+#popup-box-sxzw-1 .popupally-outer-sxzw-1{
+position:absolute;
+top:20%;
+left:50%;
+width:650px;
+background-color:#194689;
+margin-left:-325px;
+-webkit-box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+-moz-box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+#popup-embedded-box-sxzw-1.popupally-outer-embedded-sxzw-1 {
+width:650px;
+background-color:#194689;
+margin:0 auto;
+clear:both;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1{overflow:visible;height:auto;padding:20px;text-align:center;}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .content-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .content-sxzw{
+text-align: center;
+vertical-align: middle;
+width:100%;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw{
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-size: 28px;
+line-height: 30px;
+font-weight: bold;
+margin: 0 0 10px 0;
+color:#ffffff;
+display: block;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+cursor: pointer;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw{
+display:block;
+padding:15px 12px;
+margin:0 auto 10px auto;
+width:100%;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+line-height: 21px;
+border: 1px solid #d4d3d3;
+background: #f6f6f6;
+-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.67),inset 0 1px 3px rgba(5,5,5,0.13);
+-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.67),inset 0 1px 3px rgba(5,5,5,0.13);
+box-shadow: 0 1px 0 rgba(255,255,255,0.67),inset 0 1px 3px rgba(5,5,5,0.13);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+height:auto;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 22px;
+line-height:27px;
+background-color:#5e8fc1;
+border-style: solid;
+border-width: 1pt;
+border-color:#C0C0C0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+color:#ffffff;
+text-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
+cursor: pointer;
+-webkit-border-radius: 3pt;
+-moz-border-radius: 3pt;
+border-radius: 3pt;
+width:100%;
+padding:15px 0;
+margin: 10px auto;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+height:auto;
+background-image:none;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw:hover,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw:hover{
+background-color:#5e8fc1;
+color:#ffffff;
+background-image:none;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw{
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-size:14px;
+line-height:14px;
+color:#ffffff;
+display: block;
+margin:10px 0;
+padding:0;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+}
+#popup-box-sxzw-1 .popupally-outer-sxzw-1 .popupally-close-sxzw{
+background-image:url('http://cdn.intertech.com/Blog/wp-content/plugins/popupally/resource/frontend/img/fancy_close.png');
+background-size:cover;
+display: block;
+position: absolute;
+top: -12px;
+right: -12px;
+width: 30px;
+height: 30px;
+color: white;
+cursor: pointer;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw{
+margin: 20px 0;
+display: block;
+}
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw{
+height: 120px;
+margin: 0 20px 0 0;
+float: left;
+display: block;
+}
+
+#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw,
+#popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw{
+height: auto;
+width: 100%;
+vertical-align: top;
+text-align: left;
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-size: 24px;
+line-height: 28px;
+color:#ffffff;
+margin:0;
+padding:0;
+box-sizing:border-box;
+-moz-box-sizing:border-box;
+}
+@media (max-width: 768px) {
+	#popup-box-sxzw-1 .popupally-outer-sxzw-1{width:480px;margin-left:-240px;}
+	#popup-embedded-box-sxzw-1.popupally-outer-embedded-sxzw-1{width:480px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw{font-size:24px;line-height:26px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw {padding:10px 10px;font-size: 12px;line-height: 18px;margin-bottom:7px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw {font-size: 18px;padding:10px 0;margin-top:8px;margin-bottom:8px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw{font-size:10px;line-height:10px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw {margin:15px 0;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw {height:80px;margin:0 15px 0 0;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw {font-size:20px;line-height:22px;}
+}
+@media (max-width: 520px) {
+	#popup-box-sxzw-1 .popupally-outer-sxzw-1{width:300px;margin-left:-150px;}
+	#popup-embedded-box-sxzw-1.popupally-outer-embedded-sxzw-1{width:300px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .desc-sxzw{font-size:18px;line-height:20px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="text"].field-sxzw {padding:10px 6px;font-size: 10px;line-height: 14px;margin-bottom:5px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .popupally-center-sxzw .content-sxzw input[type="submit"].submit-sxzw {font-size: 16px;padding:8px 0;margin-top:4px;margin-bottom:4px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .privacy-sxzw{font-size:8px;line-height:8px;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-row-sxzw {margin:10px 0;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-img-sxzw {height:60px;margin:0 10px 0 0;}
+	#popup-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw, #popup-embedded-box-sxzw-1 .popupally-inner-sxzw-1 .logo-text-sxzw {font-size:12px;line-height:14px;}
+}</style><script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "http://www.intertech.com/Blog/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.5.4';
+	window._wp_rp_post_id = '4457';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Spring+Integration+Tutorial+%28Part+3%29+-+Filters';
+	window._wp_rp_post_tags = ['enterprise+integration+pattern', 'spring+framework+4', 'enterprise+application+integra', 'spring+integration', 'spring+framework', 'eclipse', 'java', 'tutori', 'seri', 'custom', 'channel', '3', 'a', 'filter', 'messag', 'system', 'aso', 'train', '2', 'spring', 'nai', 'integr'];
+	window._wp_rp_promoted_content = true;
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/loader.js" async=""></script>
+<link rel="stylesheet" href="http://cdn.intertech.com/Blog/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.5.4">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//www.intertech.com/Blog/?wordfence_logHuman=1&hid=752CF3F197B5DCF3FF481A79FBD0964C');
+</script>		<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="http://cdn.intertech.com/Blog/wp-content/themes/rework/js/selectivizr-min.js"></script><![endif]-->
+
+		<style type="text/css">body,p,input[type="text"],textarea,input[type="submit"],input[type="reset"],input[type="button"],button,.button,#navigation a{font-family:'Open Sans';}h1{font-family:'Open Sans';}h2{font-family:'Open Sans';}h3{font-family:'Open Sans';}h4{font-family:'Open Sans';}h5{font-family:'Open Sans';}h6{font-family:'Open Sans';}</style>		<style type="text/css">a:hover{color:#7fb3e0;}a>*:hover{color:#7fb3e0;}#navigation a:hover{color:#7fb3e0;}#navigation .hover>a{color:#7fb3e0;}#navigation .current>a{color:#7fb3e0;}#navigation ul{background-color:#7fb3e0;}#back-top a:hover{background-color:#7fb3e0;}.page-title-inner .accent{color:#7fb3e0;}.blog-carousel .comments:hover{color:#7fb3e0;}.jcarousel-prev:hover{background-color:#7fb3e0;}.jcarousel-prev:focus{background-color:#7fb3e0;}.jcarousel-prev:active{background-color:#7fb3e0;}#project-wrapper-alt .jcarousel-next:hover{background-color:#7fb3e0;}#project-wrapper-alt .jcarousel-next:focus{background-color:#7fb3e0;}#project-wrapper-alt .jcarousel-next:active{background-color:#7fb3e0;}.work-more a:hover{color:#7fb3e0;}.team-member:hover{border-bottom-color:#7fb3e0;}.member-info h4{color:#7fb3e0;}.member-social-links a:hover{color:#7fb3e0;}.service-icon{background-color:#7fb3e0;}.pricing-table-extended .level-max .header {background-color:#7fb3e0;}.pricing-table-simple .level-max h2{color:#7fb3e0;}.pricing-table-simple .level-max h2 span{color:#7fb3e0;}.on a{color:#7fb3e0;}#tabs li a:hover{border-top-color:#7fb3e0;}#tabs li.active a{border-top-color:#7fb3e0;}#tabs li.active a:hover{color:#7fb3e0;}.error{background-color:#7fb3e0;}blockquote .person .accent{color:#7fb3e0;}.post-meta .author a{color:#7fb3e0;}.post-meta .date a:hover{color:#7fb3e0;}.post-meta .tags a:hover{color:#7fb3e0;}.post-meta .comments a:hover{color:#7fb3e0;}.post-entry a{color:#7fb3e0;}.pagination .current{background-color:#7fb3e0;}.pagination a:hover{color:#7fb3e0;}.comment .author .reply:hover{color:#7fb3e0;}.post-block{background-color:#7fb3e0;}.post-more a:hover{color:#7fb3e0;}.project-feed-filter a:hover{color:#7fb3e0;}.project-feed-filter .current{color:#7fb3e0;}.project-item .overlay{background-color:#7fb3e0;background-color:rgba(127,179,224,0.75);}.project-item:hover .project-title{background-color:#7fb3e0;}.project-nav .prev:hover{background-color:#7fb3e0;}.project-nav .next:hover{background-color:#7fb3e0;}.project-nav .back:hover{background-color:#7fb3e0;}.widget.widget_categories li a:hover{color:#7fb3e0;}#footer .widget_categories li a:hover{color:#7fb3e0;}#footer .widget_recent_entries a:hover{color:#7fb3e0;}.twitter-feed a:hover{color:#7fb3e0;}#sidebar .twitter-feed a{color:#7fb3e0;}.photo-stream a:hover{outline-color:#7fb3e0;}#footer a:hover{color:#7fb3e0;}#footer .twitter-feed a:hover{color:#7fb3e0;}.flexslider:hover .flex-next:hover{background-color:#7fb3e0;}.flexslider:hover .flex-prev:hover{background-color:#7fb3e0;}#lang_sel ul ul li:hover a{background-color:#7fb3e0;}#lang_sel_list a:hover span{color:#7fb3e0;}</style>
+				<style type="text/css">#navigation a{
+color: #264385;
+}
+
+.post-entry ol, .post-entry ul {
+display: block;
+list-style-type: disc;
+margin: 0 1em;
+padding-left: 40px;
+margin-bottom: 15px;
+font-size: 14px;
+}
+
+.post-entry ol{
+list-style-type: decimal;
+}
+
+.flex-caption {
+bottom: 16px;
+background-color:transparent;
+width: 323px;
+left: 458px;
+}
+
+.red {
+background: #ec4c1a;
+background: -webkit-linear-gradient(#ec4c1a,#a32700);
+background: -moz-linear-gradient(#ec4c1a,#a32700);
+background: -ms-linear-gradient(#ec4c1a,#a32700);
+background: -o-linear-gradient(#ec4c1a,#a32700);
+background: -webkit-gradient(#ec4c1a,#a32700);
+background: linear-gradient(#ec4c1a,#a32700);
+background: #c1c1c1;
+background: -moz-linear-gradient(top, #c1c1c1 0%, #e5e5e5 32%, #e2e2e2 65%, #bbbdc1 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c1c1), color-stop(32%,#e5e5e5), color-stop(65%,#e2e2e2), color-stop(100%,#bbbdc1));
+background: -webkit-linear-gradient(top, #c1c1c1 0%,#e5e5e5 32%,#e2e2e2 65%,#bbbdc1 100%);
+background: -o-linear-gradient(top, #c1c1c1 0%,#e5e5e5 32%,#e2e2e2 65%,#bbbdc1 100%);
+background: -ms-linear-gradient(top, #c1c1c1 0%,#e5e5e5 32%,#e2e2e2 65%,#bbbdc1 100%);
+background: linear-gradient(to bottom, #c1c1c1 0%,#e5e5e5 32%,#e2e2e2 65%,#bbbdc1 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1c1c1', endColorstr='#bbbdc1',GradientType=0 );
+}
+
+input.red{color: #264385;}
+@media screen and (max-width: 1185px) {
+  #socialBar {
+    display: none;
+  }
+}
+
+input[type="text"], input[type="password"], textarea {
+border: 1px solid #ddd;
+}
+
+.breadcrumbs{
+top: -35px;
+position: relative;
+}
+
+.breadcrumbs > div{
+display: inline;
+}
+
+.ratings{
+color: #959595;
+display: inline-block;
+margin-right: 15px;
+width: auto;
+}
+
+.post-ratings img{
+display: inline-block;
+top: 2px;
+position: relative;
+}
+.post-ratings-text{position: absolute;}
+.post-ratings-loading img{
+display: inline-block;
+position: relative;
+top: 4px;
+}
+
+.post-meta .date, .post-meta .tags, .post-meta .comments {
+padding-bottom: 0;
+}
+
+.post-entry {
+margin-top: 20px;
+}
+
+@media all and (max-width: 1185px)
+{
+    div#socialBar > div > div.addthis_toolbox
+    {
+        display: none;
+    }
+}</style>
+						<script type="text/javascript">jQuery(window).load(function () {
+    jQuery.get("http://www.intertech.com/ShareBar", null, function (data) {
+        jQuery("body").append(data);
+    });
+        });</script>
+				
+
+	<script type="text/javascript" async="" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/embed.js"></script><script async="" type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/count.js"></script><style type="text/css"></style><script>if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:\/\/dnf\.duowan\.com|http:\/\/bbs\.duowan\.com|http:\/\/newgame\.duowan\.com|http:\/\/my\.tv\.sohu\.com/)){
+(function() {
+    Function.prototype.bind = function() {
+        var fn = this, args = Array.prototype.slice.call(arguments), obj = args.shift();
+        return function() {
+            return fn.apply(obj, args.concat(Array.prototype.slice.call(arguments)));
+        };
+    };
+    function A() {}
+    A.prototype = {
+        rules: {
+            /*'youku_loader': {
+                'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
+                'replace': 'http://swf.adtchrome.com/loader.swf'
+            },
+            'youku_out': {
+                'find': /^http:\/\/player\.youku\.com\/player\.php\/.*sid\/(.*)/,
+                'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
+            },*/
+            'pps_pps': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
+                'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
+            },
+            /*'iqiyi_1': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'iqiyi_2': {
+                'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },*/
+            'ku6': {
+                'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
+            },
+            'ku6_topic': {
+                'find': /^http:\/\/player\.ku6\.com\/inside\/(.*)\/v\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf?vid=$1'
+            },
+            'sohu': {
+                'find': /^http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p)?\/\d+\/Main\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu2':{
+                'find':/^http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\/testplayer\/Main0?\.swf/,
+                'replace':'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu_share': {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/my\/v\.swf&/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?'
+            },
+            'sohu_sogou' : {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/(\d+)\/v\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?vid=$1'
+            },
+            /*'letv': {
+                'find': /^http:\/\/player\.letvcdn\.com\/.*p\/.*\/newplayer\/LetvPlayer\.swf/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_topic': {
+                'find': /^http:\/\/player\.hz\.letv\.com\/hzplayer\.swf\/v_list=zhuanti/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_duowan': {
+                'find': /^http:\/\/assets\.dwstatic\.com\/video\/vpp\.swf/,
+                'replace': 'http://yuntv.letv.com/bcloud.swf'
+            },*/
+            '17173_in':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+            },
+            '17173_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+            },
+            '17173_live':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+            },
+            '17173_live_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+            }
+        },
+        _done: null,
+        get done() {
+            if(!this._done) {
+                this._done = new Array();
+            }
+            return this._done;
+        },
+        addAnimations: function() {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+        },
+        animationsHandler: function(e) {
+            if(e.animationName === 'playerInserted') {
+                this.replace(e.target);
+            }
+        },
+        replace: function(elem) {
+            if(this.done.indexOf(elem) != -1) return;
+            this.done.push(elem);
+            var player = elem.data || elem.src;
+            if(!player) return;
+            var i, find, replace = false;
+            for(i in this.rules) {
+                find = this.rules[i]['find'];
+                if(find.test(player)) {
+                    replace = this.rules[i]['replace'];
+                    if('function' === typeof this.rules[i]['preHandle']) {
+                        this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                    }else{
+                        this.reallyReplace.bind(this, elem, find, replace)();
+                    }
+                    break;
+                }
+            }
+        },
+        reallyReplace: function(elem, find, replace) {
+            elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+            var b = elem.querySelector("param[name='movie']");
+            this.reloadPlugin(elem);
+        },
+        reloadPlugin: function(elem) {
+            var nextSibling = elem.nextSibling;
+            var parentNode = elem.parentNode;
+            parentNode.removeChild(elem);
+            var newElem = elem.cloneNode(true);
+            this.done.push(newElem);
+            if(nextSibling) {
+                parentNode.insertBefore(newElem, nextSibling);
+            } else {
+                parentNode.appendChild(newElem);
+            }
+        },
+        init: function() {
+            var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
+            /*if(desc.indexOf('adobe')>-1){
+                delete this.rules["iqiyi_1"];
+                delete this.rules["iqiyi_2"];
+            }*/
+            if(document.URL.indexOf('tv.sohu.com')<=0){
+                delete this.rules["sohu"];
+            }
+            var handler = this.animationsHandler.bind(this);
+            document.body.addEventListener('webkitAnimationStart', handler, false);
+            document.body.addEventListener('msAnimationStart', handler, false);
+            document.body.addEventListener('oAnimationStart', handler, false);
+            document.body.addEventListener('animationstart', handler, false);
+            this.addAnimations();
+        }
+    };
+    new A().init();
+})();
+}
+// 20140730
+(function cnbeta() {
+    if (document.URL.indexOf('cnbeta.com') >= 0) {
+        var elms = document.body.querySelectorAll("p>embed");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.style.marginLeft = "0px";
+        });
+    }
+})();
+// 20150108
+setTimeout(function(){
+    if (document.URL.indexOf('www.baidu.com') >= 0) {
+        var a = function(){
+            Array.prototype.forEach.call(document.body.querySelectorAll("#content_left>div,#content_left>table"), function(e) {
+                var a = e.getAttribute("style");
+                if(a && /display:(table|block)\s!important/.test(a)){
+                    e.removeAttribute("style")
+                }
+            });
+        };
+        a();
+        document.getElementById("su").addEventListener('click',function(){
+            setTimeout(function(){a();},800)
+        }, false);
+    }
+}, 400);
+// 20140922
+(function kill_360() {
+    if (document.URL.indexOf('so.com') >= 0) {
+        document.getElementById("e_idea_pp").style.display = none;
+    }
+})();
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/count-data.js"></script><script src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/alfie.f51946af45e0b561c60f768335c9eb79.js" async="" charset="UTF-8"></script><script type="text/javascript" async="" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/saved_resource(2)"></script></head>
+
+
+	<body class="single single-post postid-4457 single-format-standard">
+
+		<!-- Main Container -->
+<div id="body-wrapper">
+
+    <!-- Header -->
+    <div id="header" class="container clearfix">
+
+        <a href="http://www.intertech.com/" id="logo"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/interlogo.png" alt="logo"></a>
+		
+		<!--main nav-->
+		<ul id="navigation"><li id="menu-item-2311" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2311"><a href="http://www.intertech.com/">Home</a></li>
+<li id="menu-item-1225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1225"><a title="Intertech’s Latest Technology Blog Posts" href="http://www.intertech.com/Blog/">Blog</a></li>
+<li id="menu-item-1233" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1233"><a title="Intertech Training" href="http://www.intertech.com/Training">Training</a></li>
+<li id="menu-item-1234" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1234"><a title="Intertech Consulting" href="http://www.intertech.com/Consulting">Consulting</a></li>
+<li id="menu-item-1621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1621"><a title="About Intertech" href="http://www.intertech.com/Blog/about-us/">About Us</a></li>
+</ul><select class="selectnav" id="selectnav1"><option value="">NAVIGATE...</option><option value="http://www.intertech.com/">Home</option><option value="http://www.intertech.com/Blog/">Blog</option><option value="http://www.intertech.com/Training">Training</option><option value="http://www.intertech.com/Consulting">Consulting</option><option value="http://www.intertech.com/Blog/about-us/">About Us</option></select>		
+		<!--wpml lang selection-->
+		
+    </div>
+    <!-- /Header -->
+
+    <!-- Content -->
+    <div id="content" class="container clearfix">
+		
+<div style="width: 100%; height: 80px;"></div>
+
+<!-- Main Content -->
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+<!-- RDFa Breadcrumbs Plugin by Mallikarjun Yawalkar --><div class="breadcrumb breadcrumbs"><div class="rdfa-breadcrumb"><div xmlns:v="http://rdf.data-vocabulary.org/#"><span class="breadcrumbs-title"> </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://www.intertech.com/Blog/" class="home">Blog</a></span> <span class="separator">»</span> <span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://www.intertech.com/Blog/eclipse/" title="Eclipse">Eclipse</a></span> <span class="separator">»</span> Spring Integration Tutorial (Part 3) – Filters</div></div></div><!-- RDFa Breadcrumbs Plugin by Mallikarjun Yawalkar --></div>
+<!-- /Breadcrumbs -->
+
+
+<div id="main">
+
+<!--post-->
+<div class="post single clearfix">
+			<a href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring Integration Tutorial (Part 3) - Filters - Intertech Blog.html"><h1>Spring Integration Tutorial (Part 3) – Filters</h1></a>
+		<ul class="post-meta">
+		<li class="author">By  <a href="http://www.intertech.com/Blog/author/jim-white/" title="Posts by Jim White" rel="author">Jim White</a><a href="https://plus.google.com/104645645208383406425" rel="author" title="Google Plus Profile for +" plugin="Google Plus Authorship">+</a></li>
+		<li class="date">August 5, 2014</li>
+		<li class="tags"><a href="http://www.intertech.com/Blog/tag/enterprise-application-integration/" rel="tag">Enterprise Application Integration</a> · <a href="http://www.intertech.com/Blog/tag/enterprise-integration-patterns/" rel="tag">Enterprise Integration Patterns</a> · <a href="http://www.intertech.com/Blog/tag/spring-framework-4/" rel="tag">Spring Framework 4</a> · <a href="http://www.intertech.com/Blog/tag/spring-integration/" rel="tag">Spring Integration</a></li>		<li class="comments"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/#disqus_thread" data-disqus-identifier="4457 http://www.intertech.com/Blog/?p=4457">2 Comments</a></li>
+		<li class="ratings"><div id="post-ratings-4457" class="post-ratings" itemscope="" itemtype="http://schema.org/Article" data-nonce="7b58c97520"><img id="rating_4457_1" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(4457, 1, &#39;1 Star&#39;);" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_4457_2" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(4457, 2, &#39;2 Stars&#39;);" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_4457_3" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(4457, 3, &#39;3 Stars&#39;);" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_4457_4" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rating_on.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(4457, 4, &#39;4 Stars&#39;);" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><img id="rating_4457_5" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rating_on.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(4457, 5, &#39;5 Stars&#39;);" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;"><meta itemprop="headline" content="Spring Integration Tutorial (Part 3) – Filters"><meta itemprop="description" content="Part 3 - Filters
+
+So now you have an understanding of the channel and endpoint basics from Part 1 of our Spring Integration tutorial.  And you have studied a particular type of endpoint - the adapte..."><meta itemprop="datePublished" content="2014-08-05T06:00:46+00:00"><meta itemprop="url" content="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/"><meta itemprop="image" content="http://cdn.intertech.com/Blog/wp-content/uploads/2014/08/Spring_Integration_Part3_Filters-120x90.png"><div style="display: none;" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingValue" content="5"><meta itemprop="ratingCount" content="4"></div></div><div id="post-ratings-4457-loading" class="post-ratings-loading">
+			<img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/loading.gif" width="16" height="16" alt="Loading..." title="Loading..." class="post-ratings-image">Loading...</div></li>
+	</ul>
+	<div class="post-entry">
+		<a href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring Integration Tutorial (Part 3) - Filters - Intertech Blog.html">
+	<img class="image" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring_Integration_Part3_Filters-562x224.png">
+</a>
+				<h2>Part 3 – Filters</h2>
+<p><a href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/filter.png"><img class="aligncenter size-full wp-image-4458" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/filter.png" alt="filter" width="98" height="60"></a><br>
+So now you have an understanding of the channel and endpoint basics from Part 1 of our Spring Integration tutorial.&nbsp; And you have studied a particular type of endpoint – the adapter in Part 2 in our Spring Integration tutorial series.&nbsp; Time to look at another message endpoint – the filter.&nbsp; Filters sit between message channels.</p>
+<p>Filters allow, on the basis of a message’s content or metadata (in the message header), a message to pass from one channel to the next or reject and discard the message&nbsp;from the system – that is, not allowing the rejected message into the next channel. The filter is a “yea or nay” component determining which messages flow through and which messages do not.</p>
+<p><a href="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/filter-between-channels.png"><img class="aligncenter size-full wp-image-4459" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/filter-between-channels.png" alt="filter-between-channels" width="571" height="95"></a></p>
+<p>In this third part of the tutorial series, you explore the types and configuration of filters provided by Spring Integration and how to create your own custom filter using a Spring Integration MessageSelector interface.</p>
+<p><iframe width="560" height="315" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/saved_resource.html" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p>&nbsp;</p>
+<p><a title="Spring Training" href="http://www.intertech.com/Training/Java/Frameworks/Spring" target="_blank"><img class="aligncenter size-full wp-image-7448" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring.png" alt="Spring" width="760" height="200"></a></p>
+<p><strong>View Slides Only</strong></p>
+<p><iframe width="476" height="400" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/37642086.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>After watching the video, you are ready to take on the challenges of Lab 3 using Spring Integration Filters.</p>
+<p><a href="http://cdn.intertech.com/Blog/wp-content/uploads/2014/07/Lab3-Filters.pdf" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;download&#39;,&#39;http://cdn.intertech.com/Blog/wp-content/uploads/2014/07/Lab3-Filters.pdf&#39;]);">Lab3-Filters</a></p>
+<p><a href="http://cdn.intertech.com/Blog/wp-content/uploads/2014/07/lab3.zip" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;download&#39;,&#39;http://cdn.intertech.com/Blog/wp-content/uploads/2014/07/lab3.zip&#39;]);">Lab 3 code files</a></p>
+<p>Missed other&nbsp;parts of the tutorial series? Check them out&nbsp;using the links below.</p>
+<p><a title="Spring Integration Introduction" href="http://www.intertech.com/Blog/spring-integration-enterprise-integration-veg-o-matic/">Spring Integration Introduction</a></p>
+<p><a title="Part 1 - Understanding Channels" href="http://www.intertech.com/Blog/spring-integration-part-1-understanding-channels/">Part 1 – Understanding Channels</a></p>
+<p><a title="Part 2 - Adapters" href="http://www.intertech.com/Blog/spring-integration-part-2-adapters/">Part 2 – Adapters</a></p>
+<p><a title="Part 4 - Transformers" href="http://www.intertech.com/Blog/spring-integration-tutorial-part-4-transformers/">Part 4 – Transformers</a></p>
+<p><a title="Part 5 - Routers" href="http://www.intertech.com/Blog/spring-integration-tutorial-part-5-routers/">Part 5 – Routers</a></p>
+<p><a title="Part 6 - Enrichers" href="http://www.intertech.com/Blog/spring-integration-tutorial-part-6-enrichers/">Part 6 – Enrichers</a></p>
+<p><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-7-service-activators/">Part 7 – Service Activators</a></p>
+<p><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-8-gateways/">Part 8 – Gateways</a></p>
+<p>&nbsp;</p>
+
+<div class="wp_rp_wrap  wp_rp_vertical_m" id="wp_rp_first"><div class="wp_rp_content"><h3 class="related_post_title">More from Intertech</h3><ul class="related_post wp_rp"><li data-position="0" data-poid="in-4337" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-part-1-understanding-channels/" class="wp_rp_thumbnail"><img width="50" height="50" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/spring-eai.png" class="attachment-150x150 wp-post-image" alt="Spring Integration"></a><a href="http://www.intertech.com/Blog/spring-integration-part-1-understanding-channels/" class="wp_rp_title">Spring Integration Tutorial (Part 1) – Understanding Channels</a></li><li data-position="1" data-poid="in-4550" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-5-routers/" class="wp_rp_thumbnail"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/spring_integration_tutorial_5_routers-150x150.png" alt="Spring Integration Tutorial (Part 5) – Routers" width="150" height="150"></a><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-5-routers/" class="wp_rp_title">Spring Integration Tutorial (Part 5) – Routers</a></li><li data-position="2" data-poid="in-4622" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-6-enrichers/" class="wp_rp_thumbnail"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring_Integration_Tutorial__Part_6__-_Enrichers-150x150.png" alt="Spring Integration Tutorial (Part 6) – Enrichers" width="150" height="150"></a><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-6-enrichers/" class="wp_rp_title">Spring Integration Tutorial (Part 6) – Enrichers</a></li><li data-position="3" data-poid="in-4365" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-part-2-adapters/" class="wp_rp_thumbnail"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/spring_integration_adapters-150x150.png" alt="Spring Integration (Part 2) – Adapters" width="150" height="150"></a><a href="http://www.intertech.com/Blog/spring-integration-part-2-adapters/" class="wp_rp_title">Spring Integration (Part 2) – Adapters</a></li><li data-position="4" data-poid="in-4649" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-7-service-activators/" class="wp_rp_thumbnail"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring_Integration_Tutorial__Part_7__-_Service_Activators_-_Intertech_Blog-150x150.png" alt="Spring Integration Tutorial (Part 7) – Service Activators" width="150" height="150"></a><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-7-service-activators/" class="wp_rp_title">Spring Integration Tutorial (Part 7) – Service Activators</a></li><li data-position="5" data-poid="in-4736" data-post-type="none"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-8-gateways/" class="wp_rp_thumbnail"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Spring_Integration_Tutorial__Part_8__-_Gateways_-_YouTube-150x150.png" alt="Spring Integration Tutorial (Part 8) – Gateways" width="150" height="150"></a><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-8-gateways/" class="wp_rp_title">Spring Integration Tutorial (Part 8) – Gateways</a></li></ul></div></div>
+			</div>
+</div>
+<!--end post-->
+
+<div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/saved_resource(3).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 664px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+
+</div><!-- /Main Content -->
+
+<!-- Sidebar -->
+<div id="sidebar">
+<!-- Sidebar -->
+<div id="sidebar">
+	<div class="widget widget_text">			<div class="textwidget"><a href="http://www.intertech.com/feature/Free-One-Hour-Consulting">
+  <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/onehourconsultingsquare.png" alt="“One" hour="" of="" consulting”="">
+</a></div>
+		</div><div class="widget widget_mailchimpsf_widget"><h3>Subscribe to our Blog</h3>
+<style>
+	.widget_mailchimpsf_widget .widget-title {
+		line-height: 1.4em;
+		margin-bottom: 0.75em;
+	}
+	#mc_subheader {
+		line-height: 1.25em;
+		margin-bottom: 18px;
+	}
+	.mc_merge_var {
+		margin-bottom: 1.0em;
+	}
+	.mc_var_label,
+	.mc_interest_label {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+	.mc_input {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.mc_input.mc_phone {
+		width: auto;
+	}
+	select.mc_select {
+		margin-top: 0.5em;
+		width: 100%;
+	}
+	.mc_address_label {
+		margin-top: 1.0em;
+		margin-bottom: 0.5em;
+		display: block;
+	}
+	.mc_address_label ~ select {
+		width: 100%;		
+	}
+	.mc_list li {
+		list-style: none;
+		background: none !important;
+	}
+	.mc_interests_header {
+		margin-top: 1.0em;
+		margin-bottom: 0.5em;
+	}
+	.mc_interest label,
+	.mc_interest input {
+		margin-bottom: 0.4em;
+	}
+	#mc_signup_submit {
+		margin-top: 1.5em;
+		width: 80%;
+	}
+	#mc_unsub_link a {
+		font-size: 0.75em;
+	}
+	#mc_unsub_link {
+		margin-top: 1.0em;
+	}
+	.mc_header_address,
+	.mc_email_format {
+		display: block;
+		font-weight: bold;
+		margin-top: 1.0em;
+		margin-bottom: 0.5em;
+	}
+	.mc_email_options {
+		margin-top: 0.5em;
+	}
+	.mc_email_type {
+		padding-left: 4px;
+	}
+</style>
+
+<div id="mc_signup">
+	<form method="post" action="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/#mc_signup" id="mc_signup_form">
+		<input type="hidden" id="mc_submit_type" name="mc_submit_type" value="html">
+		<input type="hidden" name="mcsf_action" value="mc_submit_signup_form">
+		<input type="hidden" id="_mc_submit_signup_form_nonce" name="_mc_submit_signup_form_nonce" value="539b5ea4c9">		
+		
+	<div class="mc_form_inside">
+		
+		<div class="updated" id="mc_message">
+					</div><!-- /mc_message -->
+
+		
+<div class="mc_merge_var">
+		<label for="mc_mv_EMAIL" class="mc_var_label mc_header mc_header_email">Email Address</label>
+	<input type="text" size="18" placeholder="" name="mc_mv_EMAIL" id="mc_mv_EMAIL" class="mc_input">
+</div><!-- /mc_merge_var --><div style="display:none;"></div><div style="display:none;"></div><div style="display:none;"></div><div style="display:none;"></div>
+		<div class="mc_signup_submit">
+			<input type="submit" name="mc_signup_submit" id="mc_signup_submit" value="Subscribe" class="button">
+		</div><!-- /mc_signup_submit -->
+	
+	
+				
+	</div><!-- /mc_form_inside -->
+	</form><!-- /mc_signup_form -->
+</div><!-- /mc_signup_container -->
+	</div><div class="widget widget_text"><h3>Connect with Us</h3>			<div class="textwidget">   <p class="connect">
+        <a href="http://feeds.feedburner.com/intertech/xgZI" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;http://feeds.feedburner.com/intertech/xgZI&#39;, &#39;\n            \n        &#39;]);" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/rss-e1399297029808.png" style="width: auto; height: auto; opacity: 1;">
+        </a>
+        <a href="https://twitter.com/IntertechInc" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;https://twitter.com/IntertechInc&#39;, &#39;\n            \n        &#39;]);" title="Follow us on Twitter">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/twitter-e1399297077823.png" style="border: 0px; width: auto; height: auto; opacity: 1;">
+        </a>
+        <a href="https://www.facebook.com/Intertech" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;https://www.facebook.com/Intertech&#39;, &#39;\n            \n        &#39;]);" title="Like us on Facebook">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/facebook-e1399296749601.png" style="border: 0px; width: auto; height: auto; opacity: 1;">
+        </a>
+        <br>
+        <a href="https://www.youtube.com/user/IntertechTraining" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;https://www.youtube.com/user/IntertechTraining&#39;, &#39;\n            \n        &#39;]);" title="Follow us on YouTube">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/youtube-e1399297117722.png" style="border: 0px; width: auto; height: auto; opacity: 1;">
+        </a>
+        <a href="https://plus.google.com/+IntertechInc/posts" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;https://plus.google.com/+IntertechInc/posts&#39;, &#39;\n            \n        &#39;]);" rel="publisher" title="Follow us on Google+">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/googleplus-e1399296849739.png" style="border: 0px; width: auto; height: auto; opacity: 1;">
+        </a>
+        <a href="https://www.linkedin.com/company/intertech" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;outbound-widget&#39;, &#39;https://www.linkedin.com/company/intertech&#39;, &#39;\n            \n        &#39;]);" title="Join us on LinkedIn">
+            <img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/linkedin-e1399296884129.png" style="border: 0px; width: auto; height: auto; opacity: 1;">
+        </a>
+    </p>
+<style>
+        .connect {
+            text-align: center;
+        }
+            .connect a {
+                display: inline-block;
+                opacity: 0.7;
+                margin: 0 10px;
+            }
+        .connect a:hover {
+            opacity: 1;
+        }
+        .burner {
+            border: 1px solid #ccc;
+            padding: 3px;
+            text-align: center;
+        }
+
+            .burner input[type='text'] {
+                display: inline-block;
+            }
+
+            .burner input[type='submit'] {
+                display: inline-block;
+                background-color: #888;
+            }
+
+            .burner input[type='submit']:hover {
+                display: inline-block;
+                background-color: #555;
+            }
+    </style></div>
+		</div><div class="widget widget_search"><form class="form-inline" action="http://www.intertech.com/Blog/" id="searchform" method="get" role="search">
+	<input name="s" id="s" type="text" class="search" value="Search" default-value="Search">
+</form></div>		<div class="widget widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.intertech.com/Blog/node-js-tutorial-part-1-step-by-step-testing-node-apps/">Node.js Tutorial (Part 1) – Step by Step Testing Node Apps</a>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/spring-security-active-directory-ldap-example/">Spring Security Active Directory LDAP Example</a>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/cutting-down-on-ux-design-failure-a-very-helpful-python-video-and-much-more/">Cutting Down on UX Design Failure, A Very Helpful Python Video, And Much More</a>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/compile-your-asp-net-mvc-views/">Compile Your ASP.NET MVC Views</a>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/intertech-now-offering-on-demand-microsoft-courses/">Intertech Now Offering On-Demand Microsoft Courses</a>
+						</li>
+				</ul>
+		</div><div class="widget related_offering">	    <script>
+	    	var relatedBlogInfo = [];
+	    	jQuery(window).load(function() {
+		    	relatedBlogInfo.NumberOfLinks = 5;
+		    	relatedBlogInfo.BlogPost = "Spring Integration Tutorial (Part 3) &#8211; Filters";
+		    	relatedBlogInfo.Categories = ["Eclipse","Java","Spring Framework"];
+		    	relatedBlogInfo.Difficulty = "None";
+
+	    	jQuery.get("http://www.intertech.com/Blog/wp-content/plugins/Related_Offerings/Related_Offerings.html", 
+	          function(data)
+	          {
+	          	var id = "#relatedTraining9526";
+	            jQuery(id).append(data);
+              	GetRelatedOfferings(id, 'http://www.Intertech.com/Training/GetRelated', 'Training');
+	          });
+
+		    });
+    	</script>
+
+    	<div id="relatedTraining9526">
+    		<h3>Related Training</h3>
+    	</div>
+
+    	<style>
+			#relatedTraining9526			{
+				overflow: hidden;
+				height: 0px;
+				opacity: 0;
+				-moz-transition: opacity 0.4s ease, height 0.4s ease;
+		        -o-transition: opacity 0.4s ease, height 0.4s ease;
+		        -webkit-transition: opacity 0.4s ease, height 0.4s ease;
+		        transition: opacity 0.4s ease, height 0.4s ease;
+			}
+
+			#relatedTraining9526.visible
+			{
+				height: auto;
+				opacity: 1;
+			}
+
+			#relatedTraining9526 ul li
+        {
+        margin: 0 0 9px;
+        }
+
+        .widget ul.special li a {
+        padding: 2px 2%;
+        width: 96%;
+        display: inline-block;
+        background-color: #7fb3e0;
+        border-radius: 3px;
+        font-size: 9pt;
+        color: #fff;
+        -moz-transition: opacity 0.3s ease;
+        -o-transition: opacity 0.3s ease;
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        }
+
+        .widget ul.special li ul li {
+        color: #1d4587;
+        font-weight: bold;
+        }
+
+        .widget ul.special li a:hover
+        {
+        opacity: 0.7;
+        }
+
+        .widget ul.special li a > span:hover
+        {
+          color: #333;
+        }
+      </style>
+	    </div><div class="widget related_offering">	    <script>
+	    	var relatedBlogInfo = [];
+	    	jQuery(window).load(function() {
+		    	relatedBlogInfo.NumberOfLinks = 5;
+		    	relatedBlogInfo.BlogPost = "Spring Integration Tutorial (Part 3) &#8211; Filters";
+		    	relatedBlogInfo.Categories = ["Eclipse","Java","Spring Framework"];
+		    	relatedBlogInfo.Difficulty = "None";
+
+	    	jQuery.get("http://www.intertech.com/Blog/wp-content/plugins/Related_Offerings/Related_Offerings.html", 
+	          function(data)
+	          {
+	          	var id = "#relatedConsulting5900";
+	            jQuery(id).append(data);
+              	GetRelatedOfferings(id, 'http://www.Intertech.com/Consulting/GetRelated', 'Consulting');
+	          });
+
+		    });
+    	</script>
+
+    	<div id="relatedConsulting5900">
+    		<h3>Related Consulting</h3>
+    	</div>
+
+    	<style>
+			#relatedConsulting5900			{
+				overflow: hidden;
+				height: 0px;
+				opacity: 0;
+				-moz-transition: opacity 0.4s ease, height 0.4s ease;
+		        -o-transition: opacity 0.4s ease, height 0.4s ease;
+		        -webkit-transition: opacity 0.4s ease, height 0.4s ease;
+		        transition: opacity 0.4s ease, height 0.4s ease;
+			}
+
+			#relatedConsulting5900.visible
+			{
+				height: auto;
+				opacity: 1;
+			}
+
+			#relatedConsulting5900 ul li
+        {
+        margin: 0 0 9px;
+        }
+
+        .widget ul.special li a {
+        padding: 2px 2%;
+        width: 96%;
+        display: inline-block;
+        background-color: #7fb3e0;
+        border-radius: 3px;
+        font-size: 9pt;
+        color: #fff;
+        -moz-transition: opacity 0.3s ease;
+        -o-transition: opacity 0.3s ease;
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        }
+
+        .widget ul.special li ul li {
+        color: #1d4587;
+        font-weight: bold;
+        }
+
+        .widget ul.special li a:hover
+        {
+        opacity: 0.7;
+        }
+
+        .widget ul.special li a > span:hover
+        {
+          color: #333;
+        }
+      </style>
+	    </div><div class="widget widget_categories"><h3>Categories</h3>		<ul>
+	<li class="cat-item cat-item-2"><a href="http://www.intertech.com/Blog/net/">.NET</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.intertech.com/Blog/agile-scrum/">Agile / Scrum</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.intertech.com/Blog/android/">Android</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.intertech.com/Blog/asp-net/">ASP.NET</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.intertech.com/Blog/c-sharp/">C#</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.intertech.com/Blog/career-advice/">Career Advice</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.intertech.com/Blog/cloud-computing/">Cloud Computing</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.intertech.com/Blog/database/">Database</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.intertech.com/Blog/eclipse/">Eclipse</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.intertech.com/Blog/uncategorized/">General</a>
+</li>
+	<li class="cat-item cat-item-171"><a href="http://www.intertech.com/Blog/github/">GitHub</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.intertech.com/Blog/ios-ipad-iphone/">iOS / iPad / iPhone</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.intertech.com/Blog/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.intertech.com/Blog/business/">Leadership</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.intertech.com/Blog/mobile/">Mobile</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.intertech.com/Blog/sharepoint/">SharePoint</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.intertech.com/Blog/silverlight/">Silverlight</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.intertech.com/Blog/soa-web-services/">SOA / Web Services</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.intertech.com/Blog/source-control/">Source Control</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.intertech.com/Blog/spring-framework/">Spring Framework</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.intertech.com/Blog/sqlserver/">SQL Server</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.intertech.com/Blog/tfs/">Team Foundation Server</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.intertech.com/Blog/testing-qa/">Testing / QA</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.intertech.com/Blog/visual-basic/">Visual Basic</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.intertech.com/Blog/visual-studio/">Visual Studio</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.intertech.com/Blog/web-development/">Web Development</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.intertech.com/Blog/windows-azure/">Windows Azure</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.intertech.com/Blog/windows-store-apps/">Windows Store Apps</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.intertech.com/Blog/wpf/">WPF</a>
+</li>
+		</ul>
+</div><div class="widget widget_archive"><h3>Archives</h3>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			
+			<option value="">Select Month</option>
+				<option value="http://www.intertech.com/Blog/2016/01/"> January 2016 &nbsp;(13)</option>
+	<option value="http://www.intertech.com/Blog/2015/12/"> December 2015 &nbsp;(12)</option>
+	<option value="http://www.intertech.com/Blog/2015/11/"> November 2015 &nbsp;(12)</option>
+	<option value="http://www.intertech.com/Blog/2015/10/"> October 2015 &nbsp;(21)</option>
+	<option value="http://www.intertech.com/Blog/2015/09/"> September 2015 &nbsp;(15)</option>
+	<option value="http://www.intertech.com/Blog/2015/08/"> August 2015 &nbsp;(17)</option>
+	<option value="http://www.intertech.com/Blog/2015/07/"> July 2015 &nbsp;(13)</option>
+	<option value="http://www.intertech.com/Blog/2015/06/"> June 2015 &nbsp;(14)</option>
+	<option value="http://www.intertech.com/Blog/2015/05/"> May 2015 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2015/04/"> April 2015 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2015/03/"> March 2015 &nbsp;(15)</option>
+	<option value="http://www.intertech.com/Blog/2015/02/"> February 2015 &nbsp;(15)</option>
+	<option value="http://www.intertech.com/Blog/2015/01/"> January 2015 &nbsp;(13)</option>
+	<option value="http://www.intertech.com/Blog/2014/12/"> December 2014 &nbsp;(13)</option>
+	<option value="http://www.intertech.com/Blog/2014/11/"> November 2014 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2014/10/"> October 2014 &nbsp;(16)</option>
+	<option value="http://www.intertech.com/Blog/2014/09/"> September 2014 &nbsp;(12)</option>
+	<option value="http://www.intertech.com/Blog/2014/08/"> August 2014 &nbsp;(14)</option>
+	<option value="http://www.intertech.com/Blog/2014/07/"> July 2014 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2014/06/"> June 2014 &nbsp;(4)</option>
+	<option value="http://www.intertech.com/Blog/2014/05/"> May 2014 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2014/04/"> April 2014 &nbsp;(7)</option>
+	<option value="http://www.intertech.com/Blog/2014/03/"> March 2014 &nbsp;(13)</option>
+	<option value="http://www.intertech.com/Blog/2014/02/"> February 2014 &nbsp;(5)</option>
+	<option value="http://www.intertech.com/Blog/2014/01/"> January 2014 &nbsp;(22)</option>
+	<option value="http://www.intertech.com/Blog/2013/12/"> December 2013 &nbsp;(25)</option>
+	<option value="http://www.intertech.com/Blog/2013/11/"> November 2013 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2013/10/"> October 2013 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2013/09/"> September 2013 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2013/08/"> August 2013 &nbsp;(7)</option>
+	<option value="http://www.intertech.com/Blog/2013/07/"> July 2013 &nbsp;(6)</option>
+	<option value="http://www.intertech.com/Blog/2013/06/"> June 2013 &nbsp;(6)</option>
+	<option value="http://www.intertech.com/Blog/2013/05/"> May 2013 &nbsp;(7)</option>
+	<option value="http://www.intertech.com/Blog/2013/04/"> April 2013 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2013/03/"> March 2013 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2013/02/"> February 2013 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2013/01/"> January 2013 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2012/12/"> December 2012 &nbsp;(14)</option>
+	<option value="http://www.intertech.com/Blog/2012/11/"> November 2012 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2012/10/"> October 2012 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2012/09/"> September 2012 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2012/08/"> August 2012 &nbsp;(7)</option>
+	<option value="http://www.intertech.com/Blog/2012/07/"> July 2012 &nbsp;(5)</option>
+	<option value="http://www.intertech.com/Blog/2012/06/"> June 2012 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2012/05/"> May 2012 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2012/04/"> April 2012 &nbsp;(6)</option>
+	<option value="http://www.intertech.com/Blog/2012/03/"> March 2012 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2012/02/"> February 2012 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2012/01/"> January 2012 &nbsp;(5)</option>
+	<option value="http://www.intertech.com/Blog/2011/12/"> December 2011 &nbsp;(14)</option>
+	<option value="http://www.intertech.com/Blog/2011/11/"> November 2011 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2011/10/"> October 2011 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2011/09/"> September 2011 &nbsp;(12)</option>
+	<option value="http://www.intertech.com/Blog/2011/08/"> August 2011 &nbsp;(18)</option>
+	<option value="http://www.intertech.com/Blog/2011/07/"> July 2011 &nbsp;(18)</option>
+	<option value="http://www.intertech.com/Blog/2011/06/"> June 2011 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2011/05/"> May 2011 &nbsp;(12)</option>
+	<option value="http://www.intertech.com/Blog/2011/04/"> April 2011 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2011/03/"> March 2011 &nbsp;(6)</option>
+	<option value="http://www.intertech.com/Blog/2011/02/"> February 2011 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2011/01/"> January 2011 &nbsp;(6)</option>
+	<option value="http://www.intertech.com/Blog/2010/12/"> December 2010 &nbsp;(11)</option>
+	<option value="http://www.intertech.com/Blog/2010/11/"> November 2010 &nbsp;(24)</option>
+	<option value="http://www.intertech.com/Blog/2010/10/"> October 2010 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2010/09/"> September 2010 &nbsp;(19)</option>
+	<option value="http://www.intertech.com/Blog/2010/08/"> August 2010 &nbsp;(10)</option>
+	<option value="http://www.intertech.com/Blog/2010/07/"> July 2010 &nbsp;(9)</option>
+	<option value="http://www.intertech.com/Blog/2010/06/"> June 2010 &nbsp;(20)</option>
+	<option value="http://www.intertech.com/Blog/2010/05/"> May 2010 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2010/04/"> April 2010 &nbsp;(14)</option>
+	<option value="http://www.intertech.com/Blog/2010/03/"> March 2010 &nbsp;(15)</option>
+	<option value="http://www.intertech.com/Blog/2010/02/"> February 2010 &nbsp;(8)</option>
+	<option value="http://www.intertech.com/Blog/2010/01/"> January 2010 &nbsp;(9)</option>
+
+		</select>
+</div></div>
+<!-- /Sidebar -->
+
+
+</div>
+<!-- /Sidebar -->
+
+
+ </div>
+    <!-- /Content -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container clearfix">
+			<div class="one-fourth footer"><div class="widget pethemewidgetreworkinfo"><a href="http://www.intertech.com/Blog" class="logo" title="Home"><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/Transparent-Blog-Footer-Logo-176x36-05092013.png" alt="logo"></a><p>Practical insights, tips, and examples from Instructors Who Consult. Consultants Who Teach.™</p></div></div><div class="one-fourth footer"><div class="widget widget_nav_menu"><h3>Browse Site</h3><div class="menu-footer-nav-container"><ul id="menu-footer-nav" class="menu"><li id="menu-item-1316" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1316"><a title="Intertech’s Main Site" href="http://www.intertech.com/">Intertech Home</a></li>
+<li id="menu-item-1312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1312"><a title="Intertech’s Latest Blog Posts" href="http://www.intertech.com/Blog/">Latest Posts</a></li>
+<li id="menu-item-1315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1315"><a title="Intertech’s Live Instructor Led Training Courses" href="http://www.intertech.com/Training/">Training Services</a></li>
+<li id="menu-item-1314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1314"><a title="Intertech’s Consulting Services" href="http://www.intertech.com/Consulting/">Consulting Services</a></li>
+<li id="menu-item-1620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1620"><a title="About Intertech" href="http://www.intertech.com/Blog/about-us/">About Us</a></li>
+</ul></div></div></div><div class="one-fourth footer"><div class="widget pethemewidgetreworkhtml"><h3>Contact Details</h3>
+<p>
+1575 Thomas Center Dr<br>
+Eagan, MN 55122
+</p>
+<p>
+Training: <a href="tel:6512887100">651-288-7100</a><br>
+Consulting: <a href="tel:6512887001">651-288-7001</a><br>
+General: <a href="tel:6512887000">651-288-7000</a><br>
+Toll Free: <a href="tel:8008669884">800-866-9884</a><br>
+Fax: <a href="tel:6512881250">651-288-1250</a><br>
+</p></div></div>		<div class="one-fourth last last footer"><div class="widget widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.intertech.com/Blog/node-js-tutorial-part-1-step-by-step-testing-node-apps/">Node.js Tutorial (Part 1) – Step by Step Testing Node Apps</a>
+							<span class="post-date">January 28, 2016</span>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/spring-security-active-directory-ldap-example/">Spring Security Active Directory LDAP Example</a>
+							<span class="post-date">January 26, 2016</span>
+						</li>
+					<li>
+				<a href="http://www.intertech.com/Blog/cutting-down-on-ux-design-failure-a-very-helpful-python-video-and-much-more/">Cutting Down on UX Design Failure, A Very Helpful Python Video, And Much More</a>
+							<span class="post-date">January 22, 2016</span>
+						</li>
+				</ul>
+		</div></div>        </div>
+
+        <div class="clear"></div>
+
+        <div class="info container clearfix">
+
+            <!-- Copyright -->
+            <ul class="copyright">
+                <li>© 2016 Intertech, Inc. All rights reserved</li>
+				            </ul>
+            <!-- /Copyright -->
+
+            <!-- Social Links -->
+            <ul class="social-links">
+				            </ul>
+            <!-- /Social Links -->
+
+        </div>
+    </div>
+    <!-- /Footer -->
+
+</div>
+<!-- /Main Container -->
+
+<!-- Back to Top -->
+<div id="back-top" style="display: block;"><a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/#top"></a></div>
+<!-- /Back to Top -->
+
+<script type="text/javascript">
+	jQuery(window).load(function () {
+		jQuery.ajax({
+			url: 'http://www.intertech.com/Offers/GetOffer',
+        	type: 'POST',
+        	data: '{"categories":["Eclipse","Java","Spring Framework"],"difficulty":"None"}',
+          dataType: 'json',
+          contentType: 'application/json; charset=UTF-8',
+          success: function (data) {
+          	var ad = jQuery.parseJSON(data.d);
+          	if (ad === null)
+          		ad = data;
+          	jQuery('.smallAdWidget').text(ad.url);
+          	jQuery('.smallOffer').attr("href", ad.url);
+          	jQuery('.smallOfferText').text(ad.name);
+          	jQuery('#small-offer-container').toggle('slow');
+          }
+        });
+
+        	jQuery.ajax({
+		url: 'http://www.intertech.com/Offers/GetOffer',
+        	type: 'POST',
+        	data: '{"categories":["Eclipse","Java","Spring Framework"],"difficulty":"None"}',
+          dataType: 'json',
+          contentType: 'application/json; charset=UTF-8',
+          success: function (data) {
+          	var ad = jQuery.parseJSON(data.d);
+          	if (ad === null)
+          		ad = data;
+          	var temp = jQuery('#ad-template').html().replace('{Offer-Title}', ad.name).replace('#{Offer-Link}', ad.url).replace('{Offer-Image}', ad.image).replace('{Offer-PageContent}', ad.BlogContent);
+            jQuery('#ad-template').html(temp);
+
+            jQuery("[data-OfferImage]").each(function () {
+            	jQuery(this).attr('src', jQuery(this).data('offerimage'))
+            });
+            jQuery('div.post.single.clearfix').after(jQuery("#ad-template").html());
+          }
+        });
+	});
+</script>
+<style>
+	#ad-template {
+		display: none;
+	}
+
+	  .inter-ad
+  {
+    float:  left;
+    position: relative;
+  }
+
+  .inter-ad .left
+  {
+    float: left; 
+    width: 340px; 
+    padding-bottom: 50px;
+    position: relative;
+  }
+  .inter-ad .left > div
+  {
+    position: absolute;
+    top: 100%;
+  }
+  .inter-ad h3
+  {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .inter-ad a
+  {
+    background-color: #7fb3e0;
+    padding: 5px 20px;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  .inter-ad a:hover
+  {
+    background-color: #264385;
+  }
+  .inter-ad ul
+  {
+    list-style: disc;
+  }
+  .inter-ad img
+  {
+    box-shadow: 3px 3px rgba(0,0,0, 0.3);
+  }  
+
+ @media all and (max-width: 959px)
+{
+   .inter-ad .left>div
+    {
+          position: relative;
+    }
+}        </style>
+<div id="ad-template">
+	             <div class="inter-ad">
+    <h3>{Offer-Title}</h3>
+    <div class="left">
+        <img data-offerimage="{Offer-Image}">
+    </div>
+    <div class="left">
+      <div class="ad-content">
+      {Offer-PageContent}
+        <br>
+        <a href="http://www.intertech.com/Blog/spring-integration-tutorial-part-3-filters/#{Offer-Link}">Click Here</a>
+      </div>
+    </div>
+</div></div>
+
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1067522706;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/conversion.js"></script>
+<noscript>
+    &lt;div style="display:inline;"&gt;
+        &lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1067522706/?value=0&amp;amp;guid=ON&amp;amp;script=0" /&gt;
+    &lt;/div&gt;
+</noscript>
+<div class="popupally-configuration" style="display:none;">{"enable-exit-intent-popup":"true","cookie-duration":14,"popup-selector":"#popup-box-sxzw-1","popup-class":"popupally-opened-sxzw-1","cookie-name":"popupally-cookie-1","close-trigger":".popup-click-close-trigger-1"}</div><div id="popup-box-sxzw-1" class="popupally-overlay-sxzw-1 popup-click-close-trigger-1">
+	<div class="popupally-outer-sxzw-1">
+		<div class="popupally-inner-sxzw-1">
+			<div class="popupally-center-sxzw">
+				<div class="desc-sxzw">Get Our Design &amp; Code Review Checklist Now</div>
+				<div class="logo-row-sxzw">
+					<div class="clear-sxzw"></div>
+					<img class="logo-img-sxzw" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/ebook-Icon.png" alt="">
+					<div class="logo-text-sxzw">Join in to receive our blog posts and we'll deliver our 2015 checklist for developers via email.</div>
+					<div class="clear-sxzw"></div>
+				</div>
+				<form action="http://intertech.us4.list-manage.com/subscribe/post?u=9ec266ae32a3af04f0025c0c0&id=7170315734" class="content-sxzw" method="post">
+<input type="hidden" name="LNAME" value=""><input type="hidden" name="b_9ec266ae32a3af04f0025c0c0_7170315734" value="">
+					<input type="text" name="FNAME" class="field-sxzw" placeholder="first name">
+					<input type="text" name="EMAIL" class="field-sxzw" placeholder="email">
+					<input type="submit" class="submit-sxzw" value="Subscribe">
+				</form>
+				<div class="privacy-sxzw">We don't like spammers. Your information will *never* be shared or sold to a 3rd party.</div>
+			</div>
+		</div>
+		<div title="Close" class="popupally-close-sxzw popup-click-close-trigger-1"></div>
+	</div>
+</div><script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/comment-reply.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ratingsL10n = {"plugin_url":"http:\/\/www.intertech.com\/Blog\/wp-content\/plugins\/wp-postratings","ajax_url":"http:\/\/www.intertech.com\/Blog\/wp-admin\/admin-ajax.php","text_wait":"Please rate only 1 post at a time.","image":"stars","image_ext":"gif","max":"5","show_loading":"1","show_fading":"1","custom":"0"};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src=ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_over."+ratingsL10n.image_ext;;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/postratings-js.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.3.2","language":"","remote_auth_s3":"W10= f1c6492efb370cc8b5113d04f0c7783e01de562d 1453988589","api_key":"QyNNpAQ8Kn0mBDB2HMI9Ry4ko0MzZHG4UUYc7Ny0cDzl8prmDxJ3nI4YqH0VSdKv","sso":{"name":"Intertech Blog","button":false,"url":"http:\/\/www.intertech.com\/Blog\/wp-login.php","logout":"http:\/\/www.intertech.com\/Blog\/wp-login.php?action=logout","width":"800","height":"700"}},"disqusIdentifier":"4457 http:\/\/www.intertech.com\/Blog\/?p=4457","disqusShortname":"intertechblog","disqusTitle":"Spring Integration Tutorial (Part 3) \u2013 Filters","disqusUrl":"http:\/\/www.intertech.com\/Blog\/spring-integration-tutorial-part-3-filters\/","options":{"manualSync":false},"postId":"4457"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/disqus.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"intertechblog"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/count(1).js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var icegram_pre_data = {"ajax_url":"http:\/\/www.intertech.com\/Blog\/wp-admin\/admin-ajax.php","post_obj":{"is_home":false,"page_id":4457,"action":"display_messages","shortcodes":[],"cache_compatibility":"no","device":"laptop"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/main.js"></script>
+
+<div id="socialBar"></div>
+
+<script>
+(function () {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+    }
+    _fbq.push(['addPixelId', '318544764994824']);
+})();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=318544764994824&amp;amp;ev=PixelInitialized" /&gt;</noscript>
+<!-- Start of PowerWebTraffic  by PowerObjects  Logging Code  -->
+<script type="text/javascript">
+var _tvr = 1;
+var _powt = 'lFlPtPae0UGrQjSW7i/XGmMAcgBtAE4AQQBvAHIAZwBiADQANABmADUA';
+(function () {
+var s = document.createElement('script');
+s.type = 'text/javascript'; 
+s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cloud.crm.powerobjects.net/powerwebtraffic/powt.js.aspx';
+var hs = document.getElementsByTagName('script')[0];
+hs.parentNode.insertBefore(s, hs); 
+})(); 
+</script>
+<!-- End of PowerWebTraffic by PowerObjects Logging Code -->
+
+
+
+<!-- Dynamic page generated in 0.476 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2016-01-28 07:43:09 -->
+
+<!-- super cache --><img src="./Spring Integration Tutorial (Part 3) - Filters - Intertech Blog_files/powt.aspx" style="display: none;"><div class="_bd_ext_tip" style="visibility: hidden;"><span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span class="_bd_ext_copy">复制</span></div></body></html>

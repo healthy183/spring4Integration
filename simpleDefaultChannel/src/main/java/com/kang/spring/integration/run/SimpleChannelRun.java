@@ -19,7 +19,10 @@ public class SimpleChannelRun {
     private MessageChannel orderConfirmationChannel;
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("simpleQueueChannel.xml");
+
+        ApplicationContext context = null;
+        //context = new ClassPathXmlApplicationContext("simpleChannel.xml");
+        context = new ClassPathXmlApplicationContext("simpleQueueChannel.xml");
         SimpleChannelRun springIntExample = (SimpleChannelRun) context.getBean("simpleChannelRun");
         springIntExample.postOrder();
     }

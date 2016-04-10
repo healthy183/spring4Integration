@@ -25,6 +25,7 @@
 
     <int:channel id="drinksChannel"/>
 
+
     <int:router input-channel="drinksChannel"
                 ref="drinkRouter" method="resolveOrderItemChannel">
     </int:router>
@@ -56,7 +57,7 @@
                 method="prepareDelivery" output-channel="deliveries"/>
 
     <!-- 定义一个 stream 适配器，接收 deliveries队列的消息后，直接输出到屏幕-->
-    <stream:stdout-channel-adapter id="deliveries"/>
+    <stream:stdout-channel-adapter id="deliveries" />
 
     <int:poller default="true" id="poller" fixed-rate="100" />
 

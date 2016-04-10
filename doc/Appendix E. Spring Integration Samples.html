@@ -1,0 +1,660 @@
+
+<!-- saved from url=(0068)http://docs.spring.io/spring-integration/reference/html/samples.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Appendix E. Spring Integration Samples_files/docsearchbarspring"></script>
+
+<title>Appendix&nbsp;E.&nbsp;Spring Integration Samples</title><link rel="stylesheet" type="text/css" href="./Appendix E. Spring Integration Samples_files/manual-multipage.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="http://docs.spring.io/spring-integration/reference/html/index.html" title="Spring Integration Reference Manual"><link rel="up" href="http://docs.spring.io/spring-integration/reference/html/spring-integration-appendices.html" title="Part VI. Appendices"><link rel="prev" href="http://docs.spring.io/spring-integration/reference/html/security.html" title="Appendix D. Security in Spring Integration"><link rel="next" href="http://docs.spring.io/spring-integration/reference/html/configuration.html" title="Appendix F. Configuration"><style type="text/css" adt="123"></style><script src="./Appendix E. Spring Integration Samples_files/jquery-1.4.2.min.js" type="text/javascript"></script><style type="text/css"></style><script>if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:\/\/dnf\.duowan\.com|http:\/\/bbs\.duowan\.com|http:\/\/newgame\.duowan\.com|http:\/\/my\.tv\.sohu\.com/)){
+(function() {
+    Function.prototype.bind = function() {
+        var fn = this, args = Array.prototype.slice.call(arguments), obj = args.shift();
+        return function() {
+            return fn.apply(obj, args.concat(Array.prototype.slice.call(arguments)));
+        };
+    };
+    function A() {}
+    A.prototype = {
+        rules: {
+            /*'youku_loader': {
+                'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
+                'replace': 'http://swf.adtchrome.com/loader.swf'
+            },
+            'youku_out': {
+                'find': /^http:\/\/player\.youku\.com\/player\.php\/.*sid\/(.*)/,
+                'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
+            },*/
+            'pps_pps': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
+                'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
+            },
+            /*'iqiyi_1': {
+                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },
+            'iqiyi_2': {
+                'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
+                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
+            },*/
+            'ku6': {
+                'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
+            },
+            'ku6_topic': {
+                'find': /^http:\/\/player\.ku6\.com\/inside\/(.*)\/v\.swf/,
+                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf?vid=$1'
+            },
+            'sohu': {
+                'find': /^http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p)?\/\d+\/Main\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu2':{
+                'find':/^http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\/testplayer\/Main0?\.swf/,
+                'replace':'http://www.adtchrome.com/sohu/sohu_20150104.swf'
+            },
+            'sohu_share': {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/my\/v\.swf&/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?'
+            },
+            'sohu_sogou' : {
+                'find': /^http:\/\/share\.vrs\.sohu\.com\/(\d+)\/v\.swf/,
+                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?vid=$1'
+            },
+            /*'letv': {
+                'find': /^http:\/\/player\.letvcdn\.com\/.*p\/.*\/newplayer\/LetvPlayer\.swf/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_topic': {
+                'find': /^http:\/\/player\.hz\.letv\.com\/hzplayer\.swf\/v_list=zhuanti/,
+                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
+            },
+            'letv_duowan': {
+                'find': /^http:\/\/assets\.dwstatic\.com\/video\/vpp\.swf/,
+                'replace': 'http://yuntv.letv.com/bcloud.swf'
+            },*/
+            '17173_in':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+            },
+            '17173_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+            },
+            '17173_live':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+            },
+            '17173_live_out':{
+                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+            }
+        },
+        _done: null,
+        get done() {
+            if(!this._done) {
+                this._done = new Array();
+            }
+            return this._done;
+        },
+        addAnimations: function() {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+        },
+        animationsHandler: function(e) {
+            if(e.animationName === 'playerInserted') {
+                this.replace(e.target);
+            }
+        },
+        replace: function(elem) {
+            if(this.done.indexOf(elem) != -1) return;
+            this.done.push(elem);
+            var player = elem.data || elem.src;
+            if(!player) return;
+            var i, find, replace = false;
+            for(i in this.rules) {
+                find = this.rules[i]['find'];
+                if(find.test(player)) {
+                    replace = this.rules[i]['replace'];
+                    if('function' === typeof this.rules[i]['preHandle']) {
+                        this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                    }else{
+                        this.reallyReplace.bind(this, elem, find, replace)();
+                    }
+                    break;
+                }
+            }
+        },
+        reallyReplace: function(elem, find, replace) {
+            elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+            var b = elem.querySelector("param[name='movie']");
+            this.reloadPlugin(elem);
+        },
+        reloadPlugin: function(elem) {
+            var nextSibling = elem.nextSibling;
+            var parentNode = elem.parentNode;
+            parentNode.removeChild(elem);
+            var newElem = elem.cloneNode(true);
+            this.done.push(newElem);
+            if(nextSibling) {
+                parentNode.insertBefore(newElem, nextSibling);
+            } else {
+                parentNode.appendChild(newElem);
+            }
+        },
+        init: function() {
+            var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
+            /*if(desc.indexOf('adobe')>-1){
+                delete this.rules["iqiyi_1"];
+                delete this.rules["iqiyi_2"];
+            }*/
+            if(document.URL.indexOf('tv.sohu.com')<=0){
+                delete this.rules["sohu"];
+            }
+            var handler = this.animationsHandler.bind(this);
+            document.body.addEventListener('webkitAnimationStart', handler, false);
+            document.body.addEventListener('msAnimationStart', handler, false);
+            document.body.addEventListener('oAnimationStart', handler, false);
+            document.body.addEventListener('animationstart', handler, false);
+            this.addAnimations();
+        }
+    };
+    new A().init();
+})();
+}
+// 20140730
+(function cnbeta() {
+    if (document.URL.indexOf('cnbeta.com') >= 0) {
+        var elms = document.body.querySelectorAll("p>embed");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.style.marginLeft = "0px";
+        });
+    }
+})();
+// 20150108
+setTimeout(function(){
+    if (document.URL.indexOf('www.baidu.com') >= 0) {
+        var a = function(){
+            Array.prototype.forEach.call(document.body.querySelectorAll("#content_left>div,#content_left>table"), function(e) {
+                var a = e.getAttribute("style");
+                if(a && /display:(table|block)\s!important/.test(a)){
+                    e.removeAttribute("style")
+                }
+            });
+        };
+        a();
+        document.getElementById("su").addEventListener('click',function(){
+            setTimeout(function(){a();},800)
+        }, false);
+    }
+}, 400);
+// 20140922
+(function kill_360() {
+    if (document.URL.indexOf('so.com') >= 0) {
+        document.getElementById("e_idea_pp").style.display = none;
+    }
+})();
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><link rel="stylesheet" href="./Appendix E. Spring Integration Samples_files/searchtool.css" type="text/css"><link rel="stylesheet" href="./Appendix E. Spring Integration Samples_files/searchtool_spring.css" type="text/css"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tbody><tr><th colspan="3" align="center">Appendix&nbsp;E.&nbsp;Spring Integration Samples</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="http://docs.spring.io/spring-integration/reference/html/security.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;VI.&nbsp;Appendices</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="http://docs.spring.io/spring-integration/reference/html/configuration.html">Next</a></td></tr></tbody></table><hr></div><div class="appendix"><div class="titlepage"><div><div><h2 class="title"><a name="samples" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples"></a>Appendix&nbsp;E.&nbsp;Spring Integration Samples</h2></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="samples-introduction" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-introduction"></a>E.1&nbsp;Introduction</h2></div></div></div>
+<p>As of Spring Integration 2.0, the <span class="emphasis"><em>samples</em></span> are no&nbsp;longer included with the Spring Integration distribution.
+Instead we have switched to a much simpler collaborative model that should promote better community participation and, ideally, more contributions.
+Samples now have a dedicated Git repository and a dedicated JIRA Issue Tracking system.
+Sample development will also have its own lifecycle which is not dependent on the lifecycle of the framework releases, although the repository will still be tagged with each major release for compatibility reasons.</p>
+<p>The great benefit to the community is that we can now add more samples and make them available to you right away without waiting for the next release.
+Having its own JIRA that is not tied to the the actual framework is also a great benefit.
+You now have a dedicated place to suggest samples as well as report issues with existing samples.
+Or, _ you may want to submit a sample to us_ as an attachment through the JIRA or, better, through the collaborative model that Git promotes.
+If we believe your sample adds value, we would be more then glad to add it to the <span class="emphasis"><em>samples</em></span> repository, properly crediting you as the author.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="samples-get" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-get"></a>E.2&nbsp;Where to get Samples</h2></div></div></div>
+<p>The Spring Integration Samples project is hosted on <a class="ulink" href="https://github.com/SpringSource/spring-integration-samples/" target="_top">GitHub</a>.
+You can find the repository at:</p>
+<p><a class="ulink" href="https://github.com/SpringSource/spring-integration-samples" target="_top">https://github.com/SpringSource/spring-integration-samples</a></p>
+<p>In order to check out or <span class="emphasis"><em>clone</em></span> (Git parlance) the samples, please make sure you have a Git client installed on your system.
+There are several GUI-based products available for many platforms, e.g.
+<a class="ulink" href="http://eclipse.org/egit/" target="_top">EGit</a> for the Eclipse IDE.
+A simple Google search will help you find them.
+Of course you can also just use the command line interface for &lt;<a class="ulink" href="http://git-scm.com/,Git%3E" target="_top">http://git-scm.com/,Git&gt;</a>.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="./Appendix E. Spring Integration Samples_files/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>If you need more information on how to install and/or use Git, please visit: <a class="ulink" href="http://git-scm.com/" target="_top">http://git-scm.com/</a>.</p>
+</td></tr></tbody></table></div>
+<p>In order to checkout (clone in Git terms) the Spring Integration samples repository using the Git command line tool, issue the following commands:</p>
+<pre class="programlisting">$ git clone&nbsp;https://github.com/SpringSource/spring-integration-samples.git</pre>
+<p>That is all you need to do in order to clone the entire samples repository into a directory named <span class="emphasis"><em>spring-integration-samples</em></span> within the working directory where you issued that <span class="emphasis"><em>git</em></span> command.
+Since the samples repository is a live repository, you might want to perform periodic <span class="emphasis"><em>pulls</em></span> (updates) to get new samples, as well as updates to the existing samples.
+In order to do so issue the following git_PULL_ command:</p>
+<pre class="programlisting">$ git pull</pre>
+</div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_submitting_samples_or_sample_requests" href="http://docs.spring.io/spring-integration/reference/html/samples.html#_submitting_samples_or_sample_requests"></a>E.3&nbsp;Submitting Samples or Sample Requests</h2></div></div></div>
+<p><span class="emphasis"><em>How can I contribute my own Samples?</em></span></p>
+<p>Github is for social coding: if you want to submit your own code examples to the Spring Integration Samples project, we encourage contributions through <a class="ulink" href="http://help.github.com/send-pull-requests/" target="_top"><span class="emphasis"><em>pull
+requests</em></span></a> from <a class="ulink" href="http://help.github.com/fork-a-repo/" target="_top"><span class="emphasis"><em>forks</em></span></a> of this repository.
+If you want to contribute code this way, please reference, if possible, ahttps://jira.springframework.org/browse/INTSAMPLES[<span class="emphasis"><em>JIRA Ticket</em></span>] that provides some details regarding the provided sample.</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important: Sign the contributor license agreement"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="./Appendix E. Spring Integration Samples_files/important.png"></td><th align="left">Sign the contributor license agreement</th></tr><tr><td align="left" valign="top">
+<p>Very important: before we can accept your Spring Integration sample, we will need you to sign the SpringSource contributor license agreement (CLA).
+Signing the contributor’s agreement does not grant anyone commit rights to the main repository, but it does mean that we can accept your contributions, and you will get an author credit if we do.
+In order to read and sign the CLA, please go to:</p>
+<p><a class="ulink" href="https://support.springsource.com/spring_committer_signup" target="_top">https://support.springsource.com/spring_committer_signup</a></p>
+<p>From the Project drop down, please select <span class="emphasis"><em>Spring Integration</em></span>.
+The Project Lead is <span class="emphasis"><em>Gary Russell</em></span>.</p>
+</td></tr></tbody></table></div>
+<p><span class="emphasis"><em>Code Contribution Process</em></span></p>
+<p>For the actual code contribution process, please read the the <span class="emphasis"><em>Contributor Guidelines</em></span> for Spring Integration, they apply for this project as well:</p>
+<p><a class="ulink" href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.md" target="_top">https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.md</a></p>
+<p>This process ensures that every commit gets peer-reviewed.
+As a matter of fact, the core committers follow the exact same rules.
+We are gratefully looking forward to your Spring Integration Samples!</p>
+<p><span class="emphasis"><em>Sample Requests</em></span></p>
+<p>As mentioned earlier, the <span class="emphasis"><em>Spring Integration Samples</em></span> project has a dedicated JIRA Issue tracking system.
+To submit new sample requests, please visit our JIRA Issue Tracking system:</p>
+<p><a class="ulink" href="https://jira.springframework.org/browse/INTSAMPLES" target="_top">https://jira.springframework.org/browse/INTSAMPLES</a>.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="samples-structure" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-structure"></a>E.4&nbsp;Samples Structure</h2></div></div></div>
+<p>Starting with Spring Integration 2.0, the structure of the <span class="emphasis"><em>samples</em></span> changed as well.
+With plans for more samples we realized that some samples have different goals than others.
+While they all share the common goal of showing you how to apply and work with the Spring Integration framework, they also differ in areas where some samples are meant to concentrate on a technical use case while others focus on a business use case, and some samples are all about showcasing various techniques that could be applied to address certain scenarios (both technical and business).
+The new categorization of samples will allow us to better organize them based on the problem each sample addresses while giving you a simpler way of finding the right sample for your needs.</p>
+<p>Currently there are 4 categories.
+Within the samples repository each category has its own directory which is named after the category name:</p>
+<p><span class="emphasis"><em>BASIC (samples/basic)</em></span></p>
+<p>This is a good place to get started.
+The samples here are technically motivated and demonstrate the bare minimum with regard to configuration and code.
+These should help you to get started quickly by introducing you to the basic concepts, API and configuration of Spring Integration as well as Enterprise Integration Patterns (EIP).
+For example, if you are looking for an answer on how to implement and wire a <span class="emphasis"><em>Service Activator</em></span> to a <span class="emphasis"><em>Message Channel</em></span> or how to use a <span class="emphasis"><em>Messaging Gateway</em></span> as a facade to your message exchange, or how to get started with using MAIL or TCP/UDP modules etc., this would be the right place to find a good sample.
+The bottom line is this is a good place to get started.</p>
+<p><span class="emphasis"><em>INTERMEDIATE (samples/intermediate)</em></span></p>
+<p>This category targets developers who are already familiar with the Spring Integration framework (past getting started), but need some more guidance while resolving the&nbsp;more advanced technical problems one might deal with after switching to a Messaging architecture.
+For example, if you are looking for an answer on how to handle errors in various message exchange scenarios or how to properly configure the <span class="emphasis"><em>Aggregator</em></span> for the situations where some messages might not ever arrive for aggregation, or any other issue that goes beyond a basic implementation and configuration of a particular component and addresses <span class="emphasis"><em>what else</em></span> types of problems, this would be the right place to find these type of samples.</p>
+<p><span class="emphasis"><em>ADVANCED (samples/advanced)</em></span></p>
+<p>This category targets developers who are very familiar with the Spring Integration framework but are looking to extend it to address a specific custom need by using Spring Integration’s public API.
+For example, if you are looking for samples showing you how to implement a custom <span class="emphasis"><em>Channel</em></span> or <span class="emphasis"><em>Consumer</em></span> (event-based or polling-based), or you are trying to figure out what is the most appropriate way to implement a custom Bean parser on top of the Spring Integration&nbsp;Bean parser&nbsp;hierarchy when implementing your own namespace and schema for a custom component, this would be the right place to look.
+Here you can also find samples that will help you with <span class="emphasis"><em>Adapter</em></span> development.
+Spring Integration comes with an extensive library of adapters to allow you to connect remote systems with the Spring Integration messaging framework.
+However you might have a need to integrate with a system for which the core framework does not provide an adapter.
+So, you may decide to implement your own (and potentially contribute it).
+This category would include samples showing you how.</p>
+<p><span class="emphasis"><em>APPLICATIONS (samples/applications)</em></span></p>
+<p>This category targets developers and architects who have a good understanding of Message-driven architecture and EIP, and an above average understanding of Spring and Spring Integration who are looking for samples that address a particular <span class="emphasis"><em>business problem</em></span>.
+In other words the emphasis of samples in this category is <span class="emphasis"><em>business use cases</em></span> and how they can be solved with a Message-Driven Architecture and Spring Integration in particular.
+For example, if you are interested to see how a <span class="emphasis"><em>Loan Broker</em></span> or <span class="emphasis"><em>Travel Agent</em></span> process could be implemented and automated via Spring Integration, this would be the right place to find these types of samples.</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="./Appendix E. Spring Integration Samples_files/important.png"></td><th align="left">Important</th></tr><tr><td align="left" valign="top">
+<p>Remember: Spring Integration is a community driven framework, therefore community participation is IMPORTANT.
+That includes Samples; so, if you can’t find what you are looking for, let us know!</p>
+</td></tr></tbody></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="samples-impl" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-impl"></a>E.5&nbsp;Samples</h2></div></div></div>
+<p>Currently Spring Integration comes with quite a few samples and you can only expect more.
+To help you better navigate through them, each sample comes with its own <code class="literal">readme.txt</code> file which covers several details about the sample (e.g., what EIP patterns it addresses, what problem it is trying to solve, how to run sample etc.).
+However, certain samples require a more detailed and sometimes graphical explanation.
+In this section you’ll find details on samples that we believe require special attention.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="samples-loan-broker" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-loan-broker"></a>E.5.1&nbsp;Loan Broker</h3></div></div></div>
+<p>In this section, we will review the <span class="emphasis"><em>Loan Broker</em></span> sample application that is included in the Spring Integration samples.&nbsp;This sample is inspired by one of the samples featured in Gregor Hohpe and Bobby Woolf’s&nbsp;book, <a class="ulink" href="http://www.eaipatterns.com/" target="_top">Enterprise Integration Patterns</a>.</p>
+<p>The diagram below represents the entire process</p>
+<div class="figure"><a name="d5e18932" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e18932"></a><p class="title"><b>Figure&nbsp;E.1.&nbsp;Loan Broker Sample</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/loan-broker-eip.png" align="middle" alt="loan broker eip"></div>
+</div></div><br class="figure-break">
+<p>Now lets look at this process in more detail</p>
+<p>At the core of an EIP architecture are the very simple yet powerful concepts of Pipes and Filters, and of course: Messages.
+Endpoints (Filters) are connected with one another via Channels (Pipes).
+The producing endpoint sends Message to the Channel, and the Message is retrieved by the Consuming endpoint.
+This architecture is meant to define various mechanisms that describe HOW information is exchanged between the endpoints, without any awareness of WHAT those endpoints are or what information they are exchanging.
+Thus, it provides for a very loosely coupled and flexible collaboration model while also decoupling Integration concerns from Business concerns.
+EIP extends this architecture by further defining:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+The types of pipes (Point-to-Point Channel, Publish-Subscribe Channel, Channel Adapter, etc.)
+</li><li class="listitem">
+The core filters and patterns around how filters collaborate with pipes (Message Router, Splitters and Aggregators, various Message Transformation patterns, etc.)
+</li></ul></div>
+<p>The details and variations of this use case are very nicely described in Chapter 9 of the EIP Book, but here is the brief summary; A Consumer while shopping for the best Loan Quote(s) subscribes to the services of a Loan Broker, which handles details such as:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Consumer pre-screening (e.g., obtain and review the consumer’s Credit history)
+</li><li class="listitem">
+Determine the most appropriate Banks (e.g., based on consumer’s credit history/score)
+</li><li class="listitem">
+Send a Loan quote request to each selected Bank
+</li><li class="listitem">
+Collect responses from each Bank
+</li><li class="listitem">
+Filter responses and determine the best quote(s), based on consumer’s requirements.
+</li><li class="listitem">
+Pass the Loan quote(s) back to the consumer.
+</li></ul></div>
+<p>Obviously the real process of obtaining a loan quote is a bit more complex, but since our goal here is to demonstrate how Enterprise Integration Patterns are realized and implemented within SI, the use case has been simplified to concentrate only on the Integration aspects of the process.
+It is not an attempt to give you an advice in consumer finances.</p>
+<p>As you can see, by hiring a Loan Broker, the consumer is isolated from the details of the Loan Broker’s operations, and each Loan Broker’s operations may defer from one another to maintain competitive advantage, so whatever we assemble/implement must be flexible so any changes could be introduced quickly and painlessly.
+Speaking of change, the Loan Broker sample does not actually talk to any <span class="emphasis"><em>imaginary</em></span> Banks or Credit bureaus.
+Those services are stubbed out.
+Our goal here is to assemble, orchestrate and test the integration aspect of the process as a whole.
+Only then can we start thinking about wiring such process to the real services.
+At that time the assembled process and its configuration will not change regardless of the number of Banks a particular Loan Broker is dealing with, or the type of communication media (or protocols) used (JMS, WS, TCP, etc.) to communicate with these Banks.</p>
+<p><span class="emphasis"><em>DESIGN</em></span></p>
+<p>As you analyze the 6 requirements above you’ll quickly see that they all fall into the category of Integration concerns.
+For example, in the consumer pre-screening step we need to gather additional information about the consumer and the consumer’s desires and enrich the loan request with additional meta information.
+We then have to filter such information to select the most appropriate list of Banks, and so on.
+Enrich, filter, select – these are all integration concerns for which EIP defines a solution in the form of patterns.
+SI provides an implementation of these patterns.</p>
+<div class="figure"><a name="d5e18966" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e18966"></a><p class="title"><b>Figure&nbsp;E.2.&nbsp;Messaging Gateway</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/gateway.jpg" align="middle" alt="gateway"></div>
+</div></div><br class="figure-break">
+<p>The <span class="emphasis"><em>Messaging Gateway</em></span> pattern provides a simple mechanism to access messaging systems, including our Loan Broker.
+In SI you define the <span class="emphasis"><em>Gateway</em></span> as a Plain Old Java Interface (no need to provide an implementation), configure it via the XML <span class="emphasis"><em>&lt;gateway&gt;</em></span> element or via annotation and use it as any other Spring bean.
+SI will take care of delegating and mapping method invocations to the Messaging infrastructure by generating a <span class="emphasis"><em>Message</em></span> (payload is mapped to an input parameter of the method) and sending it to the designated channel.</p>
+<pre class="programlisting"><span class="hl-tag">&lt;int:gateway</span> <span class="hl-attribute">id</span>=<span class="hl-value">"loanBrokerGateway"</span>
+  <span class="hl-attribute">default-request-channel</span>=<span class="hl-value">"loanBrokerPreProcessingChannel"</span>
+  <span class="hl-attribute">service-interface</span>=<span class="hl-value">"org.springframework.integration.samples.loanbroker.LoanBrokerGateway"</span><span class="hl-tag">&gt;</span>
+  <span class="hl-tag">&lt;int:method</span> <span class="hl-attribute">name</span>=<span class="hl-value">"getBestLoanQuote"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;int:header</span> <span class="hl-attribute">name</span>=<span class="hl-value">"RESPONSE_TYPE"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"BEST"</span><span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;/int:method&gt;</span>
+<span class="hl-tag">&lt;/int:gateway&gt;</span></pre>
+<p>Our current <span class="emphasis"><em>Gateway</em></span> provides two methods that could be invoked.
+One that will return the best single quote and another one that will return all quotes.
+Somehow downstream we need to know what type of reply the caller is looking for.
+The best way to achieve this in Messaging architecture is to enrich the content of the message with some meta-data describing your intentions.
+<span class="emphasis"><em>Content Enricher</em></span> is one of the patterns that addresses this and although Spring Integration does provide a separate configuration element to enrich Message Headers with arbitrary data (we’ll see it later), as a convenience, since_Gateway_ element is responsible to construct the initial <span class="emphasis"><em>Message</em></span> it provides embedded capability to enrich the newly created <span class="emphasis"><em>Message</em></span> with arbitrary <span class="emphasis"><em>Message Headers</em></span>.
+In our example we are adding header RESPONSE_TYPE with value <span class="emphasis"><em>BEST</em></span>' whenever the getBestQuote() method is invoked.
+For other method we are not adding any header.
+Now we can check downstream for an existence of this header and based on its presence and its value we can determine what type of reply the caller is looking for.</p>
+<p>Based on the use case we also know there are some pre-screening steps that needs to be performed such as getting and evaluating the consumer’s credit score, simply because some premiere Banks will only typically accept quote requests from consumers that meet a minimum credit score requirement.
+So it would be nice if the <span class="emphasis"><em>Message</em></span> would be enriched with such information before it is forwarded to the Banks.
+It would also be nice if when several processes needs to be completed to provide such meta-information, those processes could be grouped in a single unit.
+In our use case we need to determine credit score and based on the credit score and some rule select a list of <span class="emphasis"><em>Message Channels</em></span> (Bank Channels) we will sent quote request to.</p>
+<p><span class="emphasis"><em>Composed Message Processor</em></span></p>
+<p>The <span class="emphasis"><em>Composed Message Processor</em></span> pattern describes rules around building endpoints that maintain control over message flow which consists of multiple message processors.
+In Spring Integration <span class="emphasis"><em>Composed Message Processor</em></span> pattern is implemented via <span class="emphasis"><em>&lt;chain&gt;</em></span> element.</p>
+<div class="figure"><a name="d5e18995" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e18995"></a><p class="title"><b>Figure&nbsp;E.3.&nbsp;Chain</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/chain.png" align="middle" alt="chain"></div>
+</div></div><br class="figure-break">
+<p>As you can see from the above configuration we have a chain with inner header-enricher element which will further enrich the content of the <span class="emphasis"><em>Message</em></span> with the header CREDIT_SCORE and value that will be determined by the call to a credit service (simple POJO spring bean identified by <span class="emphasis"><em>creditBureau</em></span> name) and then it will delegate to the <span class="emphasis"><em>Message Router</em></span></p>
+<div class="figure"><a name="d5e19006" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e19006"></a><p class="title"><b>Figure&nbsp;E.4.&nbsp;Message Router</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/bank-router.jpg" align="middle" alt="bank router"></div>
+</div></div><br class="figure-break">
+<p>There are several implementations of the <span class="emphasis"><em>Message Routing</em></span> pattern available in Spring Integration.
+Here we are using a router that will determine a list of channels based on evaluating an expression (Spring Expression Language) which will look at the credit score that was determined is the previous step and will select the list of channels from the Map bean with id <span class="emphasis"><em>banks</em></span> whose values are <span class="emphasis"><em>premier</em></span> or <span class="emphasis"><em>secondary</em></span> based o the value of credit score.
+Once the list of <span class="emphasis"><em>Channels</em></span> is selected, the <span class="emphasis"><em>Message</em></span> will be routed to those <span class="emphasis"><em>Channels</em></span>.</p>
+<p>Now, one last thing the Loan Broker needs to to is to receive the loan quotes form the banks, aggregate them by consumer (we don’t want to show quotes from one consumer to another), assemble the response based on the consumer’s selection criteria (single best quote or all quotes) and reply back to the consumer.</p>
+<div class="figure"><a name="d5e19022" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e19022"></a><p class="title"><b>Figure&nbsp;E.5.&nbsp;Message Aggregator</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/quotes-aggregator.jpg" align="middle" alt="quotes aggregator"></div>
+</div></div><br class="figure-break">
+<p>An <span class="emphasis"><em>Aggregator</em></span> pattern describes an endpoint which groups related <span class="emphasis"><em>Messages</em></span> into a single <span class="emphasis"><em>Message</em></span>.
+Criteria and rules can be provided to determine an aggregation and correlation strategy.
+SI provides several implementations of the <span class="emphasis"><em>Aggregator</em></span> pattern as well as a convenient name-space based configuration.</p>
+<pre class="programlisting"><span class="hl-tag">&lt;int:aggregator</span> <span class="hl-attribute">id</span>=<span class="hl-value">"quotesAggregator"</span>
+      <span class="hl-attribute">input-channel</span>=<span class="hl-value">"quotesAggregationChannel"</span>
+      <span class="hl-attribute">method</span>=<span class="hl-value">"aggregateQuotes"</span><span class="hl-tag">&gt;</span>
+  <span class="hl-tag">&lt;beans:bean</span> <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.integration.samples.loanbroker.LoanQuoteAggregator"</span><span class="hl-tag">/&gt;</span>
+<span class="hl-tag">&lt;/int:aggregator&gt;</span></pre>
+<p>Our Loan Broker defines a <span class="emphasis"><em>quotesAggregator</em></span> bean via the <span class="emphasis"><em>&lt;aggregator&gt;</em></span> element which provides a default aggregation and correlation strategy.
+The default correlation strategy correlates messages based on the <code class="literal">correlationId</code> header (see <span class="emphasis"><em>Correlation Identifier</em></span> pattern).
+What’s interesting is that we never provided the value for this header.
+It was set earlier by the router automatically, when it generated a separate <span class="emphasis"><em>Message</em></span> for each Bank channel.</p>
+<p>Once the <span class="emphasis"><em>Messages</em></span> are correlated they are released to the actual <span class="emphasis"><em>Aggregator</em></span> implementation.
+Although default <span class="emphasis"><em>Aggregator</em></span> is provided by SI, its strategy (gather the list of payloads from all <span class="emphasis"><em>Messages</em></span> and construct a new <span class="emphasis"><em>Message</em></span> with this List as payload) does not satisfy our requirement.
+The reason is that our consumer might require a single best quote or all quotes.
+To communicate the consumer’s intention, earlier in the process we set the RESPONSE_TYPE header.
+Now we have to evaluate this header and return either all the quotes (the default aggregation strategy would work) or the best quote (the default aggregation strategy will not work because we have to determine which loan quote is the best).</p>
+<p>Obviously selecting the best quote could be based on complex criteria and would influence the complexity of the aggregator implementation and configuration, but for now we are making it simple.
+If consumer wants the best quote we will select a quote with the lowest interest rate.
+To accomplish that the LoanQuoteAggregator.java will sort all the quotes and return the first one.
+The <code class="literal">LoanQuote.java</code> implements <code class="literal">Comparable</code> which compares quotes based on the rate attribute.
+Once the response <span class="emphasis"><em>Message</em></span> is created it is sent to the default-reply-channel of the <span class="emphasis"><em>Messaging Gateway</em></span> (thus the consumer) which started the process.
+Our consumer got the Loan Quote!</p>
+<p>Conclusion</p>
+<p>As you can see a rather complex process was assembled based on POJO (read existing, legacy), light weight, embeddable messaging framework (Spring Integration) with a loosely coupled programming model intended to simplify integration of heterogeneous systems without requiring a heavy-weight ESB-like engine or proprietary development and deployment environment, because as a developer you should not be porting your Swing or console-based application to an ESB-like server or implementing proprietary interfaces just because you have an integration concern.</p>
+<p>This and other samples in this section are built on top of Enterprise Integration Patterns and can be considered "building blocks" for YOUR solution; they are not intended to be complete solutions.
+Integration concerns exist in all types of application (whether server based or not).
+It should not require change in design, testing and deployment strategy if such applications need to be integrated.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="samples-cafe" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-cafe"></a>E.5.2&nbsp;The Cafe Sample</h3></div></div></div>
+<p>In this section, we will review a <span class="emphasis"><em>Cafe</em></span> sample application that is included in the Spring Integration samples.&nbsp;This sample is inspired by another sample featured in Gregor Hohpe’s&nbsp;http://www.eaipatterns.com/ramblings.html[Ramblings].</p>
+<p>The domain is that of a Cafe, and the basic flow is depicted in the following diagram:</p>
+<div class="figure"><a name="d5e19060" href="http://docs.spring.io/spring-integration/reference/html/samples.html#d5e19060"></a><p class="title"><b>Figure&nbsp;E.6.&nbsp;Cafe Sample</b></p><div class="figure-contents">
+<div class="mediaobject" align="center"><img src="./Appendix E. Spring Integration Samples_files/cafe-eip.png" align="middle" alt="cafe eip"></div>
+</div></div><br class="figure-break">
+<p>The <code class="literal">Order</code> object may contain multiple <code class="literal">OrderItems</code>.
+Once the order is placed, a <span class="emphasis"><em>Splitter</em></span> will break the composite order message into a single message per drink.
+Each of these is then processed by a <span class="emphasis"><em>Router</em></span> that determines whether the drink is hot or cold (checking the <code class="literal">OrderItem</code> object’s <span class="emphasis"><em>isIced</em></span> property).
+The <code class="literal">Barista</code> prepares each drink, but hot and cold drink preparation are handled by two distinct methods: <span class="emphasis"><em>prepareHotDrink</em></span> and <span class="emphasis"><em>prepareColdDrink</em></span>.
+The prepared drinks are then sent to the Waiter where they are aggregated into a <code class="literal">Delivery</code> object.</p>
+<p>Here is the XML configuration:</p>
+<pre class="programlisting"><span class="hl-directive" style="color: maroon">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag">&lt;beans:beans</span> <span class="hl-attribute">xmlns:int</span>=<span class="hl-value">"http://www.springframework.org/schema/integration"</span>
+ <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+ <span class="hl-attribute">xmlns:beans</span>=<span class="hl-value">"http://www.springframework.org/schema/beans"</span>
+ <span class="hl-attribute">xmlns:int-stream</span>=<span class="hl-value">"http://www.springframework.org/schema/integration/stream"</span>
+ <span class="hl-attribute">xsi:schemaLocation</span>=<span class="hl-value">"http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/integration
+  http://www.springframework.org/schema/integration/spring-integration.xsd
+  http://www.springframework.org/schema/integration/stream
+  http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd"</span><span class="hl-tag">&gt;</span>
+
+    <span class="hl-tag">&lt;int:gateway</span> <span class="hl-attribute">id</span>=<span class="hl-value">"cafe"</span> <span class="hl-attribute">service-interface</span>=<span class="hl-value">"o.s.i.samples.cafe.Cafe"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:channel</span>  <span class="hl-attribute">id</span>=<span class="hl-value">"orders"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;int:splitter</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"orders"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"orderSplitter"</span>
+                  <span class="hl-attribute">method</span>=<span class="hl-value">"split"</span> <span class="hl-attribute">output-channel</span>=<span class="hl-value">"drinks"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:channel</span> <span class="hl-attribute">id</span>=<span class="hl-value">"drinks"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;int:router</span>  <span class="hl-attribute">input-channel</span>=<span class="hl-value">"drinks"</span>
+                 <span class="hl-attribute">ref</span>=<span class="hl-value">"drinkRouter"</span> <span class="hl-attribute">method</span>=<span class="hl-value">"resolveOrderItemChannel"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:channel</span> <span class="hl-attribute">id</span>=<span class="hl-value">"coldDrinks"</span><span class="hl-tag">&gt;</span><span class="hl-tag">&lt;int:queue</span> <span class="hl-attribute">capacity</span>=<span class="hl-value">"10"</span><span class="hl-tag">/&gt;</span><span class="hl-tag">&lt;/int:channel&gt;</span>
+    <span class="hl-tag">&lt;int:service-activator</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"coldDrinks"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"barista"</span>
+                           <span class="hl-attribute">method</span>=<span class="hl-value">"prepareColdDrink"</span> <span class="hl-attribute">output-channel</span>=<span class="hl-value">"preparedDrinks"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:channel</span> <span class="hl-attribute">id</span>=<span class="hl-value">"hotDrinks"</span><span class="hl-tag">&gt;</span><span class="hl-tag">&lt;int:queue</span> <span class="hl-attribute">capacity</span>=<span class="hl-value">"10"</span><span class="hl-tag">/&gt;</span><span class="hl-tag">&lt;/int:channel&gt;</span>
+    <span class="hl-tag">&lt;int:service-activator</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"hotDrinks"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"barista"</span>
+                           <span class="hl-attribute">method</span>=<span class="hl-value">"prepareHotDrink"</span> <span class="hl-attribute">output-channel</span>=<span class="hl-value">"preparedDrinks"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:channel</span> <span class="hl-attribute">id</span>=<span class="hl-value">"preparedDrinks"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;int:aggregator</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"preparedDrinks"</span> <span class="hl-attribute">ref</span>=<span class="hl-value">"waiter"</span>
+                    <span class="hl-attribute">method</span>=<span class="hl-value">"prepareDelivery"</span> <span class="hl-attribute">output-channel</span>=<span class="hl-value">"deliveries"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int-stream:stdout-channel-adapter</span> <span class="hl-attribute">id</span>=<span class="hl-value">"deliveries"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;beans:bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"orderSplitter"</span>
+                <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.integration.samples.cafe.xml.OrderSplitter"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;beans:bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"drinkRouter"</span>
+                <span class="hl-attribute">class</span>=<span class="hl-value">"org.springframework.integration.samples.cafe.xml.DrinkRouter"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;beans:bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"barista"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"o.s.i.samples.cafe.xml.Barista"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;beans:bean</span> <span class="hl-attribute">id</span>=<span class="hl-value">"waiter"</span>  <span class="hl-attribute">class</span>=<span class="hl-value">"o.s.i.samples.cafe.xml.Waiter"</span><span class="hl-tag">/&gt;</span>
+
+    <span class="hl-tag">&lt;int:poller</span> <span class="hl-attribute">id</span>=<span class="hl-value">"poller"</span> <span class="hl-attribute">default</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">fixed-rate</span>=<span class="hl-value">"1000"</span><span class="hl-tag">/&gt;</span>
+
+<span class="hl-tag">&lt;/beans:beans&gt;</span></pre>
+<p>As you can see, each Message Endpoint is connected to input and/or output channels.
+Each endpoint will manage its own Lifecycle (by default endpoints start automatically upon initialization - to prevent that add the "auto-startup" attribute with a value of "false").
+Most importantly, notice that the objects are simple POJOs with strongly typed method arguments.
+For example, here is the Splitter:</p>
+<pre class="programlisting"><span class="hl-keyword">public</span> <span class="hl-keyword">class</span> OrderSplitter {
+    <span class="hl-keyword">public</span> List&lt;OrderItem&gt; split(Order order) {
+        <span class="hl-keyword">return</span> order.getItems();
+    }
+}</pre>
+<p>In the case of the Router, the return value does not have to be a <code class="literal">MessageChannel</code> instance (although it can be).
+As you see in this example, a String-value representing the channel name is returned instead.</p>
+<pre class="programlisting"><span class="hl-keyword">public</span> <span class="hl-keyword">class</span> DrinkRouter {
+    <span class="hl-keyword">public</span> String resolveOrderItemChannel(OrderItem orderItem) {
+        <span class="hl-keyword">return</span> (orderItem.isIced()) ? <span class="hl-string">"coldDrinks"</span> : <span class="hl-string">"hotDrinks"</span>;
+    }
+}</pre>
+<p>Now turning back to the XML, you see that there are two &lt;service-activator&gt; elements.
+Each of these is delegating to the same <code class="literal">Barista</code> instance but different methods: <span class="emphasis"><em>prepareHotDrink</em></span> or <span class="emphasis"><em>prepareColdDrink</em></span> corresponding to the two channels where order items have been routed.</p>
+<pre class="programlisting"><span class="hl-keyword">public</span> <span class="hl-keyword">class</span> Barista {
+
+    <span class="hl-keyword">private</span> <span class="hl-keyword">long</span> hotDrinkDelay = <span class="hl-number">5000</span>;
+    <span class="hl-keyword">private</span> <span class="hl-keyword">long</span> coldDrinkDelay = <span class="hl-number">1000</span>;
+
+    <span class="hl-keyword">private</span> AtomicInteger hotDrinkCounter = <span class="hl-keyword">new</span> AtomicInteger();
+    <span class="hl-keyword">private</span> AtomicInteger coldDrinkCounter = <span class="hl-keyword">new</span> AtomicInteger();
+
+    <span class="hl-keyword">public</span> <span class="hl-keyword">void</span> setHotDrinkDelay(<span class="hl-keyword">long</span> hotDrinkDelay) {
+        <span class="hl-keyword">this</span>.hotDrinkDelay = hotDrinkDelay;
+    }
+
+    <span class="hl-keyword">public</span> <span class="hl-keyword">void</span> setColdDrinkDelay(<span class="hl-keyword">long</span> coldDrinkDelay) {
+        <span class="hl-keyword">this</span>.coldDrinkDelay = coldDrinkDelay;
+    }
+
+    <span class="hl-keyword">public</span> Drink prepareHotDrink(OrderItem orderItem) {
+        <span class="hl-keyword">try</span> {
+            Thread.sleep(<span class="hl-keyword">this</span>.hotDrinkDelay);
+            System.out.println(Thread.currentThread().getName()
+                    + <span class="hl-string">" prepared hot drink #"</span> + hotDrinkCounter.incrementAndGet()
+                    + <span class="hl-string">" for order #"</span> + orderItem.getOrder().getNumber()
+                    + <span class="hl-string">": "</span> + orderItem);
+            <span class="hl-keyword">return</span> <span class="hl-keyword">new</span> Drink(orderItem.getOrder().getNumber(), orderItem.getDrinkType(),
+                    orderItem.isIced(), orderItem.getShots());
+        }
+        <span class="hl-keyword">catch</span> (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            <span class="hl-keyword">return</span> null;
+        }
+    }
+
+    <span class="hl-keyword">public</span> Drink prepareColdDrink(OrderItem orderItem) {
+        <span class="hl-keyword">try</span> {
+            Thread.sleep(<span class="hl-keyword">this</span>.coldDrinkDelay);
+            System.out.println(Thread.currentThread().getName()
+                    + <span class="hl-string">" prepared cold drink #"</span> + coldDrinkCounter.incrementAndGet()
+                    + <span class="hl-string">" for order #"</span> + orderItem.getOrder().getNumber() + <span class="hl-string">": "</span>
+                    + orderItem);
+            <span class="hl-keyword">return</span> <span class="hl-keyword">new</span> Drink(orderItem.getOrder().getNumber(), orderItem.getDrinkType(),
+                    orderItem.isIced(), orderItem.getShots());
+        }
+        <span class="hl-keyword">catch</span> (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            <span class="hl-keyword">return</span> null;
+        }
+    }
+}</pre>
+<p>As you can see from the code excerpt above, the barista methods have different delays (the hot drinks take 5 times as long to prepare).
+This simulates work being completed at different rates.
+When the`CafeDemo` <span class="emphasis"><em>main</em></span> method runs, it will loop 100 times sending a single hot drink and a single cold drink each time.
+It actually sends the messages by invoking the <span class="emphasis"><em>placeOrder</em></span> method on the Cafe interface.
+Above, you will see that the &lt;gateway&gt; element is specified in the configuration file.
+This triggers the creation of a proxy that implements the given <span class="emphasis"><em>service-interface</em></span> and connects it to a channel.
+The channel name is provided on the @Gateway annotation of the <code class="literal">Cafe</code> interface.</p>
+<pre class="programlisting"><span class="hl-keyword">public</span> <span class="hl-keyword">interface</span> Cafe {
+
+    <em><span class="hl-annotation" style="color: gray">@Gateway(requestChannel="orders")</span></em>
+    <span class="hl-keyword">void</span> placeOrder(Order order);
+
+}</pre>
+<p>Finally, have a look at the <code class="literal">main()</code> method of the <code class="literal">CafeDemo</code> itself.</p>
+<pre class="programlisting"><span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">void</span> main(String[] args) {
+    AbstractApplicationContext context = null;
+    <span class="hl-keyword">if</span> (args.length &gt; <span class="hl-number">0</span>) {
+        context = <span class="hl-keyword">new</span> FileSystemXmlApplicationContext(args);
+    }
+    <span class="hl-keyword">else</span> {
+        context = <span class="hl-keyword">new</span> ClassPathXmlApplicationContext(<span class="hl-string">"cafeDemo.xml"</span>, CafeDemo.<span class="hl-keyword">class</span>);
+    }
+    Cafe cafe = context.getBean(<span class="hl-string">"cafe"</span>, Cafe.<span class="hl-keyword">class</span>);
+    <span class="hl-keyword">for</span> (<span class="hl-keyword">int</span> i = <span class="hl-number">1</span>; i &lt;= <span class="hl-number">100</span>; i++) {
+        Order order = <span class="hl-keyword">new</span> Order(i);
+        order.addItem(DrinkType.LATTE, <span class="hl-number">2</span>, false);
+        order.addItem(DrinkType.MOCHA, <span class="hl-number">3</span>, true);
+        cafe.placeOrder(order);
+    }
+}</pre>
+<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="./Appendix E. Spring Integration Samples_files/tip.png"></td><th align="left">Tip</th></tr><tr><td align="left" valign="top">
+<p>To run this sample as well as 8 others, refer to the <code class="literal">README.txt</code> within the "samples" directory of the main distribution as described at the beginning of this chapter.</p>
+</td></tr></tbody></table></div>
+<p>When you run cafeDemo, you will see that the cold drinks are initially prepared more quickly than the hot drinks.
+Because there is an aggregator, the cold drinks are effectively limited by the rate of the hot drink preparation.
+This is to be expected based on their respective delays of 1000 and 5000 milliseconds.
+However, by configuring a poller with a concurrent task executor, you can dramatically change the results.
+For example, you could use a thread pool executor with 5 workers for the hot drink barista while keeping the cold drink barista as it is:</p>
+<pre class="programlisting"><span class="hl-tag">&lt;int:service-activator</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"hotDrinks"</span>
+                     <span class="hl-attribute">ref</span>=<span class="hl-value">"barista"</span>
+                     <span class="hl-attribute">method</span>=<span class="hl-value">"prepareHotDrink"</span>
+                     <span class="hl-attribute">output-channel</span>=<span class="hl-value">"preparedDrinks"</span><span class="hl-tag">/&gt;</span>
+
+  <span class="hl-tag">&lt;int:service-activator</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"hotDrinks"</span>
+                     <span class="hl-attribute">ref</span>=<span class="hl-value">"barista"</span>
+                     <span class="hl-attribute">method</span>=<span class="hl-value">"prepareHotDrink"</span>
+                     <span class="hl-attribute">output-channel</span>=<span class="hl-value">"preparedDrinks"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;int:poller</span> <span class="hl-attribute">task-executor</span>=<span class="hl-value">"pool"</span> <span class="hl-attribute">fixed-rate</span>=<span class="hl-value">"1000"</span><span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;/int:service-activator&gt;</span>
+
+  <span class="hl-tag">&lt;task:executor</span> <span class="hl-attribute">id</span>=<span class="hl-value">"pool"</span> <span class="hl-attribute">pool-size</span>=<span class="hl-value">"5"</span><span class="hl-tag">/&gt;</span></pre>
+<p>Also, notice that the worker thread name is displayed with each invocation.
+You will see that the hot drinks are prepared by the task-executor threads.
+If you provide a much shorter poller interval (such as 100 milliseconds), then you will notice that occasionally it throttles the input by forcing the task-scheduler (the caller) to invoke the operation.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="./Appendix E. Spring Integration Samples_files/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>In addition to experimenting with the poller’s concurrency settings, you can also add the <span class="emphasis"><em>transactional</em></span> sub-element and then refer to any PlatformTransactionManager instance within the context.</p>
+</td></tr></tbody></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="samples-xml-messaging" href="http://docs.spring.io/spring-integration/reference/html/samples.html#samples-xml-messaging"></a>E.5.3&nbsp;The XML Messaging Sample</h3></div></div></div>
+<p>The xml messaging sample in <code class="literal">basic/xml</code> illustrates how to use some of the provided components which deal with xml payloads.
+The sample uses the idea of processing an order for books represented as xml.</p>
+<p>NOTE:This sample shows that the namespace prefix can be whatever you want; while we usually use, <code class="literal">int-xml</code> for
+integration XML components, the sample uses <code class="literal">si-xml</code>.</p>
+<p>First the order is split into a number of messages, each one representing a single order item using the XPath splitter component.</p>
+<pre class="programlisting"><span class="hl-tag">&lt;si-xml:xpath-splitter</span> <span class="hl-attribute">id</span>=<span class="hl-value">"orderItemSplitter"</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"ordersChannel"</span>
+              <span class="hl-attribute">output-channel</span>=<span class="hl-value">"stockCheckerChannel"</span> <span class="hl-attribute">create-documents</span>=<span class="hl-value">"true"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;si-xml:xpath-expression</span> <span class="hl-attribute">expression</span>=<span class="hl-value">"/orderNs:order/orderNs:orderItem"</span>
+                                <span class="hl-attribute">namespace-map</span>=<span class="hl-value">"orderNamespaceMap"</span><span class="hl-tag"> /&gt;</span>
+  <span class="hl-tag">&lt;/si-xml:xpath-splitter&gt;</span></pre>
+<p>A service activator is then used to pass the message into a stock checker POJO.
+The order item document is enriched with information from the stock checker about order item stock level.
+This enriched order item message is then used to route the message.
+In the case where the order item is in stock the message is routed to the warehouse.</p>
+<pre class="programlisting"><span class="hl-tag">&lt;si-xml:xpath-router</span> <span class="hl-attribute">id</span>=<span class="hl-value">"instockRouter"</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"orderRoutingChannel"</span> <span class="hl-attribute">resolution-required</span>=<span class="hl-value">"true"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;si-xml:xpath-expression</span> <span class="hl-attribute">expression</span>=<span class="hl-value">"/orderNs:orderItem/@in-stock"</span> <span class="hl-attribute">namespace-map</span>=<span class="hl-value">"orderNamespaceMap"</span><span class="hl-tag"> /&gt;</span>
+    <span class="hl-tag">&lt;si-xml:mapping</span> <span class="hl-attribute">value</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">channel</span>=<span class="hl-value">"warehouseDispatchChannel"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;si-xml:mapping</span> <span class="hl-attribute">value</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">channel</span>=<span class="hl-value">"outOfStockChannel"</span><span class="hl-tag">/&gt;</span>
+<span class="hl-tag">&lt;/si-xml:xpath-router&gt;</span></pre>
+<p>Where the order item is not in stock the message is transformed using xslt into a format suitable for sending to the supplier.</p>
+<pre class="programlisting"><span class="hl-tag">&lt;si-xml:xslt-transformer</span> <span class="hl-attribute">input-channel</span>=<span class="hl-value">"outOfStockChannel"</span>
+  <span class="hl-attribute">output-channel</span>=<span class="hl-value">"resupplyOrderChannel"</span>
+  <span class="hl-attribute">xsl-resource</span>=<span class="hl-value">"classpath:org/springframework/integration/samples/xml/bigBooksSupplierTransformer.xsl"</span><span class="hl-tag">/&gt;</span></pre>
+</div>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tbody><tr><td width="40%" align="left"><a accesskey="p" href="http://docs.spring.io/spring-integration/reference/html/security.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="http://docs.spring.io/spring-integration/reference/html/spring-integration-appendices.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="http://docs.spring.io/spring-integration/reference/html/configuration.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Appendix&nbsp;D.&nbsp;Security in Spring Integration&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="http://docs.spring.io/spring-integration/reference/html/index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;F.&nbsp;Configuration</td></tr></tbody></table></div> 
+<script type="text/javascript" async="" src="./Appendix E. Spring Integration Samples_files/inpage_linkid.js" id="undefined"></script><script type="text/javascript" async="" src="./Appendix E. Spring Integration Samples_files/ga.js"></script><script type="text/javascript">
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(
+            ['_require', 'inpage_linkid', pluginUrl],
+            ['_setAccount', 'UA-2728886-23'],
+            ['_trackPageview'],
+            ['b._require', 'inpage_linkid', pluginUrl],
+            ['b._setAccount', 'UA-2728886-19'],
+            ['b._trackPageview']
+        );
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+ 
+<script type="text/javascript">
+
+function detectLastFrame() {
+   var thisF = this.window;
+   var allF = parent.top.frames;
+   return allF[allF.length - 1] == thisF; }
+
+// Only inject the following code if this is a normal page or the last // frame of a frameset.
+if (parent.top.frames.length == 0 || detectLastFrame()) {
+    // Inject the SpringSource search widget too.
+    document.write(unescape("%3Cscript src='http://search.springsource.org/widget/searchtool.js' type='text/javascript'%3E%3C/script%3E"));
+    // Inject the Eloqua code
+    //document.write(unescape("%3Cscript src='/elqNow/elqCfg.js' type='text/javascript'%3E%3C/script%3E"));
+    //document.write(unescape("%3Cscript src='/elqNow/elqImg.js' type='text/javascript'%3E%3C/script%3E"));
+
+}
+</script><script src="./Appendix E. Spring Integration Samples_files/searchtool.js" type="text/javascript"></script>
+
+<div id="bodyEmptyFiller">&nbsp;</div><div id="searchBar" style="left: 0px;">  <div id="collapseLink" style="left: -1px; bottom: 1px;" class="barOpen"><a href="javascript:void(0);"><img border="0" class="springClass" src="./Appendix E. Spring Integration Samples_files/ArrowLeft_spring.png"></a></div>  <div id="logoSpan" class="springClass"><a target="_new" href="http://spring.io/"><img class="springClass" border="0" src="./Appendix E. Spring Integration Samples_files/Logo_spring_SearchBar.png"></a></div>  <div id="searchFields">    <input name="searchKeys" type="text" id="searchKeys" value="Search Documentation" style="color: rgb(204, 204, 204);">    <select name="searchWhat" id="searchWhat"><option value="Spring">Spring</option></select>    <img title="Search Documentation" src="./Appendix E. Spring Integration Samples_files/Btn_Search_spring.png" id="searchLens">  </div>  <div id="resultsDiv"></div> <div id="daAd">    <div class="PivotalAdBannerDiv"></div>      </div></div><div class="_bd_ext_tip" style="visibility: hidden;"><span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span class="_bd_ext_copy">复制</span></div></body></html>

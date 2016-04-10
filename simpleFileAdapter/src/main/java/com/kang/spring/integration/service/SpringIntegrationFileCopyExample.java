@@ -18,9 +18,7 @@ import java.util.Properties;
  */
 public class SpringIntegrationFileCopyExample {
 
-
     public static void main(String[] args) {
-
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
 
@@ -36,6 +34,8 @@ public class SpringIntegrationFileCopyExample {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            context.close();
         }
 
     }

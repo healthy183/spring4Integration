@@ -17,12 +17,12 @@
 
     <file:inbound-channel-adapter id="filesIn"
                                   directory="file:${user.dir}/input"
-                                        filter="onlyPropertyFiles" auto-startup="true">
+                                        filter="onlyPropertyFiles" auto-startup="true" >
         <int:poller id="poller" fixed-delay="500"/>
     </file:inbound-channel-adapter>
 
     <int:service-activator input-channel="filesIn"
-                           output-channel="filesOut" ref="fileHandler">
+                           output-channel="filesOut" ref="fileHandler" method="handle">
     </int:service-activator>
 
     <file:outbound-channel-adapter id="filesOut"
