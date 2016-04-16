@@ -15,7 +15,7 @@
 
     <context:property-placeholder/>
    <!-- -->
-    <int:gateway service-interface="com.kang.spring.integration.service.FileService"
+    <int:gateway service-interface="com.kang.spring.integration.service.PersonService.FileService"
                  default-request-channel="filesIn">
     </int:gateway>
 

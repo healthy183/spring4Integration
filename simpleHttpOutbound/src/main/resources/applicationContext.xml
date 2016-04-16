@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:int-http="http://www.springframework.org/schema/integration/http"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+                 http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http-4.2.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:gateway id="requestGateway"
+                 service-interface="com.kang.spring.integration.service.PersonService.http.RequestGateway"
+                 default-request-channel="requestChannel"/>
+
+    <int:channel id="requestChannel"/>
+
+    <int-http:outbound-gateway request-channel="requestChannel"
+                               url="https://www.baidu.com"
+                               http-method="POST"
+                               expected-response-type="java.lang.String"/>
+
+</beans>

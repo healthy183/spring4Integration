@@ -14,4 +14,7 @@ include 'simpleFeedAdapter'
 include 'simpleFileAdapter'
 include 'simpleJdbcInboundAdapter'
 include 'simpleJdbcRowMapping'
+include 'simpleHttpOutbound'
+include 'simpleOutboundgateway'
+include 'simpleJdbcOutboundGateway'
 

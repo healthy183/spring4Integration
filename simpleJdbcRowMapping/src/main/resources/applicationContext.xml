@@ -15,11 +15,14 @@
 
     <context:component-scan base-package="com.kang.spring.integration" />
 
-    <int-jdbc:inbound-channel-adapter id="dataChannel" data-source="dataSource" row-mapper="articleRowMapper"
+    <int-jdbc:inbound-channel-adapter id="dataChannel"
+                                      data-source="dataSource"
+                                      row-mapper="articleRowMapper"
             query="select * from articles where author='Joe' and sent = 0 "
-                                      update="update articles set sent = 10 where id in (:id)">
+                                      update="update articles set sent = 10 where id in (:id)"
+         auto-startup="true">
         <int:poller fixed-rate="100">
-            <int:transactional />
+            <int:transactional  transaction-manager="transactionManager" />
         </int:poller>
     </int-jdbc:inbound-channel-adapter>
 

@@ -15,7 +15,7 @@
     </int:channel>
 
     <bean id="springIntHelloWorldExample"
-            class="com.kang.spring.integration.service.run.SpringIntHelloWorldExample" >
+            class="com.kang.spring.integration.service.PersonService.run.SpringIntHelloWorldExample" >
         <property name="inputChannel" ref="inputChannel"></property>
     </bean>
 

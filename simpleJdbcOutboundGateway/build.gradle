@@ -1,0 +1,4 @@
+dependencies {
+    compile "org.springframework.integration:spring-integration-jdbc:$springVersion"
+    compile "mysql:mysql-connector-java:5.1.26"
+}

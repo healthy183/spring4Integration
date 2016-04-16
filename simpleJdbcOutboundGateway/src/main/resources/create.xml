@@ -1,0 +1,83 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/integration/jdbc
+                http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+                http://www.springframework.org/schema/jdbc
+                http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:channel id="createPersonRequestChannel"></int:channel>
+    <int:channel id="createPersonReplyChannel"></int:channel>
+
+    <int:gateway id="personService" service-interface="com.kang.spring.integration.service.PersonService">
+        <int:method name="createPerson"
+                    request-channel="createPersonRequestChannel"
+                    request-timeout="5000"
+                    reply-channel="createPersonReplyChannel"
+                    reply-timeout="5000"></int:method>
+    </int:gateway>
+
+    <int-jdbc:outbound-gateway data-source="dataSource"
+                               request-channel="createPersonRequestChannel"
+                               reply-channel="createPersonReplyChannel"
+                               update="insert into Person (name,gender,dateOfBirth)
+										values
+										(:name,:gender,:dateOfBirth)"
+                               query="select * from Person where name = :name "
+                               request-sql-parameter-source-factory="requestSource"
+                               reply-sql-parameter-source-factory="replySource"
+                               row-mapper="personMapper"
+                               keys-generated="false"
+
+                               >
+    </int-jdbc:outbound-gateway>
+
+    <bean id="requestSource" class="org.springframework.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
+        <property name="parameterExpressions">
+            <map>
+                <entry key="id" value="payload.id"></entry>
+                <entry key="name" value="payload.name.toUpperCase()"></entry>
+                <entry key="gender" value="payload.gender.identifier"></entry>
+                <entry key="dateOfBirth" value="payload.dateOfBirth"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="replySource" class="org.springframework.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
+        <property name="parameterExpressions">
+            <map>
+                <entry key="name" value="payload.name"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <int:poller default="true" fixed-rate="100" />
+
+    <jdbc:initialize-database data-source="dataSource" enabled="true">
+        <jdbc:script location="classpath:setup-tables.sql"/>
+    </jdbc:initialize-database>
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost/test" />
+        <property name="username" value="root" />
+        <property name="password" value="Qq123456" />
+    </bean>
+
+</beans>

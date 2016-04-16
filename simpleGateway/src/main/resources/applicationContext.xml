@@ -12,7 +12,7 @@
     <context:component-scan base-package="com.kang.spring.integration" />
 
     <int:gateway id="customerServiceGateway"
-                 service-interface="com.kang.spring.integration.service.CustomerService"
+                 service-interface="com.kang.spring.integration.service.PersonService.CustomerService"
                  default-reply-timeout="300" >
     </int:gateway>
 
@@ -23,13 +23,13 @@
                                 method="getCustomerInfo">
         <!--可以用ref和bean -->
         <!--
-            <bean class="com.kang.spring.integration.service.impl.CustomerServiceImpl"></bean>
+            <bean class="com.kang.spring.integration.service.PersonService.impl.CustomerServiceImpl"></bean>
          -->
     </int:service-activator>
 
     <int:gateway
             id="customerServiceByDispatcher"
-            service-interface="com.kang.spring.integration.service.CustomerService"
+            service-interface="com.kang.spring.integration.service.PersonService.CustomerService"
             default-reply-timeout="300">
     </int:gateway>
 
@@ -39,7 +39,7 @@
 
     <int:service-activator input-channel="customerRequestDispatcherChannel"
                            ref="customerServiceImpl" method="getCustomerInfoAsyn">
-       <!-- <bean class="com.kang.spring.integration.service.impl.CustomerServiceImpl"></bean>-->
+       <!-- <bean class="com.kang.spring.integration.service.PersonService.impl.CustomerServiceImpl"></bean>-->
     </int:service-activator>
 
     <task:executor id="executor" pool-size="5" ></task:executor>
