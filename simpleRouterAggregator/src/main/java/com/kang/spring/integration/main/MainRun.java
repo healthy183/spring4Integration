@@ -21,8 +21,13 @@ public class MainRun {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Cafe cafe = (Cafe) context.getBean("cafe");
-        Order order = new Order(1);
+        Order order = null;
+        order = new Order(1);
         order.addItem(DrinkType.TEA,1,true);
+        cafe.placeOrder(order);
+
+        order = new Order(2);
+        order.addItem(DrinkType.TEA,0,true);
         cafe.placeOrder(order);
 
 

@@ -10,6 +10,7 @@
                 http://www.springframework.org/schema/integration/stream
                 http://www.springframework.org/schema/integration/stream/spring-integration-stream-4.2.xsd">
 
+    <int:annotation-config></int:annotation-config>
     <context:component-scan base-package="com.kang.spring.integration" />
 
     <int:gateway id="cafe"
@@ -35,7 +36,20 @@
         <int:queue capacity="10"/>
     </int:channel>
 
-    <int:service-activator input-channel="coldDrinksChannel" ref="barista"
+
+    <!--if expression == true, notice the debug log  "message sent to null channel"-->
+    <int:filter input-channel="coldDrinksChannel"
+                 output-channel="coldDrinks"
+                 expression="payload.antall > 0"
+                 discard-channel="nullChannel">
+    </int:filter>
+
+    <int:channel id="coldDrinks">
+        <int:queue capacity="10"/>
+    </int:channel>
+
+
+    <int:service-activator input-channel="coldDrinks" ref="barista"
                        method="prepareColdDrink" output-channel="preparedDrinks">
     </int:service-activator>
 

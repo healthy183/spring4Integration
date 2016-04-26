@@ -4,6 +4,7 @@ http://javarticles.com/category/spring-integration
 http://www.blogjava.net/xmatthew/archive/2008/12/04/243455.html
 http://www.blogjava.net/xmatthew/archive/2008/11/29/243443.html
 
+activemq的服务在messageBridge的JmsRun.java;
 
 
 1,firstIntegration

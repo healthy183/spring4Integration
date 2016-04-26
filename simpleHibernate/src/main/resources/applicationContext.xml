@@ -1,0 +1,84 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:int-jpa="http://www.springframework.org/schema/integration/jpa"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/integration/jdbc
+                http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+                http://www.springframework.org/schema/jdbc
+                http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+                http://www.springframework.org/schema/integration/jpa
+                http://www.springframework.org/schema/integration/jpa/spring-integration-jpa.xsd">
+
+    <jdbc:initialize-database data-source="dataSource" enabled="true">
+        <jdbc:script location="classpath:H2-CreateTables.sql"/>
+        <jdbc:script location="classpath:H2-PopulateData.sql"/>
+    </jdbc:initialize-database>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <constructor-arg ref="entityManagerFactory" />
+    </bean>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource"          ref="dataSource" />
+        <property name="jpaVendorAdapter"    ref="vendorAdaptor" />
+        <property name="packagesToScan"      value="com.kang.spring.integration"/>
+    </bean>
+
+    <!-- class="org.springframework.orm.jpa.JpaVendorAdapter" -->
+    <bean id="abstractVendorAdaptor"  abstract="true">
+        <property name="generateDdl" value="true" />
+        <property name="database"    value="MYSQL" />
+        <property name="showSql"     value="true"/>
+    </bean>
+
+    <bean id="vendorAdaptor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+          parent="abstractVendorAdaptor">
+    </bean>
+
+    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost/test" />
+        <property name="username" value="root" />
+        <property name="password" value="Qq123456" />
+    </bean>
+
+    <int:poller default="true" fixed-rate="100" />
+
+    <int:channel id="createPersonRequestChannel"></int:channel>
+    <int:channel id="listPeopleRequestChannel"></int:channel>
+
+    <int:gateway id="personService"
+                 service-interface="com.kang.spring.integration.service.PersonService"
+                 default-request-timeout="5000" default-reply-timeout="5000">
+        <int:method name="createPerson" request-channel="createPersonRequestChannel"></int:method>
+        <int:method name="findPeople" request-channel="listPeopleRequestChannel"></int:method>
+    </int:gateway>
+
+    <int-jpa:retrieving-outbound-gateway
+            entity-manager-factory="entityManagerFactory"
+            request-channel="listPeopleRequestChannel"
+            jpa-query="select p from Person p order by p.name asc">
+    </int-jpa:retrieving-outbound-gateway>
+
+    <int-jpa:updating-outbound-gateway
+            entity-manager-factory="entityManagerFactory"
+    request-channel="createPersonRequestChannel">
+                <int-jpa:transactional
+                        transaction-manager="transactionManager"></int-jpa:transactional>
+    </int-jpa:updating-outbound-gateway>
+
+</beans>

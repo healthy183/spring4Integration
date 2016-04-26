@@ -17,7 +17,7 @@
         <int:queue></int:queue>
     </int:channel>
 
-    <int-jms:message-driven-channel-adapter channel="processEmpChannel" destination-name="orderEmailQueue"></int-jms:message-driven-channel-adapter>
+    <int-jms:message-driven-channel-adapter channel="processEmpChannel" destination-name="orderEmailQueue"/>
 
     <int:service-activator input-channel="processEmpChannel"
         ref="springIntExample" method="processEmployee">

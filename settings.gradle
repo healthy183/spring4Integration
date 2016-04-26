@@ -17,4 +17,5 @@ include 'simpleJdbcRowMapping'
 include 'simpleHttpOutbound'
 include 'simpleOutboundgateway'
 include 'simpleJdbcOutboundGateway'
+include 'simpleHibernate'
 
