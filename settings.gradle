@@ -18,4 +18,6 @@ include 'simpleHttpOutbound'
 include 'simpleOutboundgateway'
 include 'simpleJdbcOutboundGateway'
 include 'simpleHibernate'
+include 'simpleInboundChannelAdapter'
+include 'simpleChain'
 

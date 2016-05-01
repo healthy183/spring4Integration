@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:int="http://www.springframework.org/schema/integration"
+        xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.kang.spring.integration" />
+
+    <int:inbound-channel-adapter
+            id="processAdapter"
+            ref="processServiceImpl" method="mainProcess"
+                channel="adapterOutputChannel"
+                    auto-startup="true">
+            <int:poller fixed-delay="1000"></int:poller><!--fixed-rate调用频率-->
+    </int:inbound-channel-adapter>
+    <!--
+    “fixed-delay”；如果第一次执行时间被delay了，随后的执行时间按照"上一次实际执行完成的时间点"进行计算
+                    下一次执行时间相对于上一次实际执行完成的时间点 ，因此执行时间会不断延后
+
+    “fixed-rate”；如果第一次执行时间被delay了，随后的执行时间按照 "上一次开始的时间点"进行计算
+                    下一次执行时间相对于上一次开始的 时间点 ，因此执行时间不会延后，存在并发性  -->
+    <!-- http://blog.csdn.net/gtuu0123/article/details/6040159 -->
+    <int:channel id="adapterOutputChannel">
+        <int:queue></int:queue>
+    </int:channel>
+
+    <int:service-activator
+            input-channel="adapterOutputChannel"
+            ref="processServiceImpl"
+            method="endProcess"
+            output-channel="nullChannel">
+        <!-- annotation 可不用nullChannel,类头加@MessageEndpoint-->
+        <int:poller fixed-delay="1000">
+        </int:poller>
+    </int:service-activator>
+
+
+</beans>

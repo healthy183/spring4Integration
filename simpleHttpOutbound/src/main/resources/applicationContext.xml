@@ -14,7 +14,7 @@
     <context:component-scan base-package="com.kang.spring.integration" />
 
     <int:gateway id="requestGateway"
-                 service-interface="com.kang.spring.integration.service.PersonService.http.RequestGateway"
+                 service-interface="com.kang.spring.integration.service.http.RequestGateway"
                  default-request-channel="requestChannel"/>
 
     <int:channel id="requestChannel"/>

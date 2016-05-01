@@ -1,0 +1,11 @@
+dependencies {
+    compile "org.springframework.integration:spring-integration-jdbc:$springVersion"
+    compile "org.hibernate:hibernate-entitymanager:4.2.11.Final"
+    compile "mysql:mysql-connector-java:5.1.26"
+    compile "commons-lang:commons-lang:2.6"
+    compile "org.springframework:spring-instrument:$springVersion"
+    compile "org.hamcrest:hamcrest-all:1.3"
+    compile "org.springframework.integration:spring-integration-jpa:$springVersion"
+
+
+}
